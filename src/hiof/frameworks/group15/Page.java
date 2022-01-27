@@ -1,4 +1,4 @@
-
+package hiof.frameworks.group15;
 //framework for lesing og skriving av filer
 
 
@@ -26,12 +26,14 @@ public class Page {
     }
 
 
-    public void generateArticle(String header, String paragraph, String id, String groupclass) {
+    public String  generateArticle(String header, String paragraph, String id, String groupclass) {
         String article = "<article id=\"" + id + "\" class= \"" + groupclass + "\">\n" +
                 "<header>" + header +
                 "</header>" +
                 " <p>" + paragraph + "</p>" +
                 "</article>";
+
+        return  article;
     }
 
     public void generateNavList(String[] links, String[] text, String id, String groupclass) {
@@ -43,4 +45,18 @@ public class Page {
         }
         nav = nav.concat("</ul>\n   </nav>");
     }
+
+    public void generateFooter(String email){
+        String footerCode= "<footer> \n"  +email + "\n </footer>";
+
+    }
+
+
+    public void generateMain(String main){
+        String mainHtmlCode = "<main> \n" + main + "\n</main>";
+    }
+
+
+
+
 }
