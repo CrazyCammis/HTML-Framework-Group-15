@@ -26,14 +26,30 @@ public class Page {
     }
 
 
-    public String  generateArticle(String header, String paragraph, String id, String groupclass) {
+    public static String generateArticle(String header, String paragraph, String id, String groupclass) {
         String article = "<article id=\"" + id + "\" class= \"" + groupclass + "\">\n" +
                 "<header>" + header +
                 "</header>" +
                 " <p>" + paragraph + "</p>" +
                 "</article>";
 
-        return  article;
+        return article;
+    }
+
+
+    public static String generateSection(String[] articles) {
+
+        String holder = "";
+        String section = "";
+        if (articles.length >= 1) {
+            for (String article : articles) {
+                holder = holder.concat(article);
+
+            }
+
+            section = "<Section> \n  " + holder + "\n</section>";
+        }
+        return section;
     }
 
     public void generateNavList(String[] links, String[] text, String id, String groupclass) {
@@ -46,17 +62,15 @@ public class Page {
         nav = nav.concat("</ul>\n   </nav>");
     }
 
-    public void generateFooter(String email){
-        String footerCode= "<footer> \n"  +email + "\n </footer>";
+    public void generateFooter(String email) {
+        String footerCode = "<footer> \n" + email + "\n </footer>";
 
     }
 
 
-    public void generateMain(String main){
+    public void generateMain(String main) {
         String mainHtmlCode = "<main> \n" + main + "\n</main>";
     }
-
-
 
 
 }
