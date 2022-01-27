@@ -67,6 +67,18 @@ public class Page {
 
     }
 
+    public void generateImages(String url, String id, String caption){
+        String image = "<img id= " + id + " " + "src= " + url + "alt= " + caption + " >";
+
+        return image;
+    }
+
+    public void generateForm(String titel, String id, String value){
+        String form = "<h1>" + titel + "</h1><br>" +  "<form>" + "<label for=\"" + id " >" + "titel for form" + "</labrl> <br>" + "<input type=text id=\"" + id + "value=\"" + value + "><br>" + "</form>";
+
+        return form;
+    }
+
 
     public void generateMain(String main) {
         String mainHtmlCode = "<main> \n" + main + "\n</main>";
