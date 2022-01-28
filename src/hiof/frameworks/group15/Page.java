@@ -78,7 +78,6 @@ public class Page {
 
         return form;
     }
-sss
 
     public void generateMain(String main) {
         String mainHtmlCode = "<main> \n" + main + "\n</main>";
