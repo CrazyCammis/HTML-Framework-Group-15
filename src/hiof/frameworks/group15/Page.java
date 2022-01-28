@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Page {
 
-    public void generateFile(String filename) throws IOException {
+    public String generateFile(String filename) throws IOException {
         String html = ".html";
         //concat binder to strings sammen til en
         filename = filename.concat(html);
@@ -52,7 +52,7 @@ public class Page {
         return section;
     }
 
-    public void generateNavList(String[] links, String[] text, String id, String groupclass) {
+    public String generateNavList(String[] links, String[] text, String id, String groupclass) {
         int size = links.length;
         String nav = "<nav id=\"" + id + "\" class= \"" + groupclass + "\">\n  <ul> \n";
         for (int i = 0; i < size; i++) {
@@ -62,7 +62,7 @@ public class Page {
         nav = nav.concat("</ul>\n   </nav>");
     }
 
-    public void generateFooter(String email) {
+    public String generateFooter(String email) {
         String footerCode = "<footer> \n" + email + "\n </footer>";
 
     }
@@ -79,7 +79,7 @@ public class Page {
         return form;
     }
 
-    public void generateMain(String main) {
+    public String generateMain(String main) {
         String mainHtmlCode = "<main> \n" + main + "\n</main>";
     }
 
