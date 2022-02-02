@@ -1,0 +1,19 @@
+HMTL Framework scenarios
+
+Scenario_1 [Create a website]: 
+
+1 createHTML();
+2 createHead();
+3 createBody();
+
+These are the three steps that are nececarry to create a webpage, or what would
+ be considered the must have to even call it a website.
+First step is to create a html tag that will envelope the other two tags. 
+Everything else outside of a html tag will be ignored.
+
+createHTML = Create the basic envelope for website content. 
+	All the other elements will be inside of this.
+
+createBody = creates the strings that create html tags to create the <body> .. </body> tags in which html
+	 elements that are visible to the user 
+	are. Pictures, paragraphs, titels, nav, footer and other elements belong inside this. 
