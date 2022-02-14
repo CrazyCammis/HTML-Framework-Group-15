@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Page {
 
-    public String generateFile(String filename) throws IOException {
+    public void generateFile(String filename) throws IOException {
         String html = ".html";
         //concat binder to strings sammen til en
         filename = filename.concat(html);
@@ -23,6 +23,7 @@ public class Page {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+
     }
 
 
@@ -60,11 +61,13 @@ public class Page {
             nav = nav.concat("<li><a href=" + links[i] + ">" + text[i] + "</a></li>\n");
         }
         nav = nav.concat("</ul>\n   </nav>");
+        return nav;
     }
 
     public String generateFooter(String email) {
         String footerCode = "<footer> \n" + email + "\n </footer>";
 
+        return footerCode;
     }
 
     public String generateImages(String url, String id, String caption){
@@ -80,7 +83,8 @@ public class Page {
     }
 
     public String generateMain(String main) {
-        String mainHtmlCode = "<main> \n" + main + "\n</main>";
+        String mainBody = "<main> \n" + main + "\n</main>";
+        return  mainBody;
     }
 
 
