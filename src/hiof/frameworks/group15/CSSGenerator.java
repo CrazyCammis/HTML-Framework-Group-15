@@ -18,16 +18,18 @@ public class CSSGenerator {
         }
 
 
+
         holder1  = holder1.concat(info + " \n }");
 
         return  holder1;
     }
 
 
+    //Meant to be used multiple times to generate one string with the entierty of the info
     public String groupInfo(String info1, String info2){
         String holder2 = info1 + "\n" +info2;
 
-        return  holder2
+        return  holder2;
     }
 
     public String setTextSize(String type, float size){
