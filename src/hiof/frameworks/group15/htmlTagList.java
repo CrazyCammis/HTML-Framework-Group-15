@@ -1,13 +1,12 @@
 package com.company;
 
-import javax.lang.model.element.Element;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         List<String> htmlTags = new ArrayList<>();
         htmlTags.add("a");
         htmlTags.add("abbr");
@@ -131,10 +130,23 @@ public class Main {
         htmlTags.add("video");
         htmlTags.add("wbr");
 
-        // sjekk identifier
+        // sjekk identifier via if statement
+        String identifier = "sup";
+        int number = 0;
         for (String x : htmlTags){
-            System.out.println(x);
+            //System.out.println(x);
+            if(identifier == x){
+                System.out.printf("Found the tag : " + number);
+                break;
 
+            }
+            else if(identifier != x){
+                System.out.println("Wrong tag! checking next item : " + number);
+            }
+            else{
+                System.out.println("Sorry the tag doesnt exist");
+            }
+            number++;
         }
 
     }
