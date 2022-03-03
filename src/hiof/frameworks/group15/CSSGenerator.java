@@ -2,6 +2,13 @@ package hiof.frameworks.group15;
 
 public class CSSGenerator {
 
+    private String[] simpleListOverTags = new String[]{"abbr", "address", "area", "article", "aside", "audio", "b", "base", "basefont", "bdi", "bdo", "blockquote", "body", "br",
+            "button", "canvas", "caption", "cite", "code", "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog", "dir",
+            "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "font", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "head",
+            "header", "hr", "html", "i", "iframe", "input", "ins", "kbd", "label", "legend", "li", "link", "main", "map", "mark", "meta", "meter", "nav",
+            "img", "input", "ins", "kbd", "label", "legend", "li", "link", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param", "picture",
+            "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "section", "select", "small", "source", "span", "strong", "style", "sub", "summary",
+            "sup", "svg", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"};
 
 
 
@@ -10,20 +17,31 @@ public class CSSGenerator {
     public String cssBracket(String identifier,String info){
         String holder1  ="";
 
-        if(identifier == "id"){
+        if(identifier.equals("id")){
             holder1 = "." + identifier + "{ \n";
         }
-        else if(identifier == "class"){
+        else if(identifier.equals("class")){
             holder1 = "#" + identifier + "{ \n";
         }
 
-
+        else if(identifier.equals("tag") &&!isTag(identifier)){
+            System.out.println("ERROR! " + identifier + " is not a semantic tag");
+        }
 
         holder1  = holder1.concat(info + " \n }");
 
         return  holder1;
     }
 
+
+    private boolean isTag(String identify){
+        for (String tag: simpleListOverTags ) {
+            if(identify.equals(tag)){
+                return true;
+            }
+        }
+        return  false;
+    }
 
     //Meant to be used multiple times to generate one string with the entierty of the info
     public String groupInfo(String info1, String info2){

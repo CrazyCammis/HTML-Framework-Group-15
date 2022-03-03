@@ -8,6 +8,22 @@ import java.io.IOException;
 
 public class Page {
 
+
+    private  String holder;
+
+
+    private String page;
+
+
+
+    public Page(String holder){
+        this.holder = holder;
+    }
+
+
+
+
+
     public void generateFile(String filename) throws IOException {
         String html = ".html";
         //concat binder to strings sammen til en
