@@ -7,13 +7,39 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Page {
-
-
     private  String holder;
+
+    public String getHolder() {
+        return holder;
+    }
+
+    public void setHolder(String holder) {
+        this.holder = holder;
+    }
+
+
 
 
     private String page;
+    private static String htmlPart1, htmlPart2;
 
+
+    static {
+        htmlPart1 = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n"
+                +
+                "<head>\n" +
+                "<meta charset=\"UTF-8\">\n" +
+                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n" +
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                "<title>Document</title>\n" +
+                "</head>\n" +
+                "<body>\n\n";
+
+        htmlPart2 =
+        "</body>\n" +
+                "</html>\n";
+    }
 
 
     public Page(String holder){
@@ -24,7 +50,7 @@ public class Page {
 
 
 
-    public void generateFile(String filename) throws IOException {
+    public void generateFile(String filename, String info) throws IOException {
         String html = ".html";
         //concat binder to strings sammen til en
         filename = filename.concat(html);
@@ -32,7 +58,7 @@ public class Page {
         if (!page.exists())
             try {
                 FileWriter myWriter = new FileWriter(filename);
-                myWriter.write("Files in Java might be tricky, but it is fun enough!");
+                myWriter.write(info);
                 myWriter.close();
                 System.out.println("Successfully wrote to the file.");
             } catch (IOException e) {
@@ -41,6 +67,20 @@ public class Page {
             }
 
     }
+
+
+    public void newPage(String pageName, String header, String main, String footer) throws IOException {
+         String fullInfo;
+
+         fullInfo = htmlPart1 +header + main + footer + htmlPart2;
+
+        generateFile(pageName, fullInfo);
+
+    }
+
+
+
+
 
 
     public static String generateArticle(String header, String paragraph, String id, String groupclass) {
@@ -103,5 +143,19 @@ public class Page {
         return  mainBody;
     }
 
+    public String concat(String[] listOfStuff){
+        String holder = "";
+        for (String tags: listOfStuff) {
+            holder +=tags; 
+        }
+        return holder;
+    }
+
+
+    public String concat(String part1, String part2){
+        String holder = part1 + part2;
+
+        return holder;
+    }
 
 }
