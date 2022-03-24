@@ -109,14 +109,15 @@ public class Page {
         return section;
     }
 
-    public String generateNavList(String[] links, String[] text, String id, String groupclass) {
+    public String generateNavList(String[] links, String[] textForLink, String navListId, String groupclass) {
         int size = links.length;
-        String nav = "<nav id=\"" + id + "\" class= \"" + groupclass + "\">\n  <ul> \n";
-        for (int i = 0; i < size; i++) {
+        String nav = "<nav id=\"" + navListId + "\" class= \"" + groupclass + "\">\n    <ul> \n";
 
-            nav = nav.concat("<li><a href=" + links[i] + ">" + text[i] + "</a></li>\n");
+        for (int i = 0; i < size; i++) {
+            nav = nav.concat("      <li><a href=" + links[i] + ">" + textForLink[i] + "</a></li>\n");
         }
-        nav = nav.concat("</ul>\n   </nav>");
+
+        nav = nav.concat("  </ul>\n   </nav>");
         return nav;
     }
 
@@ -138,21 +139,23 @@ public class Page {
         return form;
     }
 
+
+    //Note need the content of the tags
     public String generateMain(String main) {
         String mainBody = "<main> \n" + main + "\n</main>";
         return  mainBody;
     }
 
-    public String concat(String[] listOfStuff){
+    public String concatTags(String[] listOfTags){
         String holder = "";
-        for (String tags: listOfStuff) {
+        for (String tags: listOfTags) {
             holder +=tags; 
         }
         return holder;
     }
 
 
-    public String concat(String part1, String part2){
+    public String concaTags(String part1, String part2){
         String holder = part1 + part2;
 
         return holder;
