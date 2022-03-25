@@ -13,7 +13,16 @@ public class Main {
         System.out.println("test");
 
         String navListTest = testPage.generateNavList(linksList,  linksNameList, "testNavId", "navigation" );
+        String footerTest = testPage.generateFooter("lmao@outlook.com");
+
+
+
+
+
+
         testPage.generateFile("TestFileLinkList", navListTest);
+        testPage.generateFile("TestFooter", footerTest);
+
 
     }
 }

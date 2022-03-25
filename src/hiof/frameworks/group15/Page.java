@@ -60,7 +60,7 @@ public class Page {
                 FileWriter myWriter = new FileWriter(filename);
                 myWriter.write(info);
                 myWriter.close();
-                System.out.println("Successfully wrote to the file.");
+                System.out.println("Successfully wrote to the file: " + info);
             } catch (IOException e) {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
@@ -109,9 +109,9 @@ public class Page {
         return section;
     }
 
-    public String generateNavList(String[] links, String[] textForLink, String navListId, String groupclass) {
+    public String generateNavList(String[] links, String[] textForLink, String navTagId, String groupclass) {
         int size = links.length;
-        String nav = "<nav id=\"" + navListId + "\" class= \"" + groupclass + "\">\n    <ul> \n";
+        String nav = "<nav id=\"" + navTagId + "\" class= \"" + groupclass + "\">\n    <ul> \n";
 
         for (int i = 0; i < size; i++) {
             nav = nav.concat("      <li><a href=" + links[i] + ">" + textForLink[i] + "</a></li>\n");
@@ -122,8 +122,17 @@ public class Page {
     }
 
     public String generateFooter(String email) {
-        String footerCode = "<footer> \n" + email + "\n </footer>";
+        String footerCode = "   <footer> \n" +
+                "        <a href = \"mailto: abc@example.com\"> "
+                + email +"</a>" + "\n   </footer>";
+        return footerCode;
+    }
 
+    public String generateFooter(String email, String infop1,String infop2) {
+        String footerCode = "   <footer> \n" + infop1 +
+                "\n        <a href = \"mailto: abc@example.com\"> "
+                + email +"</a> " + infop2 +
+                "\n   </footer>";
         return footerCode;
     }
 
