@@ -1,4 +1,5 @@
-import hiof.frameworks.group15.Page;
+import hiof.frameworks.group15.HTMLMaker;
+import hiof.frameworks.group15.HeaderClass;
 
 import java.io.IOException;
 
@@ -7,21 +8,19 @@ public class Main {
     private  static String[] linksList = new String[]{"www.google.com","www.amazon.com", "www.pottermore.com"};
     private  static String[] linksNameList = new String[]{"google","amazon", "pottermore"};
 
-    static Page testPage = new Page("ree");
+    static HTMLMaker testHTMLMaker = new HTMLMaker();
+    static HeaderClass  headerMaker= new HeaderClass();
 
     public static void main(String[] args) throws IOException {
         System.out.println("test");
 
-        String navListTest = testPage.generateNavList(linksList,  linksNameList, "testNavId", "navigation" );
-        String footerTest = testPage.generateFooter("lmao@outlook.com");
+        String navListTest = headerMaker.generateNavList(linksList,  linksNameList, "testNavId", "navigation" );
+        String footerTest = testHTMLMaker.generateFooter("lmao@outlook.com");
 
 
 
-
-
-
-        testPage.generateFile("TestFileLinkList", navListTest);
-        testPage.generateFile("TestFooter", footerTest);
+        testHTMLMaker.newHTMLFile("TestFileLinkList", navListTest);
+        testHTMLMaker.newHTMLFile("TestFooter", footerTest);
 
 
     }

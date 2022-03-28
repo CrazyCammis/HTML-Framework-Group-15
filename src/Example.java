@@ -16,18 +16,18 @@ public class Example {
 
 //make an article
         //  public String generateArticle(String header, String paragraph, String id, String groupclass) {
-        article1 = Page.generateArticle("Breaking news!",
+        article1 = HTMLMaker.generateArticle("Breaking news!",
                 "We don’t serve their kind here! What? Your droids.", "article1", "sectionArticles");
 //make another article
 
-        article2 = Page.generateArticle("Breaking news!",
+        article2 = HTMLMaker.generateArticle("Breaking news!",
                 "We don’t serve their kind here! What? Your droids.", "article1", "sectionArticles");
 //
 //create an array with them
         String[] holder = new String[]{article1, article2};
 
         //generate a section with the articles you made
-        String section= Page.generateSection(holder);
+        String section= HTMLMaker.generateSection(holder);
     }
 
 

@@ -1,6 +1,8 @@
 package hiof.frameworks.group15;
 
-public class CSSGenerator {
+import java.io.IOException;
+
+public class CSSGenerator  extends  Parent{
 
     private static  final String[] simpleListOverTags = new String[]{"abbr", "address", "area", "article", "aside", "audio", "b", "base", "basefont", "bdi", "bdo", "blockquote", "body", "br",
             "button", "canvas", "caption", "cite", "code", "col", "colgroup", "data", "datalist", "dd", "del", "details", "dfn", "dialog", "dir",
@@ -10,6 +12,12 @@ public class CSSGenerator {
             "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "section", "select", "small", "source", "span", "strong", "style", "sub", "summary",
             "sup", "svg", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"};
 
+
+
+
+    private void generateCSSFile(String fileName, String info) throws IOException {
+        generateFile(fileName, info, "CSS");
+    }
 
 
 
@@ -45,12 +53,15 @@ public class CSSGenerator {
 
     //Meant to be used multiple times to generate one string with the entierty of the info
     public String groupInfo(String info1, String info2){
-        String holder2 = info1 + "\n" +info2;
+        String holder2 = info1  +info2;
 
         return  holder2;
     }
 
-    public String setTextSize(String type, float size){
+
+
+
+    public String findSize(String type, float size){
         double actualSize = 0;
 
         if(type == "" || type != "em"|| type != "px") {
@@ -69,14 +80,20 @@ public class CSSGenerator {
              actualSize = Math.pow(textSize, 1);
         }
 
-        String cssString =   "font-size: " + actualSize + type+ ";";
-        return  cssString;
+        String sizeMesurment =   "" +actualSize + type;
+        return  sizeMesurment;
+    }
+
+
+    private String setFontSize(String messurmentUnit, float size){
+        String fontSize ="font-size: " + findSize(messurmentUnit, size);
+        return
     }
 
 
 
     public  String setTextColor(String color){
-        String setcolor = "color: " + color + ";";
+        String setcolor = "color: " + color + ";\n";
 
         //TODO CHECK IF VALID
         return  setcolor;
@@ -87,7 +104,7 @@ public class CSSGenerator {
                 rgb1 + "," +
                 rgb2 + "," +
                 rgb3 + "," +
-                ";";
+                ";\n";
         return  setcolor;
     }
 
@@ -97,6 +114,14 @@ public class CSSGenerator {
         return toggeld;
     }
 
+    public String inLineList(){
+
+    }
+
+    private String addMargin(float spaceBtwn, String unitOfMes){
+      String margin = findSize(unitOfMes, spaceBtwn);
+        return  "margin: "+ margin;
+    }
 
 
 }
