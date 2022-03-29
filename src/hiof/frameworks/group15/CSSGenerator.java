@@ -114,9 +114,7 @@ public class CSSGenerator  extends  Parent{
         return toggeld;
     }
 
-    public String inLineList(){
 
-    }
 
     private String addMargin(float spaceBtwn, String unitOfMes){
       String margin = findSize(unitOfMes, spaceBtwn);
