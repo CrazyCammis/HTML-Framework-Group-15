@@ -1,10 +1,12 @@
-package hiof.frameworks.group15.HTMLParts;
+package hiof.frameworks.group15;
 //framework for lesing og skriving av filer
 
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class HTMLMaker extends Parent {
+public class HTMLMaker implements  HolderInterface{
     private  String holder;
 
     public String getHolder() {
@@ -46,10 +48,22 @@ public class HTMLMaker extends Parent {
 
 
 
-
-    public void newHTMLFile(String fileName, String info) throws IOException {
-        generateFile(fileName, info, "html");
+    @Override
+    public void generateFile(String filename, String info){
+        filename = filename.concat(".html");
+        File page = new File(filename);
+        if (!page.exists())
+            try {
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(info);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file: " + info);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
     }
+
 
 
     private void newPage(String pageName, String header, MainParts main, String footer) throws IOException {
@@ -57,7 +71,7 @@ public class HTMLMaker extends Parent {
 
          fullInfo = htmlPart1 +header + main + footer + htmlPart2;
 
-        generateFile(pageName, fullInfo, "html");
+        generateFile(pageName, fullInfo);
 
     }
 
@@ -109,6 +123,8 @@ public class HTMLMaker extends Parent {
 
         return holder;
     }
+
+
 
 
 }

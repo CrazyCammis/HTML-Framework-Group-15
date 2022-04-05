@@ -1,8 +1,10 @@
-package hiof.frameworks.group15.HTMLParts;
+package hiof.frameworks.group15;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class CSSGenerator  extends Parent {
+public class CSSGenerator  implements HolderInterface {
 
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
@@ -37,7 +39,7 @@ public class CSSGenerator  extends Parent {
 
 
     private void generateCSSFile(String fileName, String info) throws IOException {
-        generateFile(fileName, info, "CSS");
+        generateFile(fileName, info);
     }
 
 
@@ -159,4 +161,20 @@ public class CSSGenerator  extends Parent {
     }
 
 
+    @Override
+    public void generateFile(String filename, String info) throws IOException {
+        filename = filename.concat(".css");
+        File page = new File(filename);
+        if (!page.exists())
+            try {
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(info);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file: " + info);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+    }
+    }
 }

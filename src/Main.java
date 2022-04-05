@@ -1,6 +1,6 @@
-import hiof.frameworks.group15.HTMLParts.HTMLMaker;
-import hiof.frameworks.group15.HTMLParts.HeaderClass;
-import hiof.frameworks.group15.HTMLParts.MainParts;
+import hiof.frameworks.group15.HTMLMaker;
+import hiof.frameworks.group15.HeaderClass;
+import hiof.frameworks.group15.MainParts;
 
 import java.io.IOException;
 
@@ -11,14 +11,14 @@ public class Main {
 
     static HTMLMaker testHTMLMaker = new HTMLMaker();
     static HeaderClass  headerMaker= new HeaderClass();
-    static MainParts.Builder mainpart1 = MainParts.Builder.setArticle("CHEESE IS ON SALE", "Lorem ipsum", "article test", "articleClass");
+    static MainParts mainpart = new MainParts();
 
     public static void main(String[] args) throws IOException {
         System.out.println("test");
 
 
-        //mainpart.setArticle("CHEESE IS ON SALE", "Lorem ipsum", "article test", "articleClass");
-        System.out.println(mainpart1);
+        String article = mainpart.generateArticle("CHEESE IS ON SALE", "Lorem ipsum", "article test", "articleClass");
+        System.out.println(article);
 
         String navListTest = headerMaker.generateNavList(linksList,  linksNameList, "testNavId", "navigation" );
         String footerTest = testHTMLMaker.generateFooter("lmao@outlook.com");
@@ -26,8 +26,8 @@ public class Main {
 
 
 
-        testHTMLMaker.newHTMLFile("TestFileLinkList", navListTest);
-        testHTMLMaker.newHTMLFile("TestFooter", footerTest);
+        testHTMLMaker.generateFile("TestFileLinkList", navListTest);
+        testHTMLMaker.generateFile("TestFooter", footerTest);
 
 
     }
