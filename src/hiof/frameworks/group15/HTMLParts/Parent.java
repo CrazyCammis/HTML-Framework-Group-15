@@ -1,4 +1,4 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.HTMLParts;
 
 import java.io.File;
 import java.io.FileWriter;

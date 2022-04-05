@@ -1,8 +1,8 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.HTMLParts;
 
 import java.io.IOException;
 
-public class CSSGenerator  extends  Parent{
+public class CSSGenerator  extends Parent {
 
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;

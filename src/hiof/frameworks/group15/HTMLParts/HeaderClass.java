@@ -1,8 +1,9 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.HTMLParts;
 
 public class HeaderClass extends HTMLMaker{
 
-    public HeaderClass() {
+    public HeaderClass( ) {
+
 
     }
 

@@ -1,10 +1,10 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.HTMLParts;
 //framework for lesing og skriving av filer
 
 
 import java.io.IOException;
 
-public class HTMLMaker extends  Parent{
+public class HTMLMaker extends Parent {
     private  String holder;
 
     public String getHolder() {
@@ -52,13 +52,20 @@ public class HTMLMaker extends  Parent{
     }
 
 
-    private void newPage(String pageName, String header, String main, String footer) throws IOException {
+    private void newPage(String pageName, String header, MainParts main, String footer) throws IOException {
          String fullInfo;
 
          fullInfo = htmlPart1 +header + main + footer + htmlPart2;
 
         generateFile(pageName, fullInfo, "html");
 
+    }
+
+
+    public String generateImages(String url, String id, String caption){
+        String image = "<img id= " + id + " " + "src= " + url + "alt= " + caption + " >";
+
+        return image;
     }
 /*
     private String genParagraph(String text, String id){
@@ -67,63 +74,6 @@ public class HTMLMaker extends  Parent{
 */
 
 
-
-    //Note need the content of the tags
-    public String generateMain(String main) {
-        String mainBody = "<main> \n" + main + "\n</main>";
-        return  mainBody;
-    }
-
-    public static String generateSection(String[] articles) {
-
-        String holder = "";
-        String section = "";
-        if (articles.length >= 1) {
-            for (String article : articles) {
-                holder = holder.concat(article);
-
-            }
-
-            section = "<Section> \n  " + holder + "\n</section>";
-        }
-        return section;
-    }
-
-
-
-    public static String generateArticle(String header, String paragraph, String id, String groupclass) {
-        String article = "  <article id=\"" + id + "\" class= \"" + groupclass + "\">\n" +
-                "       <header>" + header + "</header>" +
-                " <p>" + paragraph + "</p>" +
-                "</article>";
-
-        return article;
-    }
-
-    public String generateImages(String url, String id, String caption){
-        String image = "<img id= " + id + " " + "src= " + url + "alt= " + caption + " >";
-
-        return image;
-    }
-
-
-    private String generateFormOption(String id, String description,String type){
-        String holder =
-            "       <label for=\"" +id + "\">"+ description + ":" +"/label><br>\n"+
-            "       <input type=\"" + type +"\" id=\"" + id + "\" name=\"" + id + "\"><br>\n";
-        return holder;
-    }
-
-
-
-
-    public String generateForm(String titel, String id, String info){
-        String form = "<h2>" + titel + "</h2> <br>\n" +
-                "   <form id=\""+ id + "\">\n" +
-                info +
-                "   </form>\n";
-        return form;
-    }
 
 
 
@@ -145,7 +95,7 @@ public class HTMLMaker extends  Parent{
         return footerCode;
     }
 
-    public String concatTags(String[] listOfTags){
+    public String groupUpTagSections(String[] listOfTags){
         String holder = "";
         for (String tags: listOfTags) {
             holder +=tags;
@@ -154,7 +104,7 @@ public class HTMLMaker extends  Parent{
     }
 
 
-    public String concatTags(String part1, String part2){
+    public String groupUpTagSections(String part1, String part2){
         String holder = part1 + part2;
 
         return holder;
