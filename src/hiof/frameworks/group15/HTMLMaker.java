@@ -17,15 +17,10 @@ public class HTMLMaker implements  HolderInterface{
         this.holder = holder;
     }
 
-
-
-
     private String page;
     private static String htmlPart1, htmlPart2;
     public HTMLMaker(){
-
     }
-
 
     static {
         htmlPart1 = "<!DOCTYPE html>\n" +
@@ -66,7 +61,7 @@ public class HTMLMaker implements  HolderInterface{
 
 
 
-    private void newPage(String pageName, String header, MainParts main, String footer) throws IOException {
+    private void newPage(String pageName, String header, String main, String footer) throws IOException {
          String fullInfo;
 
          fullInfo = htmlPart1 +header + main + footer + htmlPart2;
@@ -76,35 +71,37 @@ public class HTMLMaker implements  HolderInterface{
     }
 
 
-    public String generateImages(String url, String id, String caption){
-        String image = "<img id= " + id + " " + "src= " + url + "alt= " + caption + " >";
+    public String generateImages(String url, String caption,  String imageid, String imageClass){
+        String image = "<img id=\" +" + imageid + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
 
         return image;
     }
-/*
+
     private String genParagraph(String text, String id){
         return "<p id=\"" + id + "\">" + text + "</p>>";
     }
-*/
-
-
-
-
 
 
 
 
     public String generateFooter(String email) {
         String footerCode = "   <footer> \n" +
-                "        <a href = \"mailto: abc@example.com\"> "
+                "        <a href = \"mailto:"+email+"\"> "
                 + email +"</a>" + "\n   </footer>";
         return footerCode;
     }
 
     public String generateFooter(String email, String info,String infop2) {
         String footerCode = "   <footer> \n" + info +
-                "\n        <a href = \"mailto: abc@example.com\"> "+ email +"</a>\n" +
+                "\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
                 "       <p>" + infop2 + "</p>" +
+                "\n   </footer>";
+        return footerCode;
+    }
+    public String generateFooter(String email, String info) {
+        String footerCode = "   <footer> \n" +
+                "\n        <a href = \""+ email + "\"> "+ email +"</a>\n" +
+                "       <p>" + info + "</p>" +
                 "\n   </footer>";
         return footerCode;
     }
@@ -112,14 +109,14 @@ public class HTMLMaker implements  HolderInterface{
     public String groupUpTagSections(String[] listOfTags){
         String holder = "";
         for (String tags: listOfTags) {
-            holder +=tags;
+            holder +=tags +"\n";
         }
         return holder;
     }
 
 
-    public String groupUpTagSections(String part1, String part2){
-        String holder = part1 + part2;
+    public String groupUpTagSections(String tagInFront, String tagAfter){
+        String holder = tagInFront + "\n" + tagAfter;
 
         return holder;
     }
