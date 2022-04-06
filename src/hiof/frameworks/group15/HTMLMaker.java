@@ -2,9 +2,11 @@ package hiof.frameworks.group15;
 //framework for lesing og skriving av filer
 
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class HTMLMaker extends  Parent{
+public class HTMLMaker implements  HolderInterface{
     private  String holder;
 
     public String getHolder() {
@@ -15,15 +17,10 @@ public class HTMLMaker extends  Parent{
         this.holder = holder;
     }
 
-
-
-
     private String page;
     private static String htmlPart1, htmlPart2;
     public HTMLMaker(){
-
     }
-
 
     static {
         htmlPart1 = "<!DOCTYPE html>\n" +
@@ -46,10 +43,22 @@ public class HTMLMaker extends  Parent{
 
 
 
-
-    public void newHTMLFile(String fileName, String info) throws IOException {
-        generateFile(fileName, info, "html");
+    @Override
+    public void generateFile(String filename, String info){
+        filename = filename.concat(".html");
+        File page = new File(filename);
+        if (!page.exists())
+            try {
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(info);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file: " + info);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
     }
+
 
 
     private void newPage(String pageName, String header, String main, String footer) throws IOException {
@@ -57,108 +66,62 @@ public class HTMLMaker extends  Parent{
 
          fullInfo = htmlPart1 +header + main + footer + htmlPart2;
 
-        generateFile(pageName, fullInfo, "html");
+        generateFile(pageName, fullInfo);
 
     }
-/*
-    private String genParagraph(String text, String id){
-        return "<p id=\"" + id + "\">" + text + "</p>>";
-    }
-*/
 
 
-
-    //Note need the content of the tags
-    public String generateMain(String main) {
-        String mainBody = "<main> \n" + main + "\n</main>";
-        return  mainBody;
-    }
-
-    public static String generateSection(String[] articles) {
-
-        String holder = "";
-        String section = "";
-        if (articles.length >= 1) {
-            for (String article : articles) {
-                holder = holder.concat(article);
-
-            }
-
-            section = "<Section> \n  " + holder + "\n</section>";
-        }
-        return section;
-    }
-
-
-
-    public static String generateArticle(String header, String paragraph, String id, String groupclass) {
-        String article = "  <article id=\"" + id + "\" class= \"" + groupclass + "\">\n" +
-                "       <header>" + header + "</header>" +
-                " <p>" + paragraph + "</p>" +
-                "</article>";
-
-        return article;
-    }
-
-    public String generateImages(String url, String id, String caption){
-        String image = "<img id= " + id + " " + "src= " + url + "alt= " + caption + " >";
+    public String generateImages(String url, String caption,  String imageid, String imageClass){
+        String image = "<img id=\" +" + imageid + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
 
         return image;
     }
 
-
-    private String generateFormOption(String id, String description,String type){
-        String holder =
-            "       <label for=\"" +id + "\">"+ description + ":" +"/label><br>\n"+
-            "       <input type=\"" + type +"\" id=\"" + id + "\" name=\"" + id + "\"><br>\n";
-        return holder;
+    private String genParagraph(String text, String id){
+        return "<p id=\"" + id + "\">" + text + "</p>>";
     }
-
-
-
-
-    public String generateForm(String titel, String id, String info){
-        String form = "<h2>" + titel + "</h2> <br>\n" +
-                "   <form id=\""+ id + "\">\n" +
-                info +
-                "   </form>\n";
-        return form;
-    }
-
-
 
 
 
 
     public String generateFooter(String email) {
         String footerCode = "   <footer> \n" +
-                "        <a href = \"mailto: abc@example.com\"> "
+                "        <a href = \"mailto:"+email+"\"> "
                 + email +"</a>" + "\n   </footer>";
         return footerCode;
     }
 
     public String generateFooter(String email, String info,String infop2) {
         String footerCode = "   <footer> \n" + info +
-                "\n        <a href = \"mailto: abc@example.com\"> "+ email +"</a>\n" +
+                "\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
                 "       <p>" + infop2 + "</p>" +
                 "\n   </footer>";
         return footerCode;
     }
+    public String generateFooter(String email, String info) {
+        String footerCode = "   <footer> \n" +
+                "\n        <a href = \""+ email + "\"> "+ email +"</a>\n" +
+                "       <p>" + info + "</p>" +
+                "\n   </footer>";
+        return footerCode;
+    }
 
-    public String concatTags(String[] listOfTags){
+    public String groupUpTagSections(String[] listOfTags){
         String holder = "";
         for (String tags: listOfTags) {
-            holder +=tags;
+            holder +=tags +"\n";
         }
         return holder;
     }
 
 
-    public String concatTags(String part1, String part2){
-        String holder = part1 + part2;
+    public String groupUpTagSections(String tagInFront, String tagAfter){
+        String holder = tagInFront + "\n" + tagAfter;
 
         return holder;
     }
+
+
 
 
 }

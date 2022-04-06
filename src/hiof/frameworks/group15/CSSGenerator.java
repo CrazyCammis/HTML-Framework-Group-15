@@ -1,8 +1,10 @@
 package hiof.frameworks.group15;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
-public class CSSGenerator  extends  Parent{
+public class CSSGenerator  implements HolderInterface {
 
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
@@ -35,26 +37,39 @@ public class CSSGenerator  extends  Parent{
         };
     }
 
-
-    private void generateCSSFile(String fileName, String info) throws IOException {
-        generateFile(fileName, info, "CSS");
+    @Override
+    public void generateFile(String filename, String info) throws IOException {
+        filename = filename.concat(".css");
+        File page = new File(filename);
+        if (!page.exists())
+            try {
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(info);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file: " + info);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
     }
 
 
 
-    //identifier is either class or id
-    public String cssBracket(String identifier,String info){
+
+
+    //identifier if either class or id then sets in the correct sign for it
+    public String cssBracket(String identifierType, String target, String info){
         String holder1  ="";
 
-        if(identifier.equals("id")){
-            holder1 = "." + identifier + "{ \n";
+        if(identifierType.equals("id")){
+            holder1 = "." + identifierType + "{ \n";
         }
-        else if(identifier.equals("class")){
-            holder1 = "#" + identifier + "{ \n";
+        else if(identifierType.equals("class")){
+            holder1 = "#" + identifierType + "{ \n";
         }
 
-        else if(identifier.equals("tag") &&!isTag(identifier)){
-            System.out.println("ERROR! " + identifier + " is not a semantic tag");
+        else if(identifierType.equals("tag") &&!isTag(target)){
+            System.out.println("ERROR! " + identifierType + " is not a semantic tag, try again");
         }
 
         holder1  = holder1.concat(info + " \n }");
@@ -73,16 +88,24 @@ public class CSSGenerator  extends  Parent{
     }
 
     //Meant to be used multiple times to generate one string with the entierty of the info
-    public String groupInfo(String info1, String info2){
+    public String groupCSSAtrributes(String info1, String info2){
         String holder2 = info1  +info2;
 
         return  holder2;
     }
 
 
+    public String groupCSSAtrributes(String[] listOfAttributes){
+        String holder = "";
+        for (String tags: listOfAttributes) {
+            holder +=tags +"\n";
+        }
+        return holder;
+    }
 
 
-    public String findSize(String type, float size){
+
+    private String findSize(String type, float size){
         double actualSize = 0;
 
         if(type == "" || type != "em"|| type != "px") {
@@ -145,18 +168,19 @@ public class CSSGenerator  extends  Parent{
         return  setcolor;
     }
 
-
+//TODO ##Valid cheker
     public String toggleUnderline(){
         String toggeld = "text-decoration: underline;";
         return toggeld;
     }
 
 
-
     private String addMargin(float spaceBtwn, String unitOfMes){
       String margin = findSize(unitOfMes, spaceBtwn);
         return  "margin: "+ margin;
     }
+
+
 
 
 }

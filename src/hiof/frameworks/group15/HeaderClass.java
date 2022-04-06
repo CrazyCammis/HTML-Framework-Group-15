@@ -2,7 +2,8 @@ package hiof.frameworks.group15;
 
 public class HeaderClass extends HTMLMaker{
 
-    public HeaderClass() {
+    public HeaderClass( ) {
+
 
     }
 
@@ -33,12 +34,13 @@ public class HeaderClass extends HTMLMaker{
     }
 
 
-    public String generateNavList(String[] links, String[] textForLink, String navTagId, String groupclass) {
+    public String generateNavList(String[] links, String[] linkText, String navTagId, String navTagClas) {
         int size = links.length;
-        String nav = "  <nav id=\"" + navTagId + "\" class= \"" + groupclass + "\">\n       <ul> \n";
+        String nav = "  <nav id=\"" + navTagId + "\" class= \"" + navTagClas + "\">\n       <ul> \n";
+
 
         for (int i = 0; i < size; i++) {
-            nav = nav.concat("      <li><a href=" + links[i] + ">" + textForLink[i] + "</a></li>\n");
+            nav = nav.concat("      <li><a href=\"" + links[i] + "\">" + linkText[i] + "</a></li>\n");
         }
 
         nav = nav.concat("    </ul>\n   </nav>\n");
