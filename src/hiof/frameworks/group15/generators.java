@@ -28,12 +28,13 @@ public class generators {
     }
 
 
-    private Form genForm(String title, String formID, FormOption[] formOptions){
+    private Form generateForm(String title, String formID, FormOption[] formOptions){
         Form holder = new Form(title, formID, formOptions);
+        return holder;
     }
 
 
-    private FormOption genFormOption(String formOptionID, String description, String type){
+    private FormOption generateFormOption(String formOptionID, String description, String type){
         if(!typeValid(type)){
             System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
                     + " WITH DESCRITPTION OF \n"
