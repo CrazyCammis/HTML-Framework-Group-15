@@ -48,26 +48,23 @@ public class Header {
     }
 
 
-    private static Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
-        Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
-        return  navTag;
-    }
+
 
     @Override
     public String toString() {
+
+
         String headerString;
-        if(paragraph == null && navList == null) {
+        if(getParagraph() == null && getNavList() == null) {
             headerString = generateHeaderString1(title);
-        } else if (paragraph != null && navList == null) {
+        } else if (getParagraph()!= null && getNavList() == null) {
             headerString = generateHeaderString2(title, paragraph);
         }
-
         else{
             headerString=   generateHeaderString3(title, paragraph, navList);
         }
 
         return headerString;
-
     }
 
 
