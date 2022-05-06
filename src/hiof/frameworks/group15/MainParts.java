@@ -6,29 +6,14 @@ public class MainParts {
 
 
 
-
-    //Note need the content of the tags
+    //GENERATE MAIN WILL CONSIST OF STRING AS THERE ARE TOO MANY STUFF TO DO A PROPER TO STRING CHECK
     public String generateMain(String info) {
         String mainBody = "<main> \n" + info + "\n</main>";
         return  mainBody;
     }
 
-    //TODO check if type is valid
-    private String generateFormOption(String formOptionId, String description,String type){
-        String holder =
-                "       <label for=\"" +formOptionId + "\">"+ description + ":" +"/label><br>\n"+
-                        "       <input type=\"" + type +"\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
-        return holder;
-    }
 
-//CAN USE FORM AS AN OBJECT??? prevents misshandling
-    private String generateForm(String titel, String articleId, String info){
-        String form = "<h2>" + titel + "</h2> <br>\n" +
-                "   <form id=\""+ articleId + "\">\n" +
-                info +
-                "   </form>\n";
-        return form;
-    }
+
 
         public static String generateArticle(String title, String paragraph, String id, String groupclass) {
             String article = "  <article id=\"" + id + "\" class= \"" + groupclass + "\">\n" +

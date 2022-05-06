@@ -19,7 +19,7 @@ public class FormOption {
 
     @Override
     public String toString() {
-        String holder = generateFormOption(formOptionID, description, type)
+        String holder = generateFormOption(formOptionID, description, type);
         return holder;
 
     }

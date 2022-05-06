@@ -1,10 +1,13 @@
 package hiof.frameworks.group15;
 
-import hiof.frameworks.group15.headerstuff.Header;
-import hiof.frameworks.group15.headerstuff.Nav;
-import hiof.frameworks.group15.mainTags.FormOption;
+import hiof.frameworks.group15.headerstuff.*;
+
+import hiof.frameworks.group15.mainTags.*;
+
 
 public class generators {
+    private static final String[] validTypesList = {"text", "email", "date", "image", "password",
+            "number", "url", "time", "week"};
 
     private static Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
         Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
@@ -24,12 +27,31 @@ public class generators {
         return  headerHolder;
     }
 
-//CHECK IF FORM OPTION IS VAID HERE
-    private FormOption genFormOption(String formOptionID, String description, String type){
-        if(!typeValid)
 
+    private Form genForm(String title, String formID, FormOption[] formOptions){
+        Form holder = new Form(title, formID, formOptions);
     }
 
 
-    private typeValid(String check)
+    private FormOption genFormOption(String formOptionID, String description, String type){
+        if(!typeValid(type)){
+            System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
+                    + " WITH DESCRITPTION OF \n"
+                    + description );
+        }
+        FormOption holder =   new FormOption(formOptionID, description, type);
+        return holder;
+    }
+
+
+
+
+    private boolean typeValid(String check){
+        for(String types : validTypesList){
+            if(check.equals(types)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
