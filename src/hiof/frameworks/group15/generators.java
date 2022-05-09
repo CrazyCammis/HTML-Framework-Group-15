@@ -47,6 +47,18 @@ public class generators {
 
 
 
+
+    private String[]  iDchecker(String[] toCheck, String typeName){
+
+        for (int i = 0; i <toCheck.length; i++) {
+            toCheck[i] = typeName +i;
+            
+        }
+        return  toCheck;
+        
+    }
+
+
     private boolean typeValid(String check){
         for(String types : validTypesList){
             if(check.equals(types)){
