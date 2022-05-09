@@ -23,7 +23,7 @@ public class generators {
         Header headerHolder = new Header(headline);
         return  headerHolder;
     }
-    
+
     private Header generateHeader(String headline, String paragrap){
         Header headerHolder = new Header(headline, paragrap);
         return  headerHolder;
@@ -84,6 +84,11 @@ public class generators {
 
     private MainTag generateMainTag(String  info){
         MainTag holder = new MainTag(info);
+        return  holder;
+    }
+
+    private  Image generateImage(String url, String caption, String imageID, String imageClass){
+        Image holder = new Image(url, caption, imageID, imageClass);
         return  holder;
     }
 

@@ -73,15 +73,6 @@ public class HTMLMaker implements HolderInterface {
     }
 
 
-    public String generateImages(String url, String caption,  String imageid, String imageClass){
-        String image = "<img id=\" +" + imageid + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
-
-        return image;
-    }
-
-
-
-
 
 
 
