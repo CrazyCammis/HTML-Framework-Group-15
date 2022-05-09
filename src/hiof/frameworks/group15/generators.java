@@ -1,13 +1,39 @@
 package hiof.frameworks.group15;
 
+import hiof.frameworks.group15.CSSStuff.CSS;
 import hiof.frameworks.group15.headerstuff.*;
 
 import hiof.frameworks.group15.mainTags.*;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class generators {
     private static final String[] validTypesList = {"text", "email", "date", "image", "password",
             "number", "url", "time", "week"};
+
+    public void generateFile(String filename, String info, String type) {
+        filename = filename.concat("." + type);
+        File page = new File(filename);
+        if (!page.exists())
+            try {
+                FileWriter myWriter = new FileWriter(filename);
+                myWriter.write(info);
+                myWriter.close();
+                System.out.println("Successfully wrote to the file: " + info);
+            } catch (IOException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+    }
+//HOW TO USE THIS?
+
+    private CSS generateCSS(){
+        CSS holder = new CSS("");
+        return  holder;
+    }
 
 
     private  Paragraph generateParagraph(String info, String paragraphID){
@@ -125,4 +151,20 @@ public class generators {
         }
         return false;
     }
+
+    public String groupUpTagStrings(String[] listOfTags){
+        String holder = "";
+        for (String tags: listOfTags) {
+            holder +=tags +"\n";
+        }
+        return holder;
+    }
+
+
+    public String groupUpTagString(String tagInFront, String tagAfter){
+        String holder = tagInFront + "\n" + tagAfter;
+
+        return holder;
+    }
+
 }

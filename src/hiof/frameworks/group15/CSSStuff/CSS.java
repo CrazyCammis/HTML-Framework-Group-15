@@ -1,12 +1,6 @@
 package hiof.frameworks.group15.CSSStuff;
 
-import hiof.frameworks.group15.outdatedstuff.HolderInterface;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-public class CSSGenerator  implements HolderInterface {
+public class CSS {
 
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
@@ -39,26 +33,22 @@ public class CSSGenerator  implements HolderInterface {
         };
     }
 
-    @Override
-    public void generateFile(String filename, String info) throws IOException {
-        filename = filename.concat(".css");
-        File page = new File(filename);
-        if (!page.exists())
-            try {
-                FileWriter myWriter = new FileWriter(filename);
-                myWriter.write(info);
-                myWriter.close();
-                System.out.println("Successfully wrote to the file: " + info);
-            } catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
+    private  String holder;
+
+    public CSS(String holder) {
+        this.holder = "";
     }
 
 
 
 
+    private  void setAdd(String info){
+        holder = info;
+    }
+    private  void addToString(String toAdd){
+        holder += toAdd + "\n";
 
+    }
     //identifier if either class or id then sets in the correct sign for it
     public String cssBracket(String identifierType, String target, String info){
         String holder1  ="";
@@ -75,10 +65,8 @@ public class CSSGenerator  implements HolderInterface {
         }
 
         holder1  = holder1.concat(info + " \n }");
-
         return  holder1;
     }
-
 
     private boolean isTag(String identify){
         for (String tag: simpleListOverTags ) {
@@ -91,7 +79,7 @@ public class CSSGenerator  implements HolderInterface {
 
     //Meant to be used multiple times to generate one string with the entierty of the info
     public String groupCSSAtrributes(String info1, String info2){
-        String holder2 = info1  +info2;
+        String holder2 = info1 + "\n" +info2;
 
         return  holder2;
     }
@@ -150,7 +138,6 @@ public class CSSGenerator  implements HolderInterface {
 
 
     public  String setTextColor(String color){
-
         if(validColor(color)){
                     String setcolor = "color: " + color + ";\n";
                     return  setcolor;
@@ -170,7 +157,7 @@ public class CSSGenerator  implements HolderInterface {
         return  setcolor;
     }
 
-//TODO ##Valid cheker
+
     public String toggleUnderline(){
         String toggeld = "text-decoration: underline;";
         return toggeld;
