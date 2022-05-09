@@ -1,8 +1,11 @@
 package hiof.frameworks.group15.headerstuff;
 
+import hiof.frameworks.group15.mainTags.Paragraph;
+
 public class Header {
 
-    private String title, paragraph;
+    private String title, paragraphString;
+    private Paragraph paragraph;
     private Nav navList;
 
 
@@ -10,15 +13,26 @@ public class Header {
         this.title = title;
     }
 
-    public Header(String title, String paragraph, Nav navList) {
+    public Header(String title, String paragraphString) {
+        this.title = title;
+        this.paragraphString = paragraphString;
+    }
+
+    public Header(String title, Paragraph paragraph) {
         this.title = title;
         this.paragraph = paragraph;
+    }
+
+    public Header(String title, String paragraphString, Nav navList) {
+        this.title = title;
+        this.paragraphString = paragraphString;
         this.navList = navList;
     }
 
-    public Header(String title, String paragraph) {
+    public Header(String title, Paragraph paragraph, Nav navList) {
         this.title = title;
         this.paragraph = paragraph;
+        this.navList = navList;
     }
 
     private String generateHeaderString1(String headline) {
@@ -38,10 +52,27 @@ public class Header {
         return header;
     }
 
-    private String generateHeaderString3(String headline, String paragrap, Nav navList) {
+    private String generateHeaderString3(String headline, Paragraph paragrap) {
+        String header = "   <header>\n" +
+                "       <h1>" + headline + "</h1>\n" +
+                "       "+ paragrap.toString() +
+                "</header>\n";
+        return header;
+    }
+
+    private String generateHeaderString4(String headline, String paragrap, Nav navList) {
         String header = "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
                 "       <p>" + paragrap + "<p/>\n" +
+                navList.toString() +
+                "</header>\n";
+        return header;
+    }
+
+    private String generateHeaderString5(String headline, Paragraph paragrap, Nav navList) {
+        String header = "   <header>\n" +
+                "       <h1>" + headline + "</h1>\n" +
+                "       "+ paragrap.toString() +
                 navList.toString() +
                 "</header>\n";
         return header;
@@ -50,15 +81,23 @@ public class Header {
     public String toString() {
         String headerString;
 
-        if(getParagraph() == null && getNavList() == null) {
+        if(paragraphString == null  || paragraph == null&& getNavList() == null) {
             headerString = generateHeaderString1(title);
         }
-        else if (getParagraph()!= null && getNavList() == null) {
-            headerString = generateHeaderString2(title, paragraph);
+        // FOR STRING
+        else if (paragraphString== null && paragraph == null && getNavList() == null) {
+            headerString = generateHeaderString2(title, paragraphString);
         }
-        else{
-            headerString=   generateHeaderString3(title, paragraph, navList);
+        //For PARAGRAPH
+        else if (paragraphString == null && paragraph != null && getNavList() == null) {
+            headerString = generateHeaderString3(title, paragraph);
         }
+        //FOR STRING with nav
+        else if (paragraphString!= null && paragraph == null && getNavList() != null){
+            headerString=   generateHeaderString4(title, paragraphString, navList);
+        }
+        else
+            headerString = generateHeaderString5(title, paragraph, navList);
         return headerString;
     }
 
@@ -71,12 +110,12 @@ public class Header {
         this.title = title;
     }
 
-    private String getParagraph() {
-        return paragraph;
+    private String getParagraphString() {
+        return paragraphString;
     }
 
-    private void setParagraph(String paragraph) {
-        this.paragraph = paragraph;
+    private void setParagraphString(String paragraphString) {
+        this.paragraphString = paragraphString;
     }
 
     private Nav getNavList() {

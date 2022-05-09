@@ -79,34 +79,11 @@ public class HTMLMaker implements HolderInterface {
         return image;
     }
 
-    private String genParagraph(String text, String id){
-        return "<p id=\"" + id + "\">" + text + "</p>>";
-    }
 
 
 
 
-    public String generateFooter(String email) {
-        String footerCode = "   <footer> \n" +
-                "        <a href = \"mailto:"+email+"\"> "
-                + email +"</a>" + "\n   </footer>";
-        return footerCode;
-    }
 
-    public String generateFooter(String email, String info,String infop2) {
-        String footerCode = "   <footer> \n" + info +
-                "\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
-                "       <p>" + infop2 + "</p>" +
-                "\n   </footer>";
-        return footerCode;
-    }
-    public String generateFooter(String email, String info) {
-        String footerCode = "   <footer> \n" +
-                "\n        <a href = \""+ email + "\"> "+ email +"</a>\n" +
-                "       <p>" + info + "</p>" +
-                "\n   </footer>";
-        return footerCode;
-    }
 
     public String groupUpTagSections(String[] listOfTags){
         String holder = "";

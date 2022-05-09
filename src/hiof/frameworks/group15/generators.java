@@ -9,23 +9,41 @@ public class generators {
     private static final String[] validTypesList = {"text", "email", "date", "image", "password",
             "number", "url", "time", "week"};
 
-    private static Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
+
+    private  Paragraph generateParagraph(String info, String paragraphID){
+        Paragraph holder = new Paragraph(info, paragraphID);
+        return  holder;
+    }
+    private  Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
         Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
         return  navTag;
     }
 
-    private static Header generateHeader(String headline, String paragrap, Nav navList){
-        Header headerHolder = new Header(headline, paragrap, navList);
-        return  headerHolder;
-    }
-    private Header generateHeader(String headline, String paragrap){
-        Header headerHolder = new Header(headline, paragrap);
-        return  headerHolder;
-    }
     private Header generateHeader(String headline){
         Header headerHolder = new Header(headline);
         return  headerHolder;
     }
+    
+    private Header generateHeader(String headline, String paragrap){
+        Header headerHolder = new Header(headline, paragrap);
+        return  headerHolder;
+    }
+
+    private Header generateHeader(String headline, Paragraph paragrap){
+        Header headerHolder = new Header(headline, paragrap);
+        return  headerHolder;
+    }
+    private  Header generateHeader(String headline, String paragrap, Nav navList){
+        Header headerHolder = new Header(headline, paragrap, navList);
+        return  headerHolder;
+    }
+
+    private  Header generateHeader(String headline, Paragraph paragrap, Nav navList){
+        Header headerHolder = new Header(headline, paragrap, navList);
+        return  headerHolder;
+    }
+
+
 
 
     private Form generateForm(String title, String formID, FormOption[] formOptions){
@@ -48,6 +66,11 @@ public class generators {
 
 
     private Article generateArticle(String title, String paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
+    }
+
+    private Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
         Article holder = new Article(title, paragraph, articleID, groupClass);
         return  holder;
     }
