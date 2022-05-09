@@ -1,4 +1,6 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.CSSStuff;
+
+import hiof.frameworks.group15.outdatedstuff.HolderInterface;
 
 import java.io.File;
 import java.io.FileWriter;

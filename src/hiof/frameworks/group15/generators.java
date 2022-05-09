@@ -47,8 +47,39 @@ public class generators {
 
 
 
+    private Article generateArticle(String title, String paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
+    }
 
-    private String[]  iDchecker(String[] toCheck, String typeName){
+    private  Section generateSection(Article[] articles){
+        Section holder = new Section(articles);
+        return  holder;
+    }
+
+
+
+    private MainTag generateMainTag(String  info){
+        MainTag holder = new MainTag(info);
+        return  holder;
+    }
+
+    private  Footer generateFooter(String email){
+        Footer holder = new Footer(email);
+        return  holder;
+    }
+
+    private  Footer generateFooter(String email, String info1){
+        Footer holder = new Footer(email, info1);
+        return  holder;
+    }
+
+    private  Footer generateFooter(String email, String info1,String info2){
+        Footer holder = new Footer(email, info1, info2);
+        return  holder;
+    }
+
+    private String[]  idChecker(String[] toCheck, String typeName){
 
         for (int i = 0; i <toCheck.length; i++) {
             toCheck[i] = typeName +i;
@@ -57,7 +88,6 @@ public class generators {
         return  toCheck;
         
     }
-
 
     private boolean typeValid(String check){
         for(String types : validTypesList){

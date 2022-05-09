@@ -2,11 +2,13 @@ package hiof.frameworks.group15;
 //framework for lesing og skriving av filer
 
 
+import hiof.frameworks.group15.outdatedstuff.HolderInterface;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class HTMLMaker implements  HolderInterface{
+public class HTMLMaker implements HolderInterface {
     private  String holder;
 
     public String getHolder() {

@@ -46,24 +46,19 @@ public class Header {
                 "</header>\n";
         return header;
     }
-
-
-
-
     @Override
     public String toString() {
-
-
         String headerString;
+
         if(getParagraph() == null && getNavList() == null) {
             headerString = generateHeaderString1(title);
-        } else if (getParagraph()!= null && getNavList() == null) {
+        }
+        else if (getParagraph()!= null && getNavList() == null) {
             headerString = generateHeaderString2(title, paragraph);
         }
         else{
             headerString=   generateHeaderString3(title, paragraph, navList);
         }
-
         return headerString;
     }
 
@@ -91,9 +86,6 @@ public class Header {
     private void setNavList(Nav navList) {
         this.navList = navList;
     }
-
-
-
 
 }
 
