@@ -28,21 +28,37 @@ public class generators {
                 e.printStackTrace();
             }
     }
-//HOW TO USE THIS?
+
+
+
+    private Article generateArticle(String title, String paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
+    }
+
+    private Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
+    }
 
     private CSS generateCSS(){
         CSS holder = new CSS("");
         return  holder;
     }
 
-
-    private  Paragraph generateParagraph(String info, String paragraphID){
-        Paragraph holder = new Paragraph(info, paragraphID);
+    private  Footer generateFooter(String email){
+        Footer holder = new Footer(email);
         return  holder;
     }
-    private  Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
-        Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
-        return  navTag;
+
+    private  Footer generateFooter(String email, String info1){
+        Footer holder = new Footer(email, info1);
+        return  holder;
+    }
+
+    private  Footer generateFooter(String email, String info1,String info2){
+        Footer holder = new Footer(email, info1, info2);
+        return  holder;
     }
 
     private Header generateHeader(String headline){
@@ -68,16 +84,10 @@ public class generators {
         Header headerHolder = new Header(headline, paragrap, navList);
         return  headerHolder;
     }
-
-
-
-
     private Form generateForm(String title, String formID, FormOption[] formOptions){
         Form holder = new Form(title, formID, formOptions);
         return holder;
     }
-
-
     private FormOption generateFormOption(String formOptionID, String description, String type){
         if(!typeValid(type)){
             System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
@@ -88,18 +98,31 @@ public class generators {
         return holder;
     }
 
-
-
-
-    private Article generateArticle(String title, String paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
+    private  Image generateImage(String url, String caption, String imageID, String imageClass){
+        Image holder = new Image(url, caption, imageID, imageClass);
         return  holder;
     }
 
-    private Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
+    private MainTag generateMainTag(String  info){
+        MainTag holder = new MainTag(info);
         return  holder;
     }
+
+    private MainTag generateMainTag(String[]  info){
+        MainTag holder = new MainTag(info);
+        return  holder;
+    }
+
+    private  Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
+        Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
+        return  navTag;
+    }
+
+    private  Paragraph generateParagraph(String info, String paragraphID){
+        Paragraph holder = new Paragraph(info, paragraphID);
+        return  holder;
+    }
+
 
     private  Section generateSection(Article[] articles){
         Section holder = new Section(articles);
@@ -108,41 +131,12 @@ public class generators {
 
 
 
-    private MainTag generateMainTag(String  info){
-        MainTag holder = new MainTag(info);
-        return  holder;
-    }
-
-    private  Image generateImage(String url, String caption, String imageID, String imageClass){
-        Image holder = new Image(url, caption, imageID, imageClass);
-        return  holder;
-    }
-
-    private  Footer generateFooter(String email){
-        Footer holder = new Footer(email);
-        return  holder;
-    }
-
-    private  Footer generateFooter(String email, String info1){
-        Footer holder = new Footer(email, info1);
-        return  holder;
-    }
-
-    private  Footer generateFooter(String email, String info1,String info2){
-        Footer holder = new Footer(email, info1, info2);
-        return  holder;
-    }
-
     private String[]  idChecker(String[] toCheck, String typeName){
-
         for (int i = 0; i <toCheck.length; i++) {
             toCheck[i] = typeName +i;
-            
         }
         return  toCheck;
-        
     }
-
     private boolean typeValid(String check){
         for(String types : validTypesList){
             if(check.equals(types)){
@@ -160,11 +154,9 @@ public class generators {
         return holder;
     }
 
-
     public String groupUpTagString(String tagInFront, String tagAfter){
         String holder = tagInFront + "\n" + tagAfter;
 
         return holder;
     }
-
 }
