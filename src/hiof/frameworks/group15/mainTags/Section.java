@@ -1,12 +1,18 @@
 package hiof.frameworks.group15.mainTags;
 
-import hiof.frameworks.group15.FactoryMethods.MaimSection.Article;
+import hiof.frameworks.group15.FactoryMethods.MainSection.Article;
 
 public class Section {
     private Article[] articles;
 
     public Section(Article[] articles) {
         this.articles = articles;
+    }
+
+
+    public static  Section generateSection(Article[] articles){
+        Section holder = new Section(articles);
+        return  holder;
     }
 
     @Override

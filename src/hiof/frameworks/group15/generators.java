@@ -3,8 +3,7 @@ package hiof.frameworks.group15;
 import hiof.frameworks.group15.CSSStuff.CSS;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
-import hiof.frameworks.group15.FactoryMethods.MaimSection.Article;
-import hiof.frameworks.group15.FactoryMethods.MaimSection.Footer;
+import hiof.frameworks.group15.FactoryMethods.MainSection.*;
 import hiof.frameworks.group15.mainTags.*;
 
 import java.io.File;
@@ -13,8 +12,7 @@ import java.io.IOException;
 
 
 public class generators {
-    private static final String[] validTypesList = {"text", "email", "date", "image", "password",
-            "number", "url", "time", "week"};
+
 
     public void generateFile(String filename, String info, String type) {
         filename = filename.concat("." + type);
@@ -87,29 +85,27 @@ public class generators {
     }
 
 
-    //----------------------------OTHER SECTION---------------------------------//
-
-    public static CSS generateCSS(){
-        CSS holder = new CSS("");
-        return  holder;
-    }
-
-
-
-
-
     public static FormOption generateFormOption(String formOptionID, String description, String type){
-        if(!typeValid(type)){
-            System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
-                    + " WITH DESCRITPTION OF \n"
-                    + description );
-        }
-        FormOption holder =   new FormOption(formOptionID, description, type);
-        return holder;
+        return FormOption.generateFormOption(formOptionID, description, type);
     }
 
     public static  Image generateImage(String url, String caption, String imageID, String imageClass){
         Image holder = new Image(url, caption, imageID, imageClass);
+        return  holder;
+    }
+
+    public static  Paragraph generateParagraph(String info, String paragraphID){
+       return  Paragraph.generateParagraph(info, paragraphID);
+    }
+
+
+    public static  Section generateSection(Article[] articles){
+        return Section.generateSection(articles);
+    }
+    //----------------------------OTHER SECTION---------------------------------//
+
+    public static CSS generateCSS(){
+        CSS holder = new CSS("");
         return  holder;
     }
 
@@ -124,16 +120,8 @@ public class generators {
     }
 
 
-    public static  Paragraph generateParagraph(String info, String paragraphID){
-        Paragraph holder = new Paragraph(info, paragraphID);
-        return  holder;
-    }
 
 
-    public static  Section generateSection(Article[] articles){
-        Section holder = new Section(articles);
-        return  holder;
-    }
 
 
 
@@ -147,14 +135,7 @@ public class generators {
         return  toCheck;
     }
 
-    private boolean typeValid(String check){
-        for(String types : validTypesList){
-            if(check.equals(types)){
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     public String groupUpTagStrings(String[] listOfTags){
         String holder = "";

@@ -1,6 +1,6 @@
 package hiof.frameworks.group15;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
-import hiof.frameworks.group15.FactoryMethods.MaimSection.Footer;
+import hiof.frameworks.group15.FactoryMethods.MainSection.Footer;
 import hiof.frameworks.group15.mainTags.MainTag;
 public class Page{
     private static final String  htmlPart1;

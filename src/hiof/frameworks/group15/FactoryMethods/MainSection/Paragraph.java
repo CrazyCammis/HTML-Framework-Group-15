@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Paragraph {
     String info, paragraphID;
@@ -6,6 +6,11 @@ public class Paragraph {
     public Paragraph(String info, String paragraphID) {
         this.info = info;
         this.paragraphID = paragraphID;
+    }
+
+    public static  Paragraph generateParagraph(String info, String paragraphID){
+        Paragraph holder = new Paragraph(info, paragraphID);
+        return  holder;
     }
 
     public String getInfo() {
@@ -21,4 +26,7 @@ public class Paragraph {
         String holder = "<p id=\"" + paragraphID + "\">" + info + "</p>";
         return holder;
     }
+
+
+
 }

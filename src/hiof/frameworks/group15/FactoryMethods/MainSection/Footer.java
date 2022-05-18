@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.MaimSection;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Footer {
     String email, info1, info2;

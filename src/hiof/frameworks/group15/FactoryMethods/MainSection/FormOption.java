@@ -1,7 +1,9 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class FormOption {
     private  String formOptionID, description, type;
+    private static final String[] validTypesList = {"text", "email", "date", "image", "password",
+            "number", "url", "time", "week"};
 
     public FormOption(String formOptionID, String description, String type) {
         this.formOptionID = formOptionID;
@@ -10,16 +12,34 @@ public class FormOption {
     }
 
 
-    private String generateFormOption(String formOptionId, String description, String type) {
+    public static FormOption generateFormOption(String formOptionID, String description, String type){
+        if(!typeValid(type)){
+            System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
+                    + " WITH DESCRITPTION OF \n"
+                    + description );
+        }
+        FormOption holder =   new FormOption(formOptionID, description, type);
+        return holder;
+    }
+    private String generateFormOptionString(String formOptionId, String description, String type) {
         String holder =
                 "       <label for=\"" + formOptionId + "\">" + description + ":" + "/label><br>\n" +
                         "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
         return holder;
     }
 
+    private static boolean typeValid(String check){
+        for(String types : validTypesList){
+            if(check.equals(types)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
-        String holder = generateFormOption(formOptionID, description, type);
+        String holder = generateFormOptionString(formOptionID, description, type);
         return holder;
 
     }

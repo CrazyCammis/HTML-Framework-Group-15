@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Form {
     private  String title, formID;

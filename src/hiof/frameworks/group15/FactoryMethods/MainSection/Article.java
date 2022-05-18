@@ -1,6 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.MaimSection;
-
-import hiof.frameworks.group15.mainTags.Paragraph;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Article {
     String title, paragraphString, articleID, groupClass;
