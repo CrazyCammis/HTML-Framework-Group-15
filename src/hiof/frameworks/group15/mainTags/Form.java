@@ -1,7 +1,5 @@
 package hiof.frameworks.group15.mainTags;
 
-import java.util.Arrays;
-
 public class Form {
     private  String title, formID;
     private FormOption[] formOptions;
@@ -12,7 +10,10 @@ public class Form {
         this.formOptions = formOptions;
     }
 
-
+    public static Form generateForm(String title, String formID, FormOption[] formOptions){
+        Form holder = new Form(title, formID, formOptions);
+        return holder;
+    }
 
     private  String optionLoop(FormOption[] optionList){
         String holder = "";
@@ -22,7 +23,7 @@ public class Form {
         return  holder;
     }
 
-    private String generateForm(String titel, String articleId, FormOption[] formOptions){
+    private String generateFormString(String titel, String articleId, FormOption[] formOptions){
         String form = "<h2>" + titel + "</h2> <br>\n" +
                 "   <form id=\""+ articleId + "\">\n" +
                 optionLoop(formOptions) +
@@ -32,7 +33,7 @@ public class Form {
 
     @Override
     public String toString() {
-        String  holder = generateForm(title, formID, formOptions);
+        String  holder = generateFormString(title, formID, formOptions);
         return holder;
     }
 }

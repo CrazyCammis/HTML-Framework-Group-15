@@ -1,4 +1,6 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MaimSection;
+
+import hiof.frameworks.group15.mainTags.Paragraph;
 
 public class Article {
     String title, paragraphString, articleID, groupClass;
@@ -17,6 +19,19 @@ public class Article {
         this.articleID = articleID;
         this.groupClass = groupClass;
 
+    }
+
+
+
+
+    public static Article generateArticle(String title, String paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
+    }
+
+    public static Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
+        Article holder = new Article(title, paragraph, articleID, groupClass);
+        return  holder;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package hiof.frameworks.group15.mainTags;
 
-import java.util.Arrays;
+import hiof.frameworks.group15.FactoryMethods.MaimSection.Article;
 
 public class Section {
     private Article[] articles;

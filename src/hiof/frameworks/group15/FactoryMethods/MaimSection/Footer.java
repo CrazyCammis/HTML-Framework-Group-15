@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MaimSection;
 
 public class Footer {
     String email, info1, info2;
@@ -17,6 +17,24 @@ public class Footer {
         this.info1 = info1;
         this.info2 = info2;
     }
+
+    public static  Footer generateFooter(String email){
+        Footer holder = new Footer(email);
+        return  holder;
+    }
+
+    public static  Footer generateFooter(String email, String info1){
+        Footer holder = new Footer(email, info1);
+        return  holder;
+    }
+
+    public static  Footer generateFooter(String email, String info1,String info2){
+        Footer holder = new Footer(email, info1, info2);
+        return  holder;
+    }
+
+
+
 
     public String generateFooterString1(String email) {
         String footerCode = "   <footer> \n" +

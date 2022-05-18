@@ -3,6 +3,8 @@ package hiof.frameworks.group15;
 import hiof.frameworks.group15.CSSStuff.CSS;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
+import hiof.frameworks.group15.FactoryMethods.MaimSection.Article;
+import hiof.frameworks.group15.FactoryMethods.MaimSection.Footer;
 import hiof.frameworks.group15.mainTags.*;
 
 import java.io.File;
@@ -31,7 +33,6 @@ public class generators {
 
 
 
-
     public static Header generateHeader(String headline){
         return  Header.generateHeader(headline);
     }
@@ -52,51 +53,52 @@ public class generators {
         return  Header.generateHeader(headline, paragrap, navList);
     }
 
-    private  Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
+    public static  Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
         return Nav.generateNav(links, linkText, navTagID, navTagClass);
     }
 
 
+    //----------------------------MAIN SECTION---------------------------------//
+
+
+    public static Article generateArticle(String title, String paragraph, String articleID, String groupClass){
+        return Article.generateArticle(title, paragraph, articleID, groupClass);
+    }
+
+    public static Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
+        return Article.generateArticle(title, paragraph, articleID, groupClass);
+    }
+
+
+    public static  Footer generateFooter(String email){
+        return Footer.generateFooter(email);
+    }
+    public static Footer generateFooter(String email, String info1){
+        return Footer.generateFooter(email, info1);
+    }
+
+    public static  Footer generateFooter(String email, String info1,String info2){
+        return Footer.generateFooter(email, info1, info2);
+    }
+
+
+    public static Form generateForm(String title, String formID, FormOption[] formOptions){
+        return  Form.generateForm(title, formID, formOptions);
+    }
+
+
     //----------------------------OTHER SECTION---------------------------------//
-    
 
-    private Article generateArticle(String title, String paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
-        return  holder;
-    }
-
-    private Article generateArticle(String title, Paragraph paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
-        return  holder;
-    }
-
-    private CSS generateCSS(){
+    public static CSS generateCSS(){
         CSS holder = new CSS("");
         return  holder;
     }
 
-    private  Footer generateFooter(String email){
-        Footer holder = new Footer(email);
-        return  holder;
-    }
-
-    private  Footer generateFooter(String email, String info1){
-        Footer holder = new Footer(email, info1);
-        return  holder;
-    }
-
-    private  Footer generateFooter(String email, String info1,String info2){
-        Footer holder = new Footer(email, info1, info2);
-        return  holder;
-    }
 
 
 
-    private Form generateForm(String title, String formID, FormOption[] formOptions){
-        Form holder = new Form(title, formID, formOptions);
-        return holder;
-    }
-    private FormOption generateFormOption(String formOptionID, String description, String type){
+
+    public static FormOption generateFormOption(String formOptionID, String description, String type){
         if(!typeValid(type)){
             System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
                     + " WITH DESCRITPTION OF \n"
@@ -106,34 +108,37 @@ public class generators {
         return holder;
     }
 
-    private  Image generateImage(String url, String caption, String imageID, String imageClass){
+    public static  Image generateImage(String url, String caption, String imageID, String imageClass){
         Image holder = new Image(url, caption, imageID, imageClass);
         return  holder;
     }
 
-    private MainTag generateMainTag(String  info){
+    public static MainTag generateMainTag(String  info){
         MainTag holder = new MainTag(info);
         return  holder;
     }
 
-    private MainTag generateMainTag(String[]  info){
+    public static MainTag generateMainTag(String[]  info){
         MainTag holder = new MainTag(info);
         return  holder;
     }
 
 
-    private  Paragraph generateParagraph(String info, String paragraphID){
+    public static  Paragraph generateParagraph(String info, String paragraphID){
         Paragraph holder = new Paragraph(info, paragraphID);
         return  holder;
     }
 
 
-    private  Section generateSection(Article[] articles){
+    public static  Section generateSection(Article[] articles){
         Section holder = new Section(articles);
         return  holder;
     }
 
 
+
+
+    //----------------------------OTHER  SECTION---------------------------------//
 
     private String[]  idChecker(String[] toCheck, String typeName){
         for (int i = 0; i <toCheck.length; i++) {
@@ -141,6 +146,7 @@ public class generators {
         }
         return  toCheck;
     }
+
     private boolean typeValid(String check){
         for(String types : validTypesList){
             if(check.equals(types)){
