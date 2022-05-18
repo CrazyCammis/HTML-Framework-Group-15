@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.headerstuff;
+package hiof.frameworks.group15.FactoryMethods.HeaderSection;
 
 import hiof.frameworks.group15.mainTags.Paragraph;
 
@@ -13,7 +13,7 @@ public class Header {
         this.title = title;
     }
 
-    public Header(String title, String paragraphString) {
+    private Header(String title, String paragraphString) {
         this.title = title;
         this.paragraphString = paragraphString;
     }
@@ -35,6 +35,33 @@ public class Header {
         this.navList = navList;
     }
 
+
+    public static Header generateHeader(String headline){
+        Header headerHolder = new Header(headline);
+        return  headerHolder;
+    }
+
+    public static Header generateHeader(String headline, String paragrap){
+        Header headerHolder = new Header(headline, paragrap);
+        return  headerHolder;
+    }
+
+    public static Header generateHeader(String headline, Paragraph paragrap){
+        Header headerHolder = new Header(headline, paragrap);
+        return  headerHolder;
+    }
+    public static  Header generateHeader(String headline, String paragrap, Nav navList){
+        Header headerHolder = new Header(headline, paragrap, navList);
+        return  headerHolder;
+    }
+
+    public static  Header generateHeader(String headline, Paragraph paragrap, Nav navList){
+        Header headerHolder = new Header(headline, paragrap, navList);
+        return  headerHolder;
+    }
+
+
+    //Can also use a nav
     private String generateHeaderString1(String headline) {
         String header = "   <header>\n" +
                 "       <h1>" + headline + "</h1>" +
@@ -43,7 +70,8 @@ public class Header {
         return header;
     }
 
-    //Can also use a nav
+
+
     private String generateHeaderString2(String headline, String paragrap) {
         String header = "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +

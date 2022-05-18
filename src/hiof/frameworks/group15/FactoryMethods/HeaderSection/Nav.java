@@ -1,6 +1,4 @@
-package hiof.frameworks.group15.headerstuff;
-
-import java.util.Arrays;
+package hiof.frameworks.group15.FactoryMethods.HeaderSection;
 
 public class Nav {
    private String[] links, linkText;
@@ -27,6 +25,12 @@ public class Nav {
         this.linkText = linkText;
         this.navTagID = navTagID;
         this.navTagClass = navTagClass;
+    }
+
+
+    public static   Nav generateNav(String[] links, String[] linkText, String navTagID, String navTagClass) {
+        Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
+        return  navTag;
     }
 
     private String generateNavListString(String[] links, String[] linkText, String navTagId, String navTagClas) {
