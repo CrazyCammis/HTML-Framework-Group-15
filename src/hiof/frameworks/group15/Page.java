@@ -14,6 +14,14 @@ public class Page{
         this.mainTag = mainTag;
         this.footer = footer;
     }
+
+
+    public static Page generateNewPage(Header header, MainTag mainTag, Footer footer){
+        Page holder = new Page(header, mainTag,footer);
+        return holder;
+    }
+
+
     static {
         htmlPart1 = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n"

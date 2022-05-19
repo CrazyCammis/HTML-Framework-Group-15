@@ -16,7 +16,7 @@ import java.io.IOException;
 public class generators {
 
 
-    public void generateFile(String filename, String info, String type) {
+    private static void generateFile(String filename, String info, String type) {
         filename = filename.concat("." + type);
         File page = new File(filename);
         if (!page.exists())
@@ -31,6 +31,7 @@ public class generators {
             }
     }
 
+    //----------------------------HEADER SECTION---------------------------------//
 
 
     public static Header generateHeader(String headline){
@@ -86,30 +87,11 @@ public class generators {
         return  Form.generateForm(title, formID, formOptions);
     }
 
-
-    public static FormOption generateFormOption(String formOptionID, String description, String type){
-        return FormOption.generateFormOption(formOptionID, description, type);
-    }
-
     public static  Image generateImage(String url, String caption, String imageID, String imageClass){
         Image holder = new Image(url, caption, imageID, imageClass);
         return  holder;
     }
 
-    public static  Paragraph generateParagraph(String info, String paragraphID){
-       return  Paragraph.generateParagraph(info, paragraphID);
-    }
-
-
-    public static  Section generateSection(Article[] articles){
-        return Section.generateSection(articles);
-    }
-    //----------------------------OTHER SECTION---------------------------------//
-
-    public static CSS generateCSS(){
-        CSS holder = new CSS("");
-        return  holder;
-    }
 
     public static MainTag generateMainTag(String  info){
         return  MainTag.generateMainTag(info);
@@ -123,13 +105,44 @@ public class generators {
         return  MainTag.generateMainTag(section);
     }
 
-    public static MainTag generateMainTag(Section section, Footer footer){
-        return  MainTag.generateMainTag(section, footer);
+
+    public static  Section generateSection(Article[] articles){
+        return Section.generateSection(articles);
+    }
+    //----------------------------OTHER  GENERATORS SECTION---------------------------------//
+
+    public static CSS generateCSS(){
+        CSS holder = new CSS("");
+        return  holder;
+    }
+    public  static  Page generatePage(Header header, MainTag maintag, Footer footer){
+        return  Page.generateNewPage(header, maintag,footer);
     }
 
+    public static  Paragraph generateParagraph(String info, String paragraphID){
+        return  Paragraph.generateParagraph(info, paragraphID);
+    }
 
+    public static FormOption generateFormOption(String formOptionID, String description, String type){
+        return FormOption.generateFormOption(formOptionID, description, type);
+    }
+
+    public static void createNewHTMLfile(Header header, MainTag maintag, Footer footer, String fileName){
+        Page holder = generatePage(header, maintag, footer);
+
+        generateFile(fileName, holder.toString(), "html");
+
+    }
+/*
+    public static void createNewCSSfile(CSS,  String fileName){
+        CSS holder = generateCSS(fileName, CSS.toString(), "CSS");
+
+        generateFile(fileName, holder.toString(), "html");
+
+    }
     
-    //----------------------------OTHER  SECTION---------------------------------//
+ */
+    //----------------------------OTHER  METHOD SECTION---------------------------------//
 
     private String[]  idChecker(String[] toCheck, String typeName){
         for (int i = 0; i <toCheck.length; i++) {

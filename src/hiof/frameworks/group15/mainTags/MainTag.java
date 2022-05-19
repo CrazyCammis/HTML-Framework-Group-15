@@ -45,10 +45,7 @@ public class MainTag {
         return  holder;
     }
 
-    public static MainTag generateMainTag(Section section, Footer footer){
-        MainTag holder = new MainTag(section, footer);
-        return  holder;
-    }
+
 
 
 
@@ -85,15 +82,12 @@ public class MainTag {
         else if(this.infoList != null){
             holder = generateString2(this.infoList);
         }
-        else if(this.section != null && footer == null){
+        else if(this.section != null){
             generateString3(this.section);
         }
-        else if(this.section != null && this.footer != null){
-            holder = generateString4(section, footer);
-        }
-        else
+        else {
             System.out.println("ERROR IN MAIN, INVALID CONTENT");
-
+        }
          mainBody = " <main> \n" + holder + "\n </main>";
         return  mainBody;
     }

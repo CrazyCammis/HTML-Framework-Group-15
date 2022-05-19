@@ -1,7 +1,7 @@
 package hiof.frameworks.group15.CSSStuff;
 
 public class CSS {
-
+//CAN BE MADE TO BUILDER?
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
 
@@ -39,8 +39,10 @@ public class CSS {
         this.holder = "";
     }
 
-
-
+    @Override
+    public String toString() {
+        return "CSS{}";
+    }
 
     private  void setAdd(String info){
         holder = info;
