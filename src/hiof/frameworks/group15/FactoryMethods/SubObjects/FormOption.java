@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.MainSection;
+package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class FormOption {
     private  String formOptionID, description, type;

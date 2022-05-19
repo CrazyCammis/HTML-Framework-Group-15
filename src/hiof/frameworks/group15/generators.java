@@ -4,6 +4,8 @@ import hiof.frameworks.group15.CSSStuff.CSS;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
 import hiof.frameworks.group15.FactoryMethods.MainSection.*;
+import hiof.frameworks.group15.FactoryMethods.SubObjects.FormOption;
+import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 import hiof.frameworks.group15.mainTags.*;
 
 import java.io.File;

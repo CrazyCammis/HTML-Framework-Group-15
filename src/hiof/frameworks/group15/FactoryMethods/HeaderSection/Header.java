@@ -1,6 +1,6 @@
 package hiof.frameworks.group15.FactoryMethods.HeaderSection;
 
-import hiof.frameworks.group15.FactoryMethods.MainSection.Paragraph;
+import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 
 public class Header {
 

@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.MainSection;
+package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class Paragraph {
     String info, paragraphID;
@@ -26,6 +26,7 @@ public class Paragraph {
         String holder = "<p id=\"" + paragraphID + "\">" + info + "</p>";
         return holder;
     }
+
 
 
 

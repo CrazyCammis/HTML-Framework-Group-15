@@ -1,5 +1,7 @@
 package hiof.frameworks.group15.FactoryMethods.MainSection;
 
+import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
+
 public class Article {
     String title, paragraphString, articleID, groupClass;
     Paragraph paragraph;

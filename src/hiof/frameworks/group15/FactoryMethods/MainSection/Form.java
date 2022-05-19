@@ -1,5 +1,7 @@
 package hiof.frameworks.group15.FactoryMethods.MainSection;
 
+import hiof.frameworks.group15.FactoryMethods.SubObjects.FormOption;
+
 public class Form {
     private  String title, formID;
     private FormOption[] formOptions;
