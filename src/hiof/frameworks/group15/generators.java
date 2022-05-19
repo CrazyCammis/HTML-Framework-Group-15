@@ -112,22 +112,23 @@ public class generators {
     }
 
     public static MainTag generateMainTag(String  info){
-        MainTag holder = new MainTag(info);
-        return  holder;
+        return  MainTag.generateMainTag(info);
     }
 
     public static MainTag generateMainTag(String[]  info){
-        MainTag holder = new MainTag(info);
-        return  holder;
+        return  MainTag.generateMainTag(info);
+    }
+
+    public static MainTag generateMainTag(Section section){
+        return  MainTag.generateMainTag(section);
+    }
+
+    public static MainTag generateMainTag(Section section, Footer footer){
+        return  MainTag.generateMainTag(section, footer);
     }
 
 
-
-
-
-
-
-
+    
     //----------------------------OTHER  SECTION---------------------------------//
 
     private String[]  idChecker(String[] toCheck, String typeName){

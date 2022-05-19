@@ -29,6 +29,29 @@ public class MainTag {
         return  "<main> \n " + info + "\n</main";
     }
 
+    public static MainTag generateMainTag(String info){
+        MainTag holder = new MainTag(info);
+        return  holder;
+    }
+    public static MainTag generateMainTag(String[] info){
+        MainTag holder = new MainTag(info);
+        return  holder;
+    }
+
+
+
+    public static MainTag generateMainTag(Section section){
+        MainTag holder = new MainTag(section);
+        return  holder;
+    }
+
+    public static MainTag generateMainTag(Section section, Footer footer){
+        MainTag holder = new MainTag(section, footer);
+        return  holder;
+    }
+
+
+
 
 
     private String generateString2(String[] infoList)
