@@ -8,7 +8,10 @@ public class Main {
 
     private  static String[] linksList = new String[]{"www.google.com","www.amazon.com", "www.pottermore.com"};
     private  static String[] linksNameList = new String[]{"google","amazon", "pottermore"};
+    
+    public static void main(String[] args) throws IOException {
 
+<<<<<<< Updated upstream
     static HTMLMaker testHTMLMaker = new HTMLMaker();
     static HeaderClass  headerMaker= new HeaderClass();
     static MainParts mainpart = new MainParts();
@@ -29,6 +32,11 @@ public class Main {
         testHTMLMaker.generateFile("TestFileLinkList", navListTest);
         testHTMLMaker.generateFile("TestFooter", footerTest);
 
+=======
+
+        //new page.pagebuilder holder = builder.add stuff then .add create
+
+>>>>>>> Stashed changes
 
     }
 }

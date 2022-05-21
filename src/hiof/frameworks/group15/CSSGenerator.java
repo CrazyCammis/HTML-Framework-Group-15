@@ -37,6 +37,66 @@ public class CSSGenerator  implements HolderInterface {
         };
     }
 
+<<<<<<< Updated upstream:src/hiof/frameworks/group15/CSSGenerator.java
+=======
+
+
+    //MAKE THIS A ADD STUFF
+    private static String holder="";
+
+    public static void setHolder(String holder) {
+        CSS.holder += "\n" +holder;
+    }
+
+
+    private CSS(String holder) {
+        this.holder = "";
+    }
+
+    public static  CSS generate(String info){
+        CSS holder = new CSS(info);
+        return holder;
+    }
+
+    public static  void addFontSize(String messurmentUnit, float size){
+        String fontSize ="font-size: " + findSize(messurmentUnit, size);
+        setHolder(fontSize);
+    }
+
+
+
+    public static   void   addTextColor(String color){
+        if(validColor(color)){
+            String setcolor = "color: " + color + ";\n";
+            setHolder(setcolor);
+        }
+        else
+            System.out.println("Errror, the color " + color + " is not a valid colorkeyword");
+    }
+
+    public static   void addTextColor(int rgb1, int rgb2, int rgb3){
+        String setcolor = "color: rgb(" +
+                rgb1 + "," +
+                rgb2 + "," +
+                rgb3 + "," +
+                ";\n";
+       setHolder(setcolor);
+    }
+
+
+    public static  void  toggleUnderline(){
+        String toggeUL= "text-decoration: underline;";
+        setHolder(toggeUL);
+    }
+
+
+    public static void addMargin(float spaceBtwn, String unitOfMes){
+        String margin = findSize(unitOfMes, spaceBtwn);
+        setHolder(margin);
+    }
+
+
+>>>>>>> Stashed changes:src/hiof/frameworks/group15/CSSStuff/CSS.java
     @Override
     public void generateFile(String filename, String info) throws IOException {
         filename = filename.concat(".css");
@@ -105,7 +165,7 @@ public class CSSGenerator  implements HolderInterface {
 
 
 
-    private String findSize(String type, float size){
+    private static String findSize(String type, float size){
         double actualSize = 0;
 
         if(type == "" || type != "em"|| type != "px") {
@@ -129,15 +189,9 @@ public class CSSGenerator  implements HolderInterface {
     }
 
 
-    private String setFontSize(String messurmentUnit, float size){
-        String fontSize ="font-size: " + findSize(messurmentUnit, size);
-        return fontSize;
-    }
 
 
-
-
-    private boolean validColor(String color){
+    private static boolean validColor(String color){
         for (String colors: listOverColorCodeWords) {
             if(colors.equals(color)){
                 return true;
@@ -147,6 +201,7 @@ public class CSSGenerator  implements HolderInterface {
     }
 
 
+<<<<<<< Updated upstream:src/hiof/frameworks/group15/CSSGenerator.java
     public  String setTextColor(String color){
 
         if(validColor(color)){
@@ -179,6 +234,8 @@ public class CSSGenerator  implements HolderInterface {
       String margin = findSize(unitOfMes, spaceBtwn);
         return  "margin: "+ margin;
     }
+=======
+>>>>>>> Stashed changes:src/hiof/frameworks/group15/CSSStuff/CSS.java
 
 
 
