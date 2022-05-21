@@ -130,29 +130,10 @@ public class Header {
     }
 
 
-    private String getTitle() {
-        return title;
-    }
-
-    private void setTitle(String title) {
-        this.title = title;
-    }
-
-    private String getParagraphString() {
-        return paragraphString;
-    }
-
-    private void setParagraphString(String paragraphString) {
-        this.paragraphString = paragraphString;
-    }
-
     private Nav getNavList() {
         return navList;
     }
 
-    private void setNavList(Nav navList) {
-        this.navList = navList;
-    }
 
 }
 

@@ -18,10 +18,7 @@ public class Article {
         this.paragraph = paragraph;
         this.articleID = articleID;
         this.groupClass = groupClass;
-
     }
-
-
 
 
     public static Article generate(String title, String paragraph, String articleID, String groupClass){
@@ -38,9 +35,7 @@ public class Article {
     public String toString() {
         String holder = generateArticleString(this.title, this.paragraphString, this.articleID, this.groupClass);
         return holder;
-
     }
-
 
 
     private String generateArticleString(String title, String paragraphString, String articleID, String groupclass) {
@@ -52,13 +47,4 @@ public class Article {
         return article;
     }
 
-
-    private String generateArticleString(String title, Paragraph paragraph, String articleID, String groupclass) {
-        String article = "  <article id=\"" + articleID + "\" class= \"" + groupclass + "\">\n" +
-                "       <header>" + title + "</header>" +
-                "       " + paragraph.toString() +
-                "   </article>";
-
-        return article;
-    }
 }

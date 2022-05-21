@@ -1,7 +1,3 @@
-import hiof.frameworks.group15.HTMLMaker;
-import hiof.frameworks.group15.HeaderClass;
-import hiof.frameworks.group15.MainParts;
-
 import java.io.IOException;
 
 public class Main {
@@ -11,32 +7,13 @@ public class Main {
     
     public static void main(String[] args) throws IOException {
 
-<<<<<<< Updated upstream
-    static HTMLMaker testHTMLMaker = new HTMLMaker();
-    static HeaderClass  headerMaker= new HeaderClass();
-    static MainParts mainpart = new MainParts();
-
-    public static void main(String[] args) throws IOException {
-        System.out.println("test");
-
-
-        String article = mainpart.generateArticle("CHEESE IS ON SALE", "Lorem ipsum", "article test", "articleClass");
-        System.out.println(article);
-
-        String navListTest = headerMaker.generateNavList(linksList,  linksNameList, "testNavId", "navigation" );
-        String footerTest = testHTMLMaker.generateFooter("lmao@outlook.com");
 
 
 
-
-        testHTMLMaker.generateFile("TestFileLinkList", navListTest);
-        testHTMLMaker.generateFile("TestFooter", footerTest);
-
-=======
 
         //new page.pagebuilder holder = builder.add stuff then .add create
 
->>>>>>> Stashed changes
+
 
     }
 }

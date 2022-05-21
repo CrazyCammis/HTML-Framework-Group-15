@@ -13,20 +13,12 @@ public class Paragraph {
         return  holder;
     }
 
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
 
     @Override
     public String toString() {
         String holder = "<p id=\"" + paragraphID + "\">" + info + "</p>";
         return holder;
     }
-
 
 
 

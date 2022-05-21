@@ -42,30 +42,7 @@ public class FormOption {
     public String toString() {
         String holder = generateFormOptionString(formOptionID, description, type);
         return holder;
-
     }
 
-    private String getFormOptionID() {
-        return formOptionID;
-    }
 
-    private void setFormOptionID(String formOptionID) {
-        this.formOptionID = formOptionID;
-    }
-
-    private String getDescription() {
-        return description;
-    }
-
-    private void setDescription(String description) {
-        this.description = description;
-    }
-
-    private String getType() {
-        return type;
-    }
-
-    private void setType(String type) {
-        this.type = type;
-    }
 }

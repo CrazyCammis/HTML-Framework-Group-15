@@ -40,11 +40,7 @@ public class MainTag {
         return  holder;
     }
 
-
-
-
-    private String generateString2(String[] infoList)
-    {
+    private String generateString2(String[] infoList) {
         String holder = "";
         for (String  infoStuff : infoList ) {
             holder += " " + infoStuff + "\n";
@@ -52,11 +48,10 @@ public class MainTag {
         }
         return  holder;
     }
-    private String generateString3(Section section)
-    {
+
+    private String generateString3(Section section) {
         return  "<main> \n " + section.toString() + "\n</main";
     }
-
 
     @Override
     public String toString() {

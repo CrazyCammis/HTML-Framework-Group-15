@@ -34,8 +34,6 @@ public class Footer {
     }
 
 
-
-
     public String generateFooterString1(String email) {
         String footerCode = "   <footer> \n" +
                 "        <a href = \"mailto:"+email+"\"> "

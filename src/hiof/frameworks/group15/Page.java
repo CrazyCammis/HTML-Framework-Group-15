@@ -14,19 +14,6 @@ public class Page{
         this.mainTag = mainTag;
         this.footer = footer;
     }
-/*
-nested class
-public  class pagebuilder
-add header();
-    return pagebuilder
-    adde maintag();
-    return pagebuilder
-    add footer();
-    return pagebuilder
-
-
-    page create/make()
-*/
 
     public static Page generate(Header header, MainTag mainTag, Footer footer){
         Page holder = new Page(header, mainTag,footer);
