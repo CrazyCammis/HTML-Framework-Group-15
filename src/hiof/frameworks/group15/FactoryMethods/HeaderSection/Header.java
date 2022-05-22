@@ -55,11 +55,6 @@ public class Header {
         return  headerHolder;
     }
 
-    public static  Header generateHeader(String headline, Paragraph paragrap, Nav navList){
-        Header headerHolder = new Header(headline, paragrap, navList);
-        return  headerHolder;
-    }
-
 
     //Can also use a nav
     private String generateHeaderString1(String headline) {

@@ -1,9 +1,11 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
+
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Footer;
 import hiof.frameworks.group15.mainTags.MainTag;
-public class Page{
-    private static final String  htmlPart1;
+
+public class Page extends FileGenerator {
+    private static final String htmlPart1;
     private static final String htmlPart2;
     private Header header;
     private MainTag mainTag;
@@ -15,8 +17,8 @@ public class Page{
         this.footer = footer;
     }
 
-    public static Page generate(Header header, MainTag mainTag, Footer footer){
-        Page holder = new Page(header, mainTag,footer);
+    public static Page generate(Header header, MainTag mainTag, Footer footer) {
+        Page holder = new Page(header, mainTag, footer);
         return holder;
     }
 
@@ -34,8 +36,8 @@ public class Page{
                 "<body>\n\n";
 
         htmlPart2 =
-        "</body>\n" +
-                "</html>\n";
+                "</body>\n" +
+                        "</html>\n";
     }
 
     @Override
@@ -43,9 +45,10 @@ public class Page{
         String holder = pageString(header, mainTag, footer);
         return holder;
     }
+
     private String pageString(Header header, MainTag mainTag, Footer footer) {
-         String holder;
-         holder = htmlPart1 +header.toString() + mainTag.toString() + footer.toString() + htmlPart2;
-       return holder;
+        String holder;
+        holder = htmlPart1 + header.toString() + mainTag.toString() + footer.toString() + htmlPart2;
+        return holder;
     }
 }

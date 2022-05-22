@@ -1,10 +1,6 @@
-package hiof.frameworks.group15;
+package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-public class CSSGenerator  implements HolderInterface {
+public class CSS extends FileGenerator {
 
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
@@ -36,9 +32,6 @@ public class CSSGenerator  implements HolderInterface {
                 "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
         };
     }
-
-<<<<<<< Updated upstream:src/hiof/frameworks/group15/CSSGenerator.java
-=======
 
 
     //MAKE THIS A ADD STUFF
@@ -93,24 +86,6 @@ public class CSSGenerator  implements HolderInterface {
     public static void addMargin(float spaceBtwn, String unitOfMes){
         String margin = findSize(unitOfMes, spaceBtwn);
         setHolder(margin);
-    }
-
-
->>>>>>> Stashed changes:src/hiof/frameworks/group15/CSSStuff/CSS.java
-    @Override
-    public void generateFile(String filename, String info) throws IOException {
-        filename = filename.concat(".css");
-        File page = new File(filename);
-        if (!page.exists())
-            try {
-                FileWriter myWriter = new FileWriter(filename);
-                myWriter.write(info);
-                myWriter.close();
-                System.out.println("Successfully wrote to the file: " + info);
-            } catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
     }
 
 
@@ -199,45 +174,6 @@ public class CSSGenerator  implements HolderInterface {
         }
         return false;
     }
-
-
-<<<<<<< Updated upstream:src/hiof/frameworks/group15/CSSGenerator.java
-    public  String setTextColor(String color){
-
-        if(validColor(color)){
-                    String setcolor = "color: " + color + ";\n";
-                    return  setcolor;
-        }
-        else
-        System.out.println("Errror, the color " + color + " is not a valid colorkeyword");
-        return "";
-
-    }
-
-    public  String setTextColor(int rgb1, int rgb2, int rgb3){
-        String setcolor = "color: rgb(" +
-                rgb1 + "," +
-                rgb2 + "," +
-                rgb3 + "," +
-                ";\n";
-        return  setcolor;
-    }
-
-//TODO ##Valid cheker
-    public String toggleUnderline(){
-        String toggeld = "text-decoration: underline;";
-        return toggeld;
-    }
-
-
-    private String addMargin(float spaceBtwn, String unitOfMes){
-      String margin = findSize(unitOfMes, spaceBtwn);
-        return  "margin: "+ margin;
-    }
-=======
->>>>>>> Stashed changes:src/hiof/frameworks/group15/CSSStuff/CSS.java
-
-
 
 
 }

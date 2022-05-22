@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class Image {
     private String url, caption, imageID, imageClass;
