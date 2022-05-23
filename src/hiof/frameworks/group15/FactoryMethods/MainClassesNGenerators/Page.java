@@ -11,18 +11,6 @@ public class Page extends FileGenerator {
     private MainTag mainTag;
     private Footer footer;
 
-    private Page(Header header, MainTag mainTag, Footer footer) {
-        this.header = header;
-        this.mainTag = mainTag;
-        this.footer = footer;
-    }
-
-    public static Page generate(Header header, MainTag mainTag, Footer footer) {
-        Page holder = new Page(header, mainTag, footer);
-        return holder;
-    }
-
-
     static {
         htmlPart1 = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n"
@@ -39,6 +27,18 @@ public class Page extends FileGenerator {
                 "</body>\n" +
                         "</html>\n";
     }
+
+    private Page(Header header, MainTag mainTag, Footer footer) {
+        this.header = header;
+        this.mainTag = mainTag;
+        this.footer = footer;
+    }
+
+    public static Page generate(Header header, MainTag mainTag, Footer footer) {
+        Page holder = new Page(header, mainTag, footer);
+        return holder;
+    }
+
 
     @Override
     public String toString() {
