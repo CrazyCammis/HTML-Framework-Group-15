@@ -50,5 +50,12 @@ public class CSS extends FileGenerator {
     }
 
 
-
+    @Override
+    public String toString() {
+        String holder = "";
+        for (CSSBracket bracket : cssBracketList){
+            holder += "\n" + bracket.toString();
+        }
+        return holder;
+    }
 }
