@@ -1,9 +1,6 @@
-package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
+package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
-import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
-
-public class CSS extends FileGenerator {
-
+public class CSSBracket {
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
 
@@ -36,19 +33,127 @@ public class CSS extends FileGenerator {
     }
 
 
-    //MAKE THIS A ADD STUFF
-    private  static CSSBracket[] cssBracketList;
+    private static   String info, cssTypeNTarget;
 
-
-    public CSS(CSSBracket[] cssBracketList) {
-        this.cssBracketList = cssBracketList;
+    public CSSBracket(String cssTypeNTarget) {
+        this.cssTypeNTarget = cssTypeNTarget;
     }
 
-    public static  CSS generate(CSSBracket[] cssBracketList){
-        CSS holder = new CSS(cssBracketList);
+    private static void setInfo(String newinfo) {
+        info = newinfo;
+    }
+
+    @Override
+    public  String toString() {
+        String holder = this.cssTypeNTarget+ "{\n    " + this.info + "\n}";
         return holder;
     }
 
+    public static  void addFontSize(String messurmentUnit, float size){
+        String fontSize ="font-size: " + findSize(messurmentUnit, size);
+        setInfo(fontSize);
+    }
 
+
+
+    public static   void   addTextColor(String color){
+        if(validColor(color)){
+            String setcolor = "color: " + color + ";\n";
+            setInfo(setcolor);
+        }
+        else
+            System.out.println("Errror, the color " + color + " is not a valid colorkeyword");
+    }
+
+    public static   void addTextColor(int rgb1, int rgb2, int rgb3){
+        String setcolor = "color: rgb(" +
+                rgb1 + "," +
+                rgb2 + "," +
+                rgb3 + "," +
+                ";\n";
+        setInfo(setcolor);
+    }
+
+
+    public static  void  toggleUnderline(){
+        String toggeUL= "text-decoration: underline;";
+        setInfo(toggeUL);
+    }
+
+
+    public static void addMargin(float spaceBtwn, String unitOfMes){
+        String margin = findSize(unitOfMes, spaceBtwn);
+        setInfo(margin);
+    }
+
+
+
+
+
+    //identifier if either class or id then sets in the correct sign for it
+    public String cssBracket(String identifierType, String target, String info){
+        String holder1  ="";
+
+        if(identifierType.equals("id")){
+            holder1 = "." + identifierType + "{ \n";
+        }
+        else if(identifierType.equals("class")){
+            holder1 = "#" + identifierType + "{ \n";
+        }
+
+        else if(identifierType.equals("tag") &&!isTag(target)){
+            System.out.println("ERROR! " + identifierType + " is not a semantic tag, try again");
+        }
+
+        holder1  = holder1.concat(info + " \n }");
+
+        return  holder1;
+    }
+
+
+    private boolean isTag(String identify){
+        for (String tag: simpleListOverTags ) {
+            if(identify.equals(tag)){
+                return true;
+            }
+        }
+        return  false;
+    }
+
+
+    private static String findSize(String type, float size){
+        double actualSize = 0;
+
+        if(type == "" || type != "em"|| type != "px") {
+            type = "px";
+        }
+
+        if(size <= 0 && type == "px"){
+            size = 16;
+        }
+        else if(size <= 0 && type == "em"){
+            size = 1;
+        }
+
+        if(type != "em") {
+            float textSize =size / 16;
+            actualSize = Math.pow(textSize, 1);
+        }
+
+        String sizeMesurment =   "" +actualSize + type;
+        return  sizeMesurment;
+    }
+
+
+
+
+    private static boolean validColor(String color){
+        for (String colors: listOverColorCodeWords) {
+            if(colors.equals(color)){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

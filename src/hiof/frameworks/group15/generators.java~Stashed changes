@@ -34,16 +34,16 @@ public class Generators {
 
 
     public static void createNewHTMLfile(Header header, MainTag maintag, Footer footer, String fileName){
-        Page holder =Page.generate(header, maintag, footer);
+        Page info =Page.generate(header, maintag, footer);
 
-        generateFile(fileName, holder.toString(), "html");
+        generateFile(fileName, info.toString(), "html");
 
     }
 /*
     public static void createNewCSSfile(CSS,  String fileName){
-        CSS holder = generateCSS(fileName, CSS.toString(), "CSS");
+        CSS info = generateCSS(fileName, CSS.toString(), "CSS");
 
-        generateFile(fileName, holder.toString(), "html");
+        generateFile(fileName, info.toString(), "html");
 
     }
 
@@ -60,16 +60,16 @@ public class Generators {
 
 
     public String groupUpTagStrings(String[] listOfTags){
-        String holder = "";
+        String info = "";
         for (String tags: listOfTags) {
-            holder +=tags +"\n";
+            info +=tags +"\n";
         }
-        return holder;
+        return info;
     }
 
     public String groupUpTagString(String tagInFront, String tagAfter){
-        String holder = tagInFront + "\n" + tagAfter;
+        String info = tagInFront + "\n" + tagAfter;
 
-        return holder;
+        return info;
     }
 }
