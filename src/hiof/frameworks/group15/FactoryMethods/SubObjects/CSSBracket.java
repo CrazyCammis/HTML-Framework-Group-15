@@ -4,6 +4,8 @@ public class CSSBracket {
     private static  final String[] simpleListOverTags;
     private static final String[] listOverColorCodeWords;
 
+
+
     static {
         simpleListOverTags = new String[]{
                 "abbr", "address", "area", "article", "aside", "audio", "b", "base", "basefont", "bdi", "bdo", "blockquote", "body", "br",
@@ -32,45 +34,47 @@ public class CSSBracket {
         };
     }
 
-    private static   String info, targetName, typeOfTarget;
+    private    String  targetName, typeOfTarget, info;
 
     private CSSBracket(String targetName, String typeOfTarget) {
         this.targetName = targetName;
         this.typeOfTarget = typeOfTarget;
+        this.info = info;
     }
 
-    public static  CSSBracket generate(String cssTypeNTarget,  String typeOfTarget){
+    public  static CSSBracket generate(String cssTypeNTarget,  String typeOfTarget){
         return new CSSBracket(cssTypeNTarget,   typeOfTarget);
     }
 
-    private static void setInfo(String newinfo) {
-        info = newinfo;
+    private  void setInfo(String newinfo) {
+        this.info = newinfo;
     }
 
     @Override
     public  String toString() {
-        return this.identify() + this.targetName + "{\n    " + this.info + "\n}";
+              return identify() + targetName + "{\n    " + this.info + "\n}";
     }
 
-    public static  void addFontSize(String measurementUnit, float size){
+    public   void addFontSize(String measurementUnit, float size){
         String fontSize ="font-size: " + findSize(measurementUnit, size);
         setInfo(fontSize);
     }
 
-    public static  void setInline(){
+    public   void setInline(){
         setInfo("display: inline-block;");
     }
 
-    public static   void   addTextColor(String color){
+    public    void   addTextColor(String color){
         if(validColor(color)){
             String setcolor = "color: " + color + ";\n";
             setInfo(setcolor);
         }
         else
+            System.out.println("REEE");
             throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
     }
 
-    public static   void addTextColor(int rgb1, int rgb2, int rgb3){
+    public    void addTextColor(int rgb1, int rgb2, int rgb3){
         String setcolor = "color: rgb(" +
                 rgb1 + "," +
                 rgb2 + "," +
@@ -79,12 +83,12 @@ public class CSSBracket {
         setInfo(setcolor);
     }
 
-    public static  void  toggleUnderline(){
+    public   void  toggleUnderline(){
         String toggleUL= "text-decoration: underline;";
         setInfo(toggleUL);
     }
 
-    public static void addMargin(float spaceBtwn, String unitOfMes){
+    public  void addMargin(float spaceBtwn, String unitOfMes){
         String margin = findSize(unitOfMes, spaceBtwn);
         setInfo(margin);
     }
@@ -98,9 +102,13 @@ public class CSSBracket {
         else if(typeOfTarget.equals("class") || typeOfTarget.equals("CLASS") || typeOfTarget.equals("Class")){
             holder1 = "#";
         }
-        else if(typeOfTarget.equals("tag") || typeOfTarget.equals("TAG")  || typeOfTarget.equals("Tag") && !isTag(targetName)){
-            throw new ArithmeticException("ERROR! " + typeOfTarget + " is not a semantic tag, class or ID  try again");
+        else if(typeOfTarget.equals("tag") || typeOfTarget.equals("TAG")  || typeOfTarget.equals("Tag")){
+                        if(!isTag(targetName)) {
+                throw new ArithmeticException("ERROR! " + targetName + " is not a semantic tag, class or ID  try again");
+            }
         }
+        else
+            throw new ArithmeticException("ERROR! INVALID ARGUMENT GIVEN FOR " +typeOfTarget + " WRITE EITHER TAG, ID OR CLASS");
         return  holder1;
     }
 
@@ -113,7 +121,7 @@ public class CSSBracket {
         return  false;
     }
 
-    private static String findSize(String type, float size){
+    private  String findSize(String type, float size){
         double actualSize = 0;
 
         if(type.equals("") || !type.equals("em") || !type.equals("px")) {
@@ -135,7 +143,7 @@ public class CSSBracket {
         return "" +actualSize + type;
     }
 
-    private static boolean validColor(String color){
+    private  boolean validColor(String color){
         for (String colors: listOverColorCodeWords) {
             if(colors.equals(color)){
                 return true;
@@ -143,5 +151,7 @@ public class CSSBracket {
         }
         return false;
     }
+
+
 
 }

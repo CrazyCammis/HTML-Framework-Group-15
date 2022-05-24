@@ -17,6 +17,7 @@ public class Main {
                 "navClass");
 
 
+
         Header header = Header.generate("HIOF HJEMMESIDE", navigation);
 
 
@@ -42,24 +43,21 @@ public class Main {
 
 
 
+        CSSBracket h4 = CSSBracket.generate("main", "tag");
+        CSSBracket h2 = CSSBracket.generate("erw2", "class");
+        CSSBracket h3 = CSSBracket.generate("erw5", "id");
 
-
-
-
-        CSSBracket h1 = CSSBracket.generate("erw1");
-        CSSBracket h2 = CSSBracket.generate("erw2");
-        CSSBracket h3 = CSSBracket.generate("erw3");
-
-        h1.setInline();
+        h4.addFontSize("px", 23);
         h2.setInline();
         h3.setInline();
 
-        CSSBracket[] list = new CSSBracket[]{h1, h2, h3};
+
+        CSSBracket[] list = new CSSBracket[]{h4, h2, h3};
 
         CSS holder = CSS.generate(list);
         holder.generateFile("reee");
 
-        System.out.println(holder.toString());
+        System.out.println(holder.toString()+ "reeee");
 
 
     }

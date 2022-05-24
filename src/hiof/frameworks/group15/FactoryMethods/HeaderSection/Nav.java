@@ -4,6 +4,10 @@ public class Nav {
    private String[] links, linkText;
    private  String navTagID, navTagClass;
 
+    public void setNavTagID(String navTagID) {
+        this.navTagID = navTagID;
+    }
+
     private String[] getLinks() {
         return links;
     }
