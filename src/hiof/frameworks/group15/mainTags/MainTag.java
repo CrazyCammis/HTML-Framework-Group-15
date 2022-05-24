@@ -27,26 +27,23 @@ public class MainTag {
     }
 
     public static MainTag generate(String info){
-        MainTag holder = new MainTag(info);
-        return  holder;
+        return new MainTag(info);
     }
     public static MainTag generate(String[] info){
-        MainTag holder = new MainTag(info);
-        return  holder;
+        return new MainTag(info);
     }
 
     public static MainTag generate(Section section){
-        MainTag holder = new MainTag(section);
-        return  holder;
+        return new MainTag(section);
     }
 
     private String generateString2(String[] infoList) {
-        String holder = "";
+        StringBuilder holder = new StringBuilder();
         for (String  infoStuff : infoList ) {
-            holder += " " + infoStuff + "\n";
+            holder.append(" ").append(infoStuff).append("\n");
 
         }
-        return  holder;
+        return holder.toString();
     }
 
     private String generateString3(Section section) {
@@ -55,7 +52,7 @@ public class MainTag {
 
     @Override
     public String toString() {
-        String mainBody = "";
+        String mainBody;
         String holder = "";
 
         if(this.info != null){
@@ -65,11 +62,8 @@ public class MainTag {
         else if(this.infoList != null){
             holder = generateString2(this.infoList);
         }
-        else if(this.section != null){
-            generateString3(this.section);
-        }
         else {
-            System.out.println("ERROR IN MAIN, INVALID CONTENT");
+            generateString3(this.section);
         }
          mainBody = " <main> \n" + holder + "\n </main>";
         return  mainBody;

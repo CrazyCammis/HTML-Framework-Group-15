@@ -3,10 +3,7 @@ package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
 
 public class CSS extends FileGenerator {
-
-    //MAKE THIS A ADD STUFF
     private  static CSSBracket[] cssBracketList;
-
 
     public CSS(CSSBracket[] cssBracketList) {
         this.cssBracketList = cssBracketList;
@@ -18,12 +15,8 @@ public class CSS extends FileGenerator {
 
     public static void generateFile(String fileName){
         String holder = toStringv2();
-
         generateFile(fileName,  holder, "css");
     }
-
-
-
 
     private static String toStringv2() {
         StringBuilder holder = new StringBuilder();

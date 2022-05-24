@@ -6,13 +6,8 @@ public class Article {
     String title, paragraphString, articleID, groupClass;
     Paragraph paragraph;
 
-    public String getArticleID() {
-        return articleID;
-    }
-
-    public String getGroupClass() {
-        return groupClass;
-    }
+    public String getArticleID() {return articleID;}
+    public String getGroupClass() {return groupClass;}
 
     private Article(String title, String paragraphString, String articleID, String groupClass) {
         this.title = title;
@@ -28,31 +23,26 @@ public class Article {
         this.groupClass = groupClass;
     }
 
-
     public static Article generate(String title, String paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
-        return  holder;
+        return new Article(title, paragraph, articleID, groupClass);
     }
 
     public static Article generate(String title, Paragraph paragraph, String articleID, String groupClass){
-        Article holder = new Article(title, paragraph, articleID, groupClass);
-        return  holder;
+        return new Article(title, paragraph, articleID, groupClass);
     }
 
     @Override
     public String toString() {
-        String holder = generateArticleString(this.title, this.paragraphString, this.articleID, this.groupClass);
-        return holder;
+        return generateArticleString(this.title, this.paragraphString, this.articleID, this.groupClass);
     }
 
 
-    private String generateArticleString(String title, String paragraphString, String articleID, String groupclass) {
-        String article = "  <article id=\"" + articleID + "\" class= \"" + groupclass + "\">\n" +
+    private String generateArticleString(String title, String paragraphString, String articleID, String groupClass) {
+
+        return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>" +
                 "       <p>" + paragraphString + "</p>" +
                 "   </article>";
-
-        return article;
     }
 
 }

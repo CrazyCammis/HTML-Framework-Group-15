@@ -21,23 +21,18 @@ public class FormOption {
         this.formOptionClass = formOptionClass;
     }
 
-
-
     public static FormOption generate(String formOptionID, String description, String type,String formOptionClass){
         if(!typeValid(type)){
-            throw new ArithmeticException("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
-                    + " WITH DESCRITPTION OF \n"
+            throw new ArithmeticException("ERROR WRONG TYPE INSERTED ON FORM OPTION "+ formOptionID
+                    + " WITH DESCRIPTION OF \n"
                     + description );
         }
-        FormOption holder =   new FormOption(formOptionID, description, type, formOptionClass );
-        return holder;
+        return new FormOption(formOptionID, description, type, formOptionClass );
     }
 
     private String generateFormOptionString(String formOptionId, String description, String type) {
-        String holder =
-                "       <label for=\"" + formOptionId + "\">" + description + ":" + "/label><br>\n" +
-                        "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
-        return holder;
+        return "       <label for=\"" + formOptionId + "\">" + description + ":" + "/label><br>\n" +
+                "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
     }
 
     private static boolean typeValid(String check){
@@ -51,8 +46,7 @@ public class FormOption {
 
     @Override
     public String toString() {
-        String holder = generateFormOptionString(formOptionID, description, type);
-        return holder;
+        return generateFormOptionString(formOptionID, description, type);
     }
 
 

@@ -7,15 +7,12 @@ public class Nav {
     private String[] getLinks() {
         return links;
     }
-
     private String[] getLinkText() {
         return linkText;
     }
-
     private String getNavTagID() {
         return navTagID;
     }
-
     private String getNavTagClass() {
         return navTagClass;
     }
@@ -37,11 +34,9 @@ public class Nav {
         String nav = "  <nav id=\"" + navTagId + "\" class= \"" + navTagClass + "\">\n"+
                 "       <ul> \n";
 
-
         for (int i = 0; i < size; i++) {
             nav = nav.concat("          <li><a href=\"" + links[i] + "\">" + linkText[i] + "</a></li>\n");
         }
-
         nav = nav.concat("      </ul>\n   </nav>\n");
         return nav;
     }

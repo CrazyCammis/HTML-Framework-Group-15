@@ -19,43 +19,37 @@ public class Footer {
     }
 
     public static  Footer generate(String email){
-        Footer holder = new Footer(email);
-        return  holder;
+        return new Footer(email);
     }
 
     public static  Footer generate(String email, String info1){
-        Footer holder = new Footer(email, info1);
-        return  holder;
+        return new Footer(email, info1);
     }
 
     public static  Footer generate(String email, String info1,String info2){
-        Footer holder = new Footer(email, info1, info2);
-        return  holder;
+        return new Footer(email, info1, info2);
     }
 
 
     public String generateFooterString1(String email) {
-        String footerCode = "   <footer> \n" +
+        return "   <footer> \n" +
                 "        <a href = \"mailto:"+email+"\"> "
                 + email +"</a>" + "\n   </footer>";
-        return footerCode;
     }
 
 
     public String generateFooterString2(String email, String info1) {
-        String footerCode = "   <footer> \n" +
+        return "   <footer> \n" +
                 "\n        <a href = \""+ email + "\"> "+ email +"</a>\n" +
                 "       <p>" + info1 + "</p>" +
                 "\n   </footer>";
-        return footerCode;
     }
 
     public String generateFooterString3(String email, String info1,String infop2) {
-        String footerCode = "   <footer> \n" + info1 +
+        return "   <footer> \n" + info1 +
                 "\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
                 "       <p>" + infop2 + "</p>" +
                 "\n   </footer>";
-        return footerCode;
     }
 
 

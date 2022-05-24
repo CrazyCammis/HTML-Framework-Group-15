@@ -3,14 +3,8 @@ package hiof.frameworks.group15.FactoryMethods.SubObjects;
 public class Image {
     private String url, caption, imageID, imageClass;
 
-
-    public String getImageID() {
-        return imageID;
-    }
-
-    public String getImageClass() {
-        return imageClass;
-    }
+    public String getImageID() {return imageID;}
+    public String getImageClass() {return imageClass;}
 
     private Image(String url, String caption, String imageID, String imageClass) {
         this.url = url;
@@ -20,19 +14,15 @@ public class Image {
     }
 
     public static Image generate(String url, String caption, String imageID, String imageClass){
-        Image holder = new Image(url, caption, imageID, imageClass);
-        return  holder;
+        return new Image(url, caption, imageID, imageClass);
     }
 
     @Override
     public String toString() {
-        String holder = generateImagesString(url, caption, imageID, imageClass);
-        return holder;
+        return generateImagesString(url, caption, imageID, imageClass);
     }
 
     public String generateImagesString(String url, String caption, String imageID, String imageClass){
-        String image = "<img id=\" +" + imageID + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
-
-        return image;
+        return "<img id=\" +" + imageID + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
     }
 }

@@ -17,29 +17,26 @@ public class Form {
     }
 
     public static Form generate(String title, String formID, FormOption[] formOptions){
-        Form holder = new Form(title, formID, formOptions);
-        return holder;
+        return new Form(title, formID, formOptions);
     }
 
     private  String optionLoop(FormOption[] optionList){
-        String holder = "";
+        StringBuilder holder = new StringBuilder();
         for (FormOption option: optionList) {
-            holder += option.toString();
+            holder.append(option.toString());
         }
-        return  holder;
+        return holder.toString();
     }
 
-    private String generateFormString(String titel, String articleId, FormOption[] formOptions){
-        String form = "<h2>" + titel + "</h2> <br>\n" +
+    private String generateFormString(String title, String articleId, FormOption[] formOptions){
+        return "<h2>" + title + "</h2> <br>\n" +
                 "   <form id=\""+ articleId + "\">\n" +
                 optionLoop(formOptions) +
                 "   </form>\n";
-        return form;
     }
 
     @Override
     public String toString() {
-        String  holder = generateFormString(title, formID, formOptions);
-        return holder;
+        return generateFormString(title, formID, formOptions);
     }
 }

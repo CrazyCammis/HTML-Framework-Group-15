@@ -12,20 +12,24 @@ public class Page extends FileGenerator {
     private  static Footer footer;
 
     static {
-        htmlPart1 = "<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n"
-                +
-                "<head>\n" +
-                "<meta charset=\"UTF-8\">\n" +
-                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n" +
-                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                "<title>Document</title>\n" +
-                "</head>\n" +
-                "<body>\n\n";
+        htmlPart1 = """
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+                </head>
+                <body>
+
+                """;
 
         htmlPart2 =
-                "</body>\n" +
-                        "</html>\n";
+                """
+                        </body>
+                        </html>
+                        """;
     }
 
     private Page(Header header, MainTag mainTag, Footer footer) {
@@ -35,8 +39,7 @@ public class Page extends FileGenerator {
     }
 
     public static Page generate(Header header, MainTag mainTag, Footer footer) {
-        Page holder = new Page(header, mainTag, footer);
-        return holder;
+        return new Page(header, mainTag, footer);
     }
 
     public static void generateFile(String fileName){
@@ -44,13 +47,9 @@ public class Page extends FileGenerator {
         generateFile(fileName,  holder, "html");
     }
 
-
-
-
     @Override
     public String toString() {
-        String holder = pageString(header, mainTag, footer);
-        return holder;
+        return pageString(header, mainTag, footer);
     }
 
     private static String pageString(Header header, MainTag mainTag, Footer footer) {

@@ -33,26 +33,16 @@ public class Header {
         this.nav = nav;
     }
 
-
     public static Header generate(String headline){
         return new Header(headline);
     }
-
-    public static Header generate(String headline, Paragraph paragraph){
-        return new Header(headline, paragraph);
-    }
-
-   public static Header generate(String headline, Nav nav){
-        return new Header(headline, nav);
-   }
-
+    public static Header generate(String headline, Paragraph paragraph){return new Header(headline, paragraph); }
+    public static Header generate(String headline, Nav nav){return new Header(headline, nav);}
 
     public static  Header generate(String headline, Paragraph paragraph, Nav navList){
         return new Header(headline, paragraph, navList);
     }
 
-
-    //Can also use a nav
     private String generateHeaderString1(String headline) {
         return "   <header>\n" +
                 "       <h1>" + headline + "</h1>" +
@@ -80,6 +70,7 @@ public class Header {
                 navList.toString() +
                 "</header>\n";
     }
+
     @Override
     public String toString() {
         String headerString;

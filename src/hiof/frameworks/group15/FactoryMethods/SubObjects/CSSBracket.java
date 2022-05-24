@@ -20,8 +20,8 @@ public class CSSBracket {
         listOverColorCodeWords = new String[]{
                 "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet",
                 "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue",
-                "DarkCyan", "DarkGoldenrod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGree", "DarkOrange", "DarkOrchid<A", "DarkRed", "DarkSalmon", "DarkSeaGree",
-                "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGree", "Fuchsia",
+                "DarkCyan", "DarkGoldenrod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid<A", "DarkRed", "DarkSalmon", "DarkSeaGreen",
+                "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia",
                 "Gainsboro", "GhostWhite", "Gold", "Goldenrod", "Gray", "Green", "GreenYellow", "Grey", "Honeydew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen",
                 "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenrodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray",
                 "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquamarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue",
@@ -31,7 +31,6 @@ public class CSSBracket {
                 "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
         };
     }
-
 
     private static   String info, targetName, typeOfTarget;
 
@@ -50,12 +49,11 @@ public class CSSBracket {
 
     @Override
     public  String toString() {
-        String holder = this.identify() + this.targetName + "{\n    " + this.info + "\n}";
-        return holder;
+        return this.identify() + this.targetName + "{\n    " + this.info + "\n}";
     }
 
-    public static  void addFontSize(String messurmentUnit, float size){
-        String fontSize ="font-size: " + findSize(messurmentUnit, size);
+    public static  void addFontSize(String measurementUnit, float size){
+        String fontSize ="font-size: " + findSize(measurementUnit, size);
         setInfo(fontSize);
     }
 
@@ -69,7 +67,7 @@ public class CSSBracket {
             setInfo(setcolor);
         }
         else
-            throw new ArithmeticException("Errror, the color " + color + " is not a valid colorkeyword");
+            throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
     }
 
     public static   void addTextColor(int rgb1, int rgb2, int rgb3){
@@ -81,22 +79,15 @@ public class CSSBracket {
         setInfo(setcolor);
     }
 
-
-
     public static  void  toggleUnderline(){
-        String toggeUL= "text-decoration: underline;";
-        setInfo(toggeUL);
+        String toggleUL= "text-decoration: underline;";
+        setInfo(toggleUL);
     }
-
 
     public static void addMargin(float spaceBtwn, String unitOfMes){
         String margin = findSize(unitOfMes, spaceBtwn);
         setInfo(margin);
     }
-
-
-
-
 
     //identifier if either class or id then sets in the correct sign for it
     private String identify(){
@@ -113,7 +104,6 @@ public class CSSBracket {
         return  holder1;
     }
 
-
     private boolean isTag(String identify){
         for (String tag: simpleListOverTags ) {
             if(identify.equals(tag)){
@@ -123,32 +113,27 @@ public class CSSBracket {
         return  false;
     }
 
-
     private static String findSize(String type, float size){
         double actualSize = 0;
 
-        if(type == "" || type != "em"|| type != "px") {
+        if(type.equals("") || !type.equals("em") || !type.equals("px")) {
             type = "px";
         }
 
-        if(size <= 0 && type == "px"){
+        if(size <= 0 && type.equals("px")){
             size = 16;
         }
-        else if(size <= 0 && type == "em"){
+        else if(size <= 0 && type.equals("em")){
             size = 1;
         }
 
-        if(type != "em") {
+        if(!type.equals("em")) {
             float textSize =size / 16;
             actualSize = Math.pow(textSize, 1);
         }
 
-        String sizeMesurment =   "" +actualSize + type;
-        return  sizeMesurment;
+        return "" +actualSize + type;
     }
-
-
-
 
     private static boolean validColor(String color){
         for (String colors: listOverColorCodeWords) {

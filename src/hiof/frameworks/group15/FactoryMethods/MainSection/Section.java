@@ -4,8 +4,6 @@ public class Section {
     private Article[] articles;
     private String sectionID, sectionClass;
 
-
-
     private Section(Article[] articles, String sectionID, String sectionClass) {
         this.articles = articles;
         this.sectionID = sectionID;
