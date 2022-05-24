@@ -33,10 +33,15 @@ public class CSSBracket {
     }
 
 
-    private static   String info, cssTypeNTarget;
+    private static   String info, targetName, typeOfTarget;
 
-    public CSSBracket(String cssTypeNTarget) {
-        this.cssTypeNTarget = cssTypeNTarget;
+    private CSSBracket(String targetName, String typeOfTarget) {
+        this.targetName = targetName;
+        this.typeOfTarget = typeOfTarget;
+    }
+
+    public static  CSSBracket generate(String cssTypeNTarget,  String typeOfTarget){
+        return new CSSBracket(cssTypeNTarget,   typeOfTarget);
     }
 
     private static void setInfo(String newinfo) {
@@ -45,7 +50,7 @@ public class CSSBracket {
 
     @Override
     public  String toString() {
-        String holder = this.cssTypeNTarget+ "{\n    " + this.info + "\n}";
+        String holder = this.identify() + this.targetName + "{\n    " + this.info + "\n}";
         return holder;
     }
 
@@ -54,7 +59,9 @@ public class CSSBracket {
         setInfo(fontSize);
     }
 
-
+    public static  void setInline(){
+        setInfo("display: inline-block;");
+    }
 
     public static   void   addTextColor(String color){
         if(validColor(color)){
@@ -62,7 +69,7 @@ public class CSSBracket {
             setInfo(setcolor);
         }
         else
-            System.out.println("Errror, the color " + color + " is not a valid colorkeyword");
+            throw new ArithmeticException("Errror, the color " + color + " is not a valid colorkeyword");
     }
 
     public static   void addTextColor(int rgb1, int rgb2, int rgb3){
@@ -73,6 +80,7 @@ public class CSSBracket {
                 ";\n";
         setInfo(setcolor);
     }
+
 
 
     public static  void  toggleUnderline(){
@@ -91,22 +99,17 @@ public class CSSBracket {
 
 
     //identifier if either class or id then sets in the correct sign for it
-    public String cssBracket(String identifierType, String target, String info){
+    private String identify(){
         String holder1  ="";
-
-        if(identifierType.equals("id")){
-            holder1 = "." + identifierType + "{ \n";
+        if(this.typeOfTarget.equals("id") || typeOfTarget.equals("ID") || typeOfTarget.equals("Id")  || typeOfTarget.equals("iD")){
+            holder1 = ".";
         }
-        else if(identifierType.equals("class")){
-            holder1 = "#" + identifierType + "{ \n";
+        else if(typeOfTarget.equals("class") || typeOfTarget.equals("CLASS") || typeOfTarget.equals("Class")){
+            holder1 = "#";
         }
-
-        else if(identifierType.equals("tag") &&!isTag(target)){
-            System.out.println("ERROR! " + identifierType + " is not a semantic tag, try again");
+        else if(typeOfTarget.equals("tag") || typeOfTarget.equals("TAG")  || typeOfTarget.equals("Tag") && !isTag(targetName)){
+            throw new ArithmeticException("ERROR! " + typeOfTarget + " is not a semantic tag, class or ID  try again");
         }
-
-        holder1  = holder1.concat(info + " \n }");
-
         return  holder1;
     }
 

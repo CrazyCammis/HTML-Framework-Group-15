@@ -29,13 +29,12 @@ public class Nav {
 
 
     public static   Nav generate(String[] links, String[] linkText, String navTagID, String navTagClass) {
-        Nav navTag = new Nav(links, linkText, navTagID, navTagClass);
-        return  navTag;
+        return new Nav(links, linkText, navTagID, navTagClass);
     }
 
-    private String generateNavListString(String[] links, String[] linkText, String navTagId, String navTagClas) {
+    private String generateNavListString(String[] links, String[] linkText, String navTagId, String navTagClass) {
         int size = links.length;
-        String nav = "  <nav id=\"" + navTagId + "\" class= \"" + navTagClas + "\">\n"+
+        String nav = "  <nav id=\"" + navTagId + "\" class= \"" + navTagClass + "\">\n"+
                 "       <ul> \n";
 
 
@@ -49,7 +48,6 @@ public class Nav {
 
     @Override
     public String toString() {
-        String navTag = generateNavListString(getLinks(), getLinkText(),getNavTagID(), getNavTagClass());
-        return navTag;
+        return generateNavListString(getLinks(), getLinkText(),getNavTagID(), getNavTagClass());
     }
 }

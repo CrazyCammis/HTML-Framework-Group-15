@@ -1,7 +1,0 @@
-  <nav id="testNavId" class= "navigation">
-       <ul> 
-      <li><a href=www.google.com>google</a></li>
-      <li><a href=www.amazon.com>amazon</a></li>
-      <li><a href=www.pottermore.com>pottermore</a></li>
-    </ul>
-   </nav>

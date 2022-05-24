@@ -7,9 +7,9 @@ import hiof.frameworks.group15.mainTags.MainTag;
 public class Page extends FileGenerator {
     private static final String htmlPart1;
     private static final String htmlPart2;
-    private Header header;
-    private MainTag mainTag;
-    private Footer footer;
+    private static Header header;
+    private static MainTag mainTag;
+    private  static Footer footer;
 
     static {
         htmlPart1 = "<!DOCTYPE html>\n" +
@@ -39,6 +39,13 @@ public class Page extends FileGenerator {
         return holder;
     }
 
+    public static void generateFile(String fileName){
+        String holder = pageString(header, mainTag, footer);
+        generateFile(fileName,  holder, "html");
+    }
+
+
+
 
     @Override
     public String toString() {
@@ -46,9 +53,11 @@ public class Page extends FileGenerator {
         return holder;
     }
 
-    private String pageString(Header header, MainTag mainTag, Footer footer) {
+    private static String pageString(Header header, MainTag mainTag, Footer footer) {
         String holder;
-        holder = htmlPart1 + header.toString() + mainTag.toString() + footer.toString() + htmlPart2;
+        holder = htmlPart1 + header.toString() + "\n" + mainTag.toString() + "\n" + footer.toString() + htmlPart2;
         return holder;
     }
+
+
 }

@@ -1,3 +1,8 @@
+import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
+import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
+import hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators.CSS;
+import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
+
 import java.io.IOException;
 
 public class Main {
@@ -8,11 +13,53 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
+        Nav navigation = Nav.generate(linksList, linksNameList, "mainNav",
+                "navClass");
+
+
+        Header header = Header.generate("HIOF HJEMMESIDE", navigation);
 
 
 
-        //new page.pagebuilder holder = builder.add stuff then .add create
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        CSSBracket h1 = CSSBracket.generate("erw1");
+        CSSBracket h2 = CSSBracket.generate("erw2");
+        CSSBracket h3 = CSSBracket.generate("erw3");
+
+        h1.setInline();
+        h2.setInline();
+        h3.setInline();
+
+        CSSBracket[] list = new CSSBracket[]{h1, h2, h3};
+
+        CSS holder = CSS.generate(list);
+        holder.generateFile("reee");
+
+        System.out.println(holder.toString());
 
 
     }

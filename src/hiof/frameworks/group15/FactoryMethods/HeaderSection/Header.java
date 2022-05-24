@@ -4,132 +4,101 @@ import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 
 public class Header {
 
-    private String title, paragraphString;
+    private String title;
     private Paragraph paragraph;
-    private Nav navList;
+    private Nav nav;
 
 
     private Header(String title) {
         this.title = title;
     }
 
-    private Header(String title, String paragraphString) {
-        this.title = title;
-        this.paragraphString = paragraphString;
-    }
+
 
     private Header(String title, Paragraph paragraph) {
         this.title = title;
         this.paragraph = paragraph;
+
     }
 
-    private Header(String title, String paragraphString, Nav navList) {
+    private Header(String title, Nav nav) {
         this.title = title;
-        this.paragraphString = paragraphString;
-        this.navList = navList;
+        this.nav = nav;
     }
 
-    private Header(String title, Paragraph paragraph, Nav navList) {
+
+    private Header(String title, Paragraph paragraph, Nav nav) {
         this.title = title;
         this.paragraph = paragraph;
-        this.navList = navList;
+        this.nav = nav;
     }
 
 
     public static Header generate(String headline){
-        Header headerHolder = new Header(headline);
-        return  headerHolder;
+        return new Header(headline);
     }
 
-    public static Header generate(String headline, String paragrap){
-        Header headerHolder = new Header(headline, paragrap);
-        return  headerHolder;
+    public static Header generate(String headline, Paragraph paragraph){
+        return new Header(headline, paragraph);
     }
 
-    public static Header generate(String headline, Paragraph paragrap){
-        Header headerHolder = new Header(headline, paragrap);
-        return  headerHolder;
-    }
-    public static  Header generate(String headline, String paragrap, Nav navList){
-        Header headerHolder = new Header(headline, paragrap, navList);
-        return  headerHolder;
+   public static Header generate(String headline, Nav nav){
+        return new Header(headline, nav);
+   }
+
+
+    public static  Header generate(String headline, Paragraph paragraph, Nav navList){
+        return new Header(headline, paragraph, navList);
     }
 
 
     //Can also use a nav
     private String generateHeaderString1(String headline) {
-        String header = "   <header>\n" +
+        return "   <header>\n" +
                 "       <h1>" + headline + "</h1>" +
                 "</header>";
-
-        return header;
     }
 
-
-
-    private String generateHeaderString2(String headline, String paragrap) {
-        String header = "   <header>\n" +
+    private String generateHeaderString2(String headline, Paragraph paragraph) {
+        return "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
-                "       <p>" + paragrap + "<p/>\n" +
+                "       "+ paragraph.toString() +
                 "</header>\n";
-        return header;
     }
 
-    private String generateHeaderString3(String headline, Paragraph paragrap) {
-        String header = "   <header>\n" +
+    private String generateHeaderString3(String headline, Nav navList) {
+        return "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
-                "       "+ paragrap.toString() +
-                "</header>\n";
-        return header;
-    }
-
-    private String generateHeaderString4(String headline, String paragrap, Nav navList) {
-        String header = "   <header>\n" +
-                "       <h1>" + headline + "</h1>\n" +
-                "       <p>" + paragrap + "<p/>\n" +
                 navList.toString() +
                 "</header>\n";
-        return header;
     }
 
-    private String generateHeaderString5(String headline, Paragraph paragrap, Nav navList) {
-        String header = "   <header>\n" +
+    private String generateHeaderString4(String headline, Paragraph paragraph, Nav navList) {
+        return "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
-                "       "+ paragrap.toString() +
+                "       "+ paragraph.toString() +
                 navList.toString() +
                 "</header>\n";
-        return header;
     }
     @Override
     public String toString() {
         String headerString;
 
-        if(paragraphString == null  || paragraph == null&& getNavList() == null) {
-            headerString = generateHeaderString1(title);
+        if(paragraph != null&& nav == null) {
+            headerString = generateHeaderString2(title, paragraph);
         }
         // FOR STRING
-        else if (paragraphString== null && paragraph == null && getNavList() == null) {
-            headerString = generateHeaderString2(title, paragraphString);
+        else if ( paragraph == null && nav != null) {
+            headerString = generateHeaderString3(title, nav);
         }
         //For PARAGRAPH
-        else if (paragraphString == null && paragraph != null && getNavList() == null) {
-            headerString = generateHeaderString3(title, paragraph);
-        }
-        //FOR STRING with nav
-        else if (paragraphString!= null && paragraph == null && getNavList() != null){
-            headerString=   generateHeaderString4(title, paragraphString, navList);
+        else if ( paragraph != null && nav != null) {
+            headerString = generateHeaderString4(title, paragraph, nav);
         }
         else
-            headerString = generateHeaderString5(title, paragraph, navList);
+            headerString = generateHeaderString1(title);
         return headerString;
     }
-
-
-    private Nav getNavList() {
-        return navList;
-    }
-
-
 }
 
 

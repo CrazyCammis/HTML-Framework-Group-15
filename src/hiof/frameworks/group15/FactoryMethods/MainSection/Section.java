@@ -2,17 +2,18 @@ package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Section {
     private Article[] articles;
-    private String sectionID;
+    private String sectionID, sectionClass;
 
 
 
-    private Section(Article[] articles, String sectionID) {
+    private Section(Article[] articles, String sectionID, String sectionClass) {
         this.articles = articles;
         this.sectionID = sectionID;
+        this.sectionClass = sectionClass;
     }
 
-    public static  Section generate(Article[] articles, String sectionID){
-        Section holder = new Section(articles, sectionID);
+    public static  Section generate(Article[] articles, String sectionID, String sectionClass){
+        Section holder = new Section(articles, sectionID,  sectionClass);
         return  holder;
     }
 

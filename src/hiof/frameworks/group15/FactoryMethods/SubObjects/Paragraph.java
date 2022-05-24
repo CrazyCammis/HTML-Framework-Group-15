@@ -22,5 +22,11 @@ public class Paragraph {
     }
 
 
+    public String getParagraphID() {
+        return paragraphID;
+    }
 
+    public String getParagraphClass() {
+        return paragraphClass;
+    }
 }

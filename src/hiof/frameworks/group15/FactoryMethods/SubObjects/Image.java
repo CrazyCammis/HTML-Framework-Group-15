@@ -4,6 +4,14 @@ public class Image {
     private String url, caption, imageID, imageClass;
 
 
+    public String getImageID() {
+        return imageID;
+    }
+
+    public String getImageClass() {
+        return imageClass;
+    }
+
     private Image(String url, String caption, String imageID, String imageClass) {
         this.url = url;
         this.caption = caption;

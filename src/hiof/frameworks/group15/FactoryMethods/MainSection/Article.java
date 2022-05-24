@@ -6,6 +6,14 @@ public class Article {
     String title, paragraphString, articleID, groupClass;
     Paragraph paragraph;
 
+    public String getArticleID() {
+        return articleID;
+    }
+
+    public String getGroupClass() {
+        return groupClass;
+    }
+
     private Article(String title, String paragraphString, String articleID, String groupClass) {
         this.title = title;
         this.paragraphString = paragraphString;

@@ -2,6 +2,15 @@ package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class FormOption {
     private  String formOptionID, description, type, formOptionClass;
+
+    public String getFormOptionID() {
+        return formOptionID;
+    }
+
+    public String getFormOptionClass() {
+        return formOptionClass;
+    }
+
     private static final String[] validTypesList = {"text", "email", "date", "image", "password",
             "number", "url", "time", "week"};
 
@@ -16,7 +25,7 @@ public class FormOption {
 
     public static FormOption generate(String formOptionID, String description, String type,String formOptionClass){
         if(!typeValid(type)){
-            System.out.println("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
+            throw new ArithmeticException("ERROR WRONG TYPE INSERTET ON FORM OPTION "+ formOptionID
                     + " WITH DESCRITPTION OF \n"
                     + description );
         }

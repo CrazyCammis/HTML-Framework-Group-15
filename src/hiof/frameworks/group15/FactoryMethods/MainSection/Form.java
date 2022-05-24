@@ -12,6 +12,10 @@ public class Form {
         this.formOptions = formOptions;
     }
 
+    public String getFormID() {
+        return formID;
+    }
+
     public static Form generate(String title, String formID, FormOption[] formOptions){
         Form holder = new Form(title, formID, formOptions);
         return holder;
