@@ -11,24 +11,22 @@ public class Section {
     }
 
     public static  Section generate(Article[] articles, String sectionID, String sectionClass){
-        Section holder = new Section(articles, sectionID,  sectionClass);
-        return  holder;
+        return new Section(articles, sectionID,  sectionClass);
     }
 
     @Override
     public String toString() {
-        String holder = generateSectionString(this.articles);
-        return  holder;
+        return generateSectionString(this.articles);
     }
 
     private String generateSectionString(Article[] articles) {
-        String holder = "";
-        String section = "";
+        StringBuilder holder = new StringBuilder();
+        String section;
 
         for (Article article : articles) {
-            holder += holder + article.toString() + "\n";
+            holder.append(article.toString()).append("\n");
         }
-        section = "<Section> \n  " + holder + "\n</section>";
+        section = "<Section> \n  " + holder + "</section>";
         return section;
     }
 }

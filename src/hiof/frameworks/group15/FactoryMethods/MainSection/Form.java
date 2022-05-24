@@ -31,8 +31,8 @@ public class Form {
     private String generateFormString(String title, String articleId, FormOption[] formOptions){
         return "<h2>" + title + "</h2> <br>\n" +
                 "   <form id=\""+ articleId + "\">\n" +
-                optionLoop(formOptions) +
-                "   </form>\n";
+                optionLoop(formOptions) + "     <br><br> <input type=\"submit\" value=\"Submit\"\n>"+
+                "   </form>";
     }
 
     @Override

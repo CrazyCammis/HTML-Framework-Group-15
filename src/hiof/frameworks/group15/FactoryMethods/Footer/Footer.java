@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.MainSection;
+package hiof.frameworks.group15.FactoryMethods.Footer;
 
 public class Footer {
     String email, info1, info2;
@@ -40,14 +40,14 @@ public class Footer {
 
     public String generateFooterString2(String email, String info1) {
         return "   <footer> \n" +
-                "\n        <a href = \""+ email + "\"> "+ email +"</a>\n" +
+                "        <a href = \""+ email + "\"> "+ email +"</a>\n" +
                 "       <p>" + info1 + "</p>" +
                 "\n   </footer>";
     }
 
     public String generateFooterString3(String email, String info1,String infop2) {
-        return "   <footer> \n" + info1 +
-                "\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
+        return "   <footer> \n <p>" + info1 +
+                "</p>\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
                 "       <p>" + infop2 + "</p>" +
                 "\n   </footer>";
     }

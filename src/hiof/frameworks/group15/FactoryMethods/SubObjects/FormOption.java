@@ -24,9 +24,10 @@ public class FormOption {
     public static FormOption generate(String formOptionID, String description, String type,String formOptionClass){
         if(!typeValid(type)){
             throw new ArithmeticException("ERROR WRONG TYPE INSERTED ON FORM OPTION "+ formOptionID
-                    + " WITH DESCRIPTION OF \n"
-                    + description );
+                    + "\n please insert one of the following: \n " + listTypes() );
+
         }
+        else
         return new FormOption(formOptionID, description, type, formOptionClass );
     }
 
@@ -35,6 +36,13 @@ public class FormOption {
                 "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
     }
 
+    private static String listTypes(){
+        String holder ="";
+        for (String type :  validTypesList){
+            holder += type+ ", ";
+        }
+        return holder;
+    }
     private static boolean typeValid(String check){
         for(String types : validTypesList){
             if(check.equals(types)){
