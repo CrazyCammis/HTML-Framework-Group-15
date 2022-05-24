@@ -12,9 +12,8 @@ public class Form {
         this.formOptions = formOptions;
     }
 
-    public String getFormID() {
-        return formID;
-    }
+    public String getID() {return formID;}
+
 
     public static Form generate(String title, String formID, FormOption[] formOptions){
         return new Form(title, formID, formOptions);
@@ -31,7 +30,7 @@ public class Form {
     private String generateFormString(String title, String articleId, FormOption[] formOptions){
         return "<h2>" + title + "</h2> <br>\n" +
                 "   <form id=\""+ articleId + "\">\n" +
-                optionLoop(formOptions) + "     <br><br> <input type=\"submit\" value=\"Submit\"\n>"+
+                optionLoop(formOptions) + "     <br> <input type=\"submit\" value=\"Submit\"\n>"+
                 "   </form>";
     }
 

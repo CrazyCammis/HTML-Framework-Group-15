@@ -71,6 +71,11 @@ public class Main {
         CSSBracket h2 = CSSBracket.generate("erw2", "class");
         CSSBracket h3 = CSSBracket.generate("erw5", "id");
 
+
+
+        CSSBracket sectionBracket = CSSBracket.generate(section.getID(), "ID");
+        sectionBracket.addMargin(2.3f, "em");
+
         h4.addFontSize("px", 23);
         h2.setInline();
         h3.setInline();

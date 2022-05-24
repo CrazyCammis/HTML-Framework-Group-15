@@ -3,8 +3,8 @@ package hiof.frameworks.group15.FactoryMethods.SubObjects;
 public class Image {
     private String url, caption, imageID, imageClass;
 
-    public String getImageID() {return imageID;}
-    public String getImageClass() {return imageClass;}
+    public String getID() {return imageID;}
+    public String getClassName() {return imageClass;}
 
     private Image(String url, String caption, String imageID, String imageClass) {
         this.url = url;

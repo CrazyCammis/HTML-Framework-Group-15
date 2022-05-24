@@ -33,8 +33,9 @@ public class Footer {
 
     public String generateFooterString1(String email) {
         return "   <footer> \n" +
-                "        <a href = \"mailto:"+email+"\"> "
-                + email +"</a>" + "\n   </footer>";
+                "       <p> <a href = \"mailto:"+email+"\"> "
+                + email +"</a></p>" + "\n  " +
+                "       <p>Created at "+  java.time.LocalDate.now() +"</p> \n   </footer>";
     }
 
 
@@ -42,14 +43,15 @@ public class Footer {
         return "   <footer> \n" +
                 "        <a href = \""+ email + "\"> "+ email +"</a>\n" +
                 "       <p>" + info1 + "</p>" +
-                "\n   </footer>";
+                "       <p>Created at "+  java.time.LocalDate.now() +"</p> \n " +
+                "  </footer>";
     }
 
     public String generateFooterString3(String email, String info1,String infop2) {
         return "   <footer> \n <p>" + info1 +
                 "</p>\n        <a href = \"" + email + "\"> "+ email +"</a>\n" +
-                "       <p>" + infop2 + "</p>" +
-                "\n   </footer>";
+                "       <p>" + infop2 + "</p>\n" +
+                "       <p>Created at "+  java.time.LocalDate.now() +"</p> \n   </footer>";
     }
 
 

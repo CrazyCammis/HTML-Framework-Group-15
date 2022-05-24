@@ -4,6 +4,9 @@ public class Section {
     private Article[] articles;
     private String sectionID, sectionClass;
 
+    public String getID() { return sectionID;}
+    public String getClassName() {return sectionClass;}
+
     private Section(Article[] articles, String sectionID, String sectionClass) {
         this.articles = articles;
         this.sectionID = sectionID;

@@ -3,11 +3,11 @@ package hiof.frameworks.group15.FactoryMethods.SubObjects;
 public class FormOption {
     private  String formOptionID, description, type, formOptionClass;
 
-    public String getFormOptionID() {
+    public String getID() {
         return formOptionID;
     }
 
-    public String getFormOptionClass() {
+    public String getClassName() {
         return formOptionClass;
     }
 
@@ -32,7 +32,7 @@ public class FormOption {
     }
 
     private String generateFormOptionString(String formOptionId, String description, String type) {
-        return "       <label for=\"" + formOptionId + "\">" + description + ":" + "/label><br>\n" +
+        return "       <label for=\"" + formOptionId + "\">" + description + ":" + "</label><br>\n" +
                 "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
     }
 

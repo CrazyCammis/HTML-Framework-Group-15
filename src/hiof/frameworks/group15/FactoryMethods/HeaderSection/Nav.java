@@ -4,20 +4,16 @@ public class Nav {
    private String[] links, linkText;
    private  String navTagID, navTagClass;
 
-    public void setNavTagID(String navTagID) {
-        this.navTagID = navTagID;
-    }
-
     private String[] getLinks() {
         return links;
     }
     private String[] getLinkText() {
         return linkText;
     }
-    private String getNavTagID() {
+    private String getID() {
         return navTagID;
     }
-    private String getNavTagClass() {
+    private String getClassName() {
         return navTagClass;
     }
 
@@ -47,6 +43,6 @@ public class Nav {
 
     @Override
     public String toString() {
-        return generateNavListString(getLinks(), getLinkText(),getNavTagID(), getNavTagClass());
+        return generateNavListString(getLinks(), getLinkText(), getID(), getClassName());
     }
 }

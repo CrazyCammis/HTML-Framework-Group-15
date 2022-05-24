@@ -2,10 +2,10 @@ package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class Paragraph {
     String info, paragraphID, paragraphClass;
-    public String getParagraphID() {
+    public String getID() {
         return paragraphID;
     }
-    public String getParagraphClass() {
+    public String getClassName() {
         return paragraphClass;
     }
 

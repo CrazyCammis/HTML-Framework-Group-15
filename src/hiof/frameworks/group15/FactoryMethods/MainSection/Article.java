@@ -7,8 +7,8 @@ public class Article {
     private Paragraph paragraph;
     private Form form;
 
-    public String getArticleID() {return articleID;}
-    public String getGroupClass() {return groupClass;}
+    public String getID() {return articleID;}
+    public String getClassName() {return groupClass;}
 
     private Article(String title, String paragraphString, String articleID, String groupClass) {
         this.title = title;
