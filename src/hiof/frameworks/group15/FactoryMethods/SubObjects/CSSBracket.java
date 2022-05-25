@@ -35,7 +35,7 @@ public class CSSBracket {
         };
     }
 
-    private String targetName, typeOfTarget, info;
+    private String targetName, typeOfTarget, info = "";
 
     private CSSBracket(String targetName, String typeOfTarget) {
         this.targetName = targetName;
@@ -48,19 +48,19 @@ public class CSSBracket {
     }
 
     private void setInfo(String newinfo) {
-        this.info = newinfo;
+        info += newinfo+ "\n    ";
     }
 
     @Override
     public String toString() {
-        return identify() + targetName + "{\n    " + this.info + "\n}";
+        return identify() + targetName + "{\n    " + info + "\n}";
     }
 
 
     //-------------------------------------BACK GROUND STUFF-----------------------------------
     public void addBackgroundColor(String color) {
         if (isValidColor(color)) {
-            String setcolor = "background-color: " + color + ";\n";
+            String setcolor = "background-color: " + color + ";";
             setInfo(setcolor);
         } else
             throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
@@ -72,15 +72,18 @@ public class CSSBracket {
                     red + "," +
                     green + "," +
                     blue + "," +
-                    ";\n";
+                    ";";
             setInfo(setcolor);
         } else
             throw new ArithmeticException("ERROR! RGB values can from 0 to 255 in addBackgroundColor");
 
     }
 
-    public void setBackgroundImage(String url) {
-        setInfo("background-image: url(" + url + ");");
+    public void setBackgroundImageLocal(String localPath) {
+        setInfo("background-image: url(" + localPath + ");");
+    }
+    public void setBackgroundImageFromWeb(String url ) {
+        setInfo("background-image: url(\"" + url + "\");");
     }
 
 ///-------------------------------------------TEXT STUFF---------------------------------
@@ -122,8 +125,7 @@ public class CSSBracket {
     public void setInline() {
         setInfo("display: inline-block;");
     }
-
-
+    public void fixPosition(){setInfo("position: fixed;");}
 
 
     //--------------------------BOX PROPERTIES-------------------
@@ -160,9 +162,28 @@ public class CSSBracket {
     }
 
     public void addMargin(float spaceBtwn, String unitOfMes) {
-        String margin = findSize(unitOfMes, spaceBtwn);
+        String margin =  "margin: " + findSize(unitOfMes, spaceBtwn) + ";";
         setInfo(margin);
     }
+
+    public void addMarginLeft(float spaceBtwn, String unitOfMes) {
+        String margin =  "margin-left: " + findSize(unitOfMes, spaceBtwn) + ";";
+        setInfo(margin);
+    }
+    public void addMarginRight(float spaceBtwn, String unitOfMes) {
+        String margin =  "margin-right: " + findSize(unitOfMes, spaceBtwn) + ";";
+        setInfo(margin);
+    }
+    public void addMarginTop(float spaceBtwn, String unitOfMes) {
+        String margin =  "margin-top: " + findSize(unitOfMes, spaceBtwn) + ";";
+        setInfo(margin);
+    }
+    public void addMarginBottom(float spaceBtwn, String unitOfMes) {
+        String margin =  "margin-bottom: " + findSize(unitOfMes, spaceBtwn) + ";";
+        setInfo(margin);
+    }
+
+
     //---------------------------HELPER METHODS-------------
 
 
@@ -227,7 +248,7 @@ public class CSSBracket {
 
     private boolean validBorderStyle(String check){
         for (String style: listOfBorderStyles  ) {
-            if(style.equals(check)){return  true}
+            if(style.equals(check)){return  true;}
         }
         return false;
     }
