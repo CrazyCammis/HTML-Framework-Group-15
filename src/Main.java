@@ -67,7 +67,7 @@ public class Main {
 
         CSSBracket articleClassCSS = CSSBracket.Builder.newInstance(section.getArticlesClass(), "class")
                  .addBackgroundColor("red")
-                 .addFontSize("px", 32f)
+                 .setTextSize("px", 32f)
                  .build();
 
         System.out.println(articleClassCSS);
