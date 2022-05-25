@@ -1,4 +1,4 @@
-package hiof.frameworks.group15.FactoryMethods.SubObjects;
+package hiof.frameworks.group15.BuilderPattern;
 
 public class CSSBracket {
     private final String targetName, typeOfTarget, info;

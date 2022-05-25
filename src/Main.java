@@ -7,7 +7,7 @@ import hiof.frameworks.group15.FactoryMethods.MainSection.Form;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Section;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.FormOption;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
-import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
+import hiof.frameworks.group15.BuilderPattern.CSSBracket;
 import hiof.frameworks.group15.mainTags.MainTag;
 
 import java.io.IOException;
@@ -25,7 +25,9 @@ public class Main {
         Nav navigation = Nav.generate(linksList, linksNameList, "mainNav",
                 "navClass");
         Header header = Header.generate("HIOF HJEMMESIDE", navigation);
+       // Header header2 = Header.generate("TITLE", genericParagraph, navigation);
 
+        System.out.println(header2.toString());
 
 
 

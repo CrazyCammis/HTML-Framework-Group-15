@@ -4,7 +4,7 @@ import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 
 public class Header {
 
-    private String title;
+    private final String title;
     private Paragraph paragraph;
     private Nav nav;
 
@@ -13,12 +13,9 @@ public class Header {
         this.title = title;
     }
 
-
-
     private Header(String title, Paragraph paragraph) {
         this.title = title;
         this.paragraph = paragraph;
-
     }
 
     private Header(String title, Nav nav) {
@@ -33,13 +30,19 @@ public class Header {
         this.nav = nav;
     }
 
-    public static Header generate(String headline){
+    public static Header generate(String headline) {
         return new Header(headline);
     }
-    public static Header generate(String headline, Paragraph paragraph){return new Header(headline, paragraph); }
-    public static Header generate(String headline, Nav nav){return new Header(headline, nav);}
 
-    public static  Header generate(String headline, Paragraph paragraph, Nav navList){
+    public static Header generate(String headline, Paragraph paragraph) {
+        return new Header(headline, paragraph);
+    }
+
+    public static Header generate(String headline, Nav nav) {
+        return new Header(headline, nav);
+    }
+
+    public static Header generate(String headline, Paragraph paragraph, Nav navList) {
         return new Header(headline, paragraph, navList);
     }
 
@@ -52,7 +55,7 @@ public class Header {
     private String generateHeaderString2(String headline, Paragraph paragraph) {
         return "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
-                "       "+ paragraph.toString() +
+                "       " + paragraph.toString() +
                 "</header>\n";
     }
 
@@ -66,7 +69,7 @@ public class Header {
     private String generateHeaderString4(String headline, Paragraph paragraph, Nav navList) {
         return "   <header>\n" +
                 "       <h1>" + headline + "</h1>\n" +
-                "       "+ paragraph.toString() +
+                "       " + paragraph.toString() +
                 navList.toString() +
                 "</header>\n";
     }
@@ -75,18 +78,17 @@ public class Header {
     public String toString() {
         String headerString;
 
-        if(paragraph != null&& nav == null) {
+        if (paragraph != null && nav == null) {
             headerString = generateHeaderString2(title, paragraph);
         }
         // FOR STRING
-        else if ( paragraph == null && nav != null) {
+        else if (paragraph == null && nav != null) {
             headerString = generateHeaderString3(title, nav);
         }
         //For PARAGRAPH
-        else if ( paragraph != null && nav != null) {
+        else if (paragraph != null && nav != null) {
             headerString = generateHeaderString4(title, paragraph, nav);
-        }
-        else
+        } else
             headerString = generateHeaderString1(title);
         return headerString;
     }

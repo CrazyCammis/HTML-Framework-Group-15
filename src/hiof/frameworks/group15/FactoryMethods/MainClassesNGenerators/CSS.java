@@ -1,6 +1,6 @@
 package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 
-import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
+import hiof.frameworks.group15.BuilderPattern.CSSBracket;
 
 import java.io.IOException;
 
