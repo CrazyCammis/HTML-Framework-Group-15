@@ -1,5 +1,9 @@
 package hiof.frameworks.group15.BuilderPattern;
-
+/**
+ * CSS brackets, for targetd CSS layout
+ * @author Anders Grindal 
+ *
+ */
 public class CSSBracket {
     private final String targetName, typeOfTarget, info;
     private static final String[] simpleListOverTags;
@@ -16,6 +20,10 @@ public class CSSBracket {
         };
     }
 
+    /**
+     * CSSbracket constructor, generates consttructor based on builder
+     * @param builder
+     */
     public CSSBracket(Builder builder) {
         this.targetName = builder.targetName;
         this.typeOfTarget = builder.typeOfTarget;
@@ -23,6 +31,9 @@ public class CSSBracket {
     }
 
 
+    /**
+     * to string method 
+     */
     @Override
     public String toString() {
         return identify() + targetName + "{\n    " + info + "\n}";
@@ -53,6 +64,11 @@ public class CSSBracket {
     }
 
 
+    /**
+     * Internal builder class
+     * @author Anders GRindal
+     *
+     */
     public static class Builder {
         private static final String[] listOverColorCodeWords, listOfBorderStyles;
 
