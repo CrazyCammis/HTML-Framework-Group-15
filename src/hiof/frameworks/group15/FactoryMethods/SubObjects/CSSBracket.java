@@ -1,8 +1,8 @@
 package hiof.frameworks.group15.FactoryMethods.SubObjects;
 
 public class CSSBracket {
-    private static final String[] simpleListOverTags, listOverColorCodeWords, listOfBorderStyles;
-
+    private final String targetName, typeOfTarget, info;
+    private static final String[] simpleListOverTags;
 
     static {
         simpleListOverTags = new String[]{
@@ -14,204 +14,19 @@ public class CSSBracket {
                 "pre", "progress", "q", "rp", "rt", "ruby", "s", "samp", "script", "section", "select", "small", "source", "span", "strong", "style", "sub", "summary",
                 "sup", "svg", "table", "tbody", "td", "template", "textarea", "tfoot", "th", "thead", "time", "title", "tr", "track", "u", "ul", "var", "video", "wbr"
         };
-
-
-        listOverColorCodeWords = new String[]{
-                "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet",
-                "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue",
-                "DarkCyan", "DarkGoldenrod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid<A", "DarkRed", "DarkSalmon", "DarkSeaGreen",
-                "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia",
-                "Gainsboro", "GhostWhite", "Gold", "Goldenrod", "Gray", "Green", "GreenYellow", "Grey", "Honeydew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen",
-                "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenrodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray",
-                "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquamarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue",
-                "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "NavyBlue", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid",
-                "PaleGoldenrod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Rebeccapurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown",
-                "Salmon", "SandyBrown", "SeaGreen", "Seashell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise",
-                "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
-        };
-        listOfBorderStyles = new String[]{
-                "none", "hidden", "dotted", "dashed", "solid",
-                "double", "groove", "ridge", "inset", "outset", "initial", "inherit"
-        };
     }
 
-    private String targetName, typeOfTarget, info = "";
-
-    private CSSBracket(String targetName, String typeOfTarget) {
-        this.targetName = targetName;
-        this.typeOfTarget = typeOfTarget;
-        this.info = info;
+    public CSSBracket(Builder builder) {
+        this.targetName = builder.targetName;
+        this.typeOfTarget = builder.typeOfTarget;
+        this.info = builder.info;
     }
 
-    public static CSSBracket generate(String cssTypeNTarget, String typeOfTarget) {
-        return new CSSBracket(cssTypeNTarget, typeOfTarget);
-    }
-
-    private void setInfo(String newinfo) {
-        info += newinfo + "\n    ";
-    }
 
     @Override
     public String toString() {
         return identify() + targetName + "{\n    " + info + "\n}";
     }
-
-
-    //-------------------------------------BACK GROUND STUFF-----------------------------------
-    public void addBackgroundColor(String color) {
-        if (isValidColor(color)) {
-            String setcolor = "background-color: " + color + ";";
-            setInfo(setcolor);
-        } else
-            throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
-    }
-
-    public void addBackgroundColor(int red, int green, int blue) {
-        if (isValidRGB(red, green, blue)) {
-            String setcolor = "background-color: rgb(" +
-                    red + "," +
-                    green + "," +
-                    blue + "," +
-                    ";";
-            setInfo(setcolor);
-        } else
-            throw new ArithmeticException("ERROR! RGB values can from 0 to 255 in addBackgroundColor");
-
-    }
-
-    public void setBackgroundImageLocal(String localPath) {
-        setInfo("background-image: url(" + localPath + ");");
-    }
-
-    public void setBackgroundImageFromWeb(String url) {
-        setInfo("background-image: url(\"" + url + "\");");
-    }
-
-///-------------------------------------------TEXT STUFF---------------------------------
-
-    public void addFontSize(String unitOfMes, float size) {
-        String fontSize = "font-size: " + size + unitOfMes + ";";
-        setInfo(fontSize);
-    }
-
-    public void addTextColor(String color) {
-        if (isValidColor(color)) {
-            String setcolor = "color: " + color + ";\n";
-            setInfo(setcolor);
-        } else
-            throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
-    }
-
-    public void addTextColor(int red, int green, int blue) {
-        if (isValidRGB(red, green, blue)) {
-            String setcolor = "color: rgb(" +
-                    red + "," +
-                    green + "," +
-                    blue + "," +
-                    ";\n";
-            setInfo(setcolor);
-        } else
-            throw new ArithmeticException("ERROR! RGB values can from 0 to 255 in addTextColor");
-    }
-
-
-    public void toggleUnderline() {
-        String toggleUL = "text-decoration: underline;";
-        setInfo(toggleUL);
-    }
-
-
-    //-------------------------------------------------OTHER STUFF
-
-    public void setInline() {
-        setInfo("display: inline-block;");
-    }
-
-    public void fixPosition() {
-        setInfo("position: fixed;");
-    }
-
-
-    //--------------------------BOX PROPERTIES-------------------
-    public void setBorderStyle(String style) {
-        if (validBorderStyle(style)) {
-            String holder = "border-style: " + style + ";";
-            setInfo(holder);
-        } else throw new ArithmeticException("ERROR! " + style + " IS NOT A VALID BORDER STYLE");
-    }
-
-    public void setBorderStyle(String topNBottom, String sides) {
-        if (validBorderStyle(topNBottom) && validBorderStyle(sides)) {
-            String holder = "border-style: " + topNBottom + sides + ";";
-            setInfo(holder);
-        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
-    }
-
-    public void setBorderStyle(String top, String sides, String bottom) {
-        if (validBorderStyle(top) && validBorderStyle(sides) && validBorderStyle(bottom)) {
-            String holder = "border-style: " + top + sides + bottom + ";";
-            setInfo(holder);
-        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
-    }
-
-    public void setBorderStyle(String top, String right, String left, String bottom) {
-        if (validBorderStyle(top) && validBorderStyle(right) && validBorderStyle(left) && validBorderStyle(bottom)) {
-            String holder = "border-style: " + top + right + bottom + left + ";";
-            setInfo(holder);
-        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
-    }
-
-    public void addMargin(float spaceBtwn, String unitOfMes) {
-        String margin = "margin: " + spaceBtwn + unitOfMes + ";";
-        setInfo(margin);
-    }
-
-    public void addMarginLeft(float spaceBtwn, String unitOfMes) {
-        String margin = "margin-left: " + spaceBtwn + unitOfMes + ";";
-        setInfo(margin);
-    }
-
-    public void addMarginRight(float spaceBtwn, String unitOfMes) {
-        String margin = "margin-right: " + spaceBtwn + unitOfMes + ";";
-        setInfo(margin);
-    }
-
-    public void addMarginTop(float spaceBtwn, String unitOfMes) {
-        String margin = "margin-top: " + spaceBtwn + unitOfMes + ";";
-        setInfo(margin);
-    }
-
-    public void addMarginBottom(float spaceBtwn, String unitOfMes) {
-        String margin = "margin-bottom: " + spaceBtwn + unitOfMes + ";";
-        setInfo(margin);
-    }
-
-
-    //---------------------------HELPER METHODS-------------
-
-
-    private boolean isValidColor(String color) {
-        for (String colors : listOverColorCodeWords) {
-            if (colors.equalsIgnoreCase(color)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isTag(String identify) {
-        for (String tag : simpleListOverTags) {
-            if (identify.equals(tag)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isValidRGB(int a, int b, int c) {
-        return a < 256 && b < 256 && c < 256;
-    }
-
 
     private String identify() {
         String holder1 = "";
@@ -228,31 +43,9 @@ public class CSSBracket {
         return holder1;
     }
 
-    /*
-        private String findSize(String type, float size) {
-            double actualSize = 0;
-
-            if (type.equals("") || !type.equals("em") || !type.equals("px")) {
-                type = "px";
-            }
-
-            if (size <= 0 && type.equals("px")) {
-                size = 16;
-            } else if (size <= 0 && type.equals("em")) {
-                size = 1;
-            }
-
-            if (!type.equals("em")) {
-                float textSize = size / 16;
-                actualSize = Math.pow(textSize, 1);
-            }
-            return "" + actualSize + type;
-
-        }
-    */
-    private boolean validBorderStyle(String check) {
-        for (String style : listOfBorderStyles) {
-            if (style.equals(check)) {
+    private boolean isTag(String identify) {
+        for (String tag : simpleListOverTags) {
+            if (identify.equals(tag)) {
                 return true;
             }
         }
@@ -260,4 +53,234 @@ public class CSSBracket {
     }
 
 
+    public static class Builder {
+        private static final String[] listOverColorCodeWords, listOfBorderStyles;
+
+
+        static {
+            listOverColorCodeWords = new String[]{
+                    "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet",
+                    "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue",
+                    "DarkCyan", "DarkGoldenrod", "DarkGray", "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid<A", "DarkRed", "DarkSalmon", "DarkSeaGreen",
+                    "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia",
+                    "Gainsboro", "GhostWhite", "Gold", "Goldenrod", "Gray", "Green", "GreenYellow", "Grey", "Honeydew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen",
+                    "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenrodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray",
+                    "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquamarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue",
+                    "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "NavyBlue", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid",
+                    "PaleGoldenrod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Rebeccapurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown",
+                    "Salmon", "SandyBrown", "SeaGreen", "Seashell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise",
+                    "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"
+            };
+            listOfBorderStyles = new String[]{
+                    "none", "hidden", "dotted", "dashed", "solid",
+                    "double", "groove", "ridge", "inset", "outset", "initial", "inherit"
+            };
+        }
+
+        public Builder setTargetName(String targetName) {
+            this.targetName = targetName;
+            return this;
+        }
+
+        public Builder setTypeOfTarget(String typeOfTarget) {
+            this.typeOfTarget = typeOfTarget;
+            return this;
+        }
+
+        private Builder setInfo(String newinfo) {
+            this.info = info + newinfo + "\n    ";
+            return this;
+        }
+
+        public CSSBracket build() {
+            return new CSSBracket(this);
+        }
+
+        private String targetName, typeOfTarget, info = "";
+
+        public static Builder newInstance() {
+            return new Builder();
+        }
+
+        private Builder() {
+        }
+
+
+        //-------------------------------------BACK GROUND STUFF-----------------------------------
+        public Builder addBackgroundColor(String color) {
+            if (isValidColor(color)) {
+                String setcolor = "background-color: " + color + ";";
+                setInfo(setcolor);
+                return this;
+            } else
+                throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
+        }
+
+        public Builder addBackgroundColor(int red, int green, int blue) {
+            if (isValidRGB(red, green, blue)) {
+                String setcolor = "background-color: rgb(" +
+                        red + "," +
+                        green + "," +
+                        blue + "," +
+                        ";";
+                setInfo(setcolor);
+                return this;
+            } else
+                throw new ArithmeticException("ERROR! RGB values can from 0 to 255 in addBackgroundColor");
+
+        }
+
+        public Builder setBackgroundImageLocal(String localPath) {
+            setInfo("background-image: url(" + localPath + ");");
+            return this;
+        }
+
+        public Builder setBackgroundImageFromWeb(String url) {
+            setInfo("background-image: url(\"" + url + "\");");
+            return this;
+        }
+
+///-------------------------------------------TEXT STUFF---------------------------------
+
+        public Builder addFontSize(String unitOfMes, float size) {
+            String fontSize = "font-size: " + size + unitOfMes + ";";
+            setInfo(fontSize);
+            return this;
+        }
+
+        public Builder addTextColor(String color) {
+            if (isValidColor(color)) {
+                String setcolor = "color: " + color + ";\n";
+                setInfo(setcolor);
+                return this;
+            } else
+                throw new ArithmeticException("Error, the color " + color + " is not a valid colorkeyword");
+        }
+
+        public Builder addTextColor(int red, int green, int blue) {
+            if (isValidRGB(red, green, blue)) {
+                String setcolor = "color: rgb(" +
+                        red + "," +
+                        green + "," +
+                        blue + "," +
+                        ";\n";
+                setInfo(setcolor);
+                return this;
+            } else
+                throw new ArithmeticException("ERROR! RGB values can from 0 to 255 in addTextColor");
+        }
+
+
+        public Builder toggleUnderline() {
+            String toggleUL = "text-decoration: underline;";
+            setInfo(toggleUL);
+            return this;
+        }
+
+
+        //-------------------------------------------------OTHER STUFF
+
+        public Builder setInline() {
+            setInfo("display: inline-block;");
+            return this;
+        }
+
+        public Builder fixPosition() {
+            setInfo("position: fixed;");
+            return this;
+        }
+
+
+        //--------------------------BOX PROPERTIES-------------------
+        public Builder setBorderStyle(String style) {
+            if (validBorderStyle(style)) {
+                String holder = "border-style: " + style + ";";
+                setInfo(holder);
+                return this;
+            } else throw new ArithmeticException("ERROR! " + style + " IS NOT A VALID BORDER STYLE");
+        }
+
+        public Builder setBorderStyle(String topNBottom, String sides) {
+            if (validBorderStyle(topNBottom) && validBorderStyle(sides)) {
+                String holder = "border-style: " + topNBottom + sides + ";";
+                setInfo(holder);
+                return this;
+            } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        }
+
+        public Builder setBorderStyle(String top, String sides, String bottom) {
+            if (validBorderStyle(top) && validBorderStyle(sides) && validBorderStyle(bottom)) {
+                String holder = "border-style: " + top + sides + bottom + ";";
+                setInfo(holder);
+                return this;
+            } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        }
+
+        public Builder setBorderStyle(String top, String right, String left, String bottom) {
+            if (validBorderStyle(top) && validBorderStyle(right) && validBorderStyle(left) && validBorderStyle(bottom)) {
+                String holder = "border-style: " + top + right + bottom + left + ";";
+                setInfo(holder);
+                return this;
+            } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        }
+
+        public Builder addMargin(float spaceBtwn, String unitOfMes) {
+            String margin = "margin: " + spaceBtwn + unitOfMes + ";";
+            setInfo(margin);
+            return this;
+        }
+
+        public Builder addMarginLeft(float spaceBtwn, String unitOfMes) {
+            String margin = "margin-left: " + spaceBtwn + unitOfMes + ";";
+            setInfo(margin);
+            return this;
+        }
+
+        public Builder addMarginRight(float spaceBtwn, String unitOfMes) {
+            String margin = "margin-right: " + spaceBtwn + unitOfMes + ";";
+            setInfo(margin);
+            return this;
+        }
+
+        public Builder addMarginTop(float spaceBtwn, String unitOfMes) {
+            String margin = "margin-top: " + spaceBtwn + unitOfMes + ";";
+            setInfo(margin);
+            return this;
+        }
+
+        public Builder addMarginBottom(float spaceBtwn, String unitOfMes) {
+            String margin = "margin-bottom: " + spaceBtwn + unitOfMes + ";";
+            setInfo(margin);
+            return this;
+        }
+
+
+        //---------------------------HELPER METHODS-------------
+
+
+        private boolean isValidColor(String color) {
+            for (String colors : listOverColorCodeWords) {
+                if (colors.equalsIgnoreCase(color)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        private boolean isValidRGB(int a, int b, int c) {
+            return a < 256 && b < 256 && c < 256;
+        }
+
+        private boolean validBorderStyle(String check) {
+            for (String style : listOfBorderStyles) {
+                if (style.equals(check)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+    }
 }

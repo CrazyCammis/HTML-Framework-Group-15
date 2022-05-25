@@ -5,14 +5,14 @@ import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
 import java.io.IOException;
 
 public class CSS extends FileGenerator {
-    private  static CSSBracket[] cssBracketList;
+    private  static CSSBracket[] cssBracketsList;
 
-    public CSS(CSSBracket[] cssBracketList) {
-        this.cssBracketList = cssBracketList;
+    public CSS(CSSBracket[] cssBracketsList) {
+        this.cssBracketsList = cssBracketsList;
     }
 
-    public static  CSS generate(CSSBracket[] cssBracketList){
-        return new CSS(cssBracketList);
+    public static  CSS generate(CSSBracket[] cssBracketsList){
+        return new CSS(cssBracketsList);
     }
 
     public static void generateFile(String fileName) throws IOException {
@@ -22,7 +22,7 @@ public class CSS extends FileGenerator {
 
     private static String toStringv2() {
         StringBuilder holder = new StringBuilder();
-        for (CSSBracket bracket : cssBracketList){
+        for (CSSBracket bracket : cssBracketsList){
             holder.append("\n").append(bracket.toString());
         }
         return holder.toString();
@@ -31,7 +31,7 @@ public class CSS extends FileGenerator {
     @Override
     public  String toString() {
         StringBuilder holder = new StringBuilder();
-        for (CSSBracket bracket : cssBracketList){
+        for (CSSBracket bracket : cssBracketsList){
             holder.append("\n").append(bracket.toString());
         }
         return holder.toString();

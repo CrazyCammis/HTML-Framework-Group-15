@@ -1,14 +1,13 @@
+import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
-import hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators.CSS;
 import hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators.Page;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Article;
-import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Form;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Section;
-import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.FormOption;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
+import hiof.frameworks.group15.FactoryMethods.SubObjects.CSSBracket;
 import hiof.frameworks.group15.mainTags.MainTag;
 
 import java.io.IOException;
@@ -60,42 +59,21 @@ public class Main {
 
         //System.out.println(newPage.toString());
 
-
+        String stuff = section.getArticlesClass();
         newPage.generateFile("tester");
 
+        CSSBracket holder;
+         holder = CSSBracket.Builder.newInstance()
+                .setTargetName(section.getArticlesClass())
+                 .setTypeOfTarget("class")
+                 .addBackgroundColor("red")
+                 .addFontSize("px", 32f)
+                 .build();
 
 
 
+         System.out.println(holder.toString());
 
-        CSSBracket h4 = CSSBracket.generate("main", "tag");
-        CSSBracket h2 = CSSBracket.generate("erw2", "clAss");
-        CSSBracket h3 = CSSBracket.generate("erw5", "iD");
-
-        h2.setBackgroundImageLocal("REEE");
-        h2.toggleUnderline();
-
-        h3.addTextColor("red");
-
-        System.out.println(h2);
-        System.out.println(h3);
-
-        CSSBracket articleClassBracket = CSSBracket.generate(section.getArticlesClass(), "class");
-
-        articleClassBracket.addMargin(2.3f, "em");
-        articleClassBracket.addBackgroundColor("navyblue");
-        articleClassBracket.addBackgroundColor("blue");
-
-
-
-        h4.addFontSize("px", 23);
-        h2.setInline();
-        h3.setInline();
-
-
-        CSSBracket[] list = new CSSBracket[]{h4, h2, h3};
-
-        CSS holder = CSS.generate(list);
-        //holder.generateFile("reee");
 
 
 
