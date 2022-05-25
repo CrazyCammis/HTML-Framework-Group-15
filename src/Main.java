@@ -1,6 +1,7 @@
 import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Nav;
+import hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators.CSS;
 import hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators.Page;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Article;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Form;
@@ -25,7 +26,7 @@ public class Main {
         Nav navigation = Nav.generate(linksList, linksNameList, "mainNav",
                 "navClass");
         Header header = Header.generate("HIOF HJEMMESIDE", navigation);
-       // Header header2 = Header.generate("TITLE", genericParagraph, navigation);
+        Header header2 = Header.generate("TITLE", genericParagraph, navigation);
 
         System.out.println(header2.toString());
 
@@ -64,16 +65,26 @@ public class Main {
         String stuff = section.getArticlesClass();
         newPage.generateFile("tester");
 
-        CSSBracket articleClassCSS = CSSBracket.Builder.newInstance()
-                .setTargetName(section.getArticlesClass())
-                 .setTypeOfTarget("class")
+        CSSBracket articleClassCSS = CSSBracket.Builder.newInstance(section.getArticlesClass(), "class")
                  .addBackgroundColor("red")
                  .addFontSize("px", 32f)
                  .build();
 
+        System.out.println(articleClassCSS);
 
 
          System.out.println(articleClassCSS.toString());
+
+         CSSBracket navIdCss = CSSBracket.Builder.newInstance(navigation.getID(), "ID")
+                 .setTargetName(navigation.getID())
+                 .setTypeOfTarget("ID")
+                 .addBackgroundColor("red")
+                 .build();
+         CSSBracket[] listOfBrackets = {articleClassCSS, navIdCss};
+
+         CSS holder = CSS.generate(listOfBrackets);
+
+         holder.generateFile("cssFile");
 
 
 

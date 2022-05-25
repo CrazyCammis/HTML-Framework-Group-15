@@ -2,7 +2,10 @@ package hiof.frameworks.group15.FactoryMethods.Footer;
 
 public class Footer {
     String email, info1, info2;
-
+/**
+ * 
+ * @param email
+ */
     private Footer(String email) {
         this.email = email;
     }

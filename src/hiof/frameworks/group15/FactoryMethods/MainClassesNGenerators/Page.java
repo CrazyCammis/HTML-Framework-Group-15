@@ -1,10 +1,8 @@
 package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 
-import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
+import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.mainTags.MainTag;
-
-import java.io.IOException;
 
 public class Page extends FileGenerator {
     private static final String htmlPart1;
@@ -35,16 +33,16 @@ public class Page extends FileGenerator {
     }
 
     private Page(Header header, MainTag mainTag, Footer footer) {
-        this.header = header;
-        this.mainTag = mainTag;
-        this.footer = footer;
+        Page.header = header;
+        Page.mainTag = mainTag;
+        Page.footer = footer;
     }
 
     public static Page generate(Header header, MainTag mainTag, Footer footer) {
         return new Page(header, mainTag, footer);
     }
 
-    public static void generateFile(String fileName) throws IOException {
+    public static void generateFile(String fileName) {
         String holder = pageString(header, mainTag, footer);
         generateFile(fileName,  holder, "html");
     }

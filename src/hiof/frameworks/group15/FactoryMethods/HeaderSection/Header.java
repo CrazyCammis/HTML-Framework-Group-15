@@ -86,7 +86,7 @@ public class Header {
             headerString = generateHeaderString3(title, nav);
         }
         //For PARAGRAPH
-        else if (paragraph != null && nav != null) {
+        else if (paragraph != null) {
             headerString = generateHeaderString4(title, paragraph, nav);
         } else
             headerString = generateHeaderString1(title);

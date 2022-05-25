@@ -87,9 +87,8 @@ public class CSSBracket {
             return this;
         }
 
-        private Builder setInfo(String newinfo) {
-            this.info = info + newinfo + "\n    ";
-            return this;
+        private void setInfo(String newInfo) {
+            this.info = info + newInfo + "\n    ";
         }
 
         public CSSBracket build() {
@@ -98,11 +97,13 @@ public class CSSBracket {
 
         private String targetName, typeOfTarget, info = "";
 
-        public static Builder newInstance() {
-            return new Builder();
+        public static Builder newInstance(String targetName, String typeOfTarget) {
+            return new Builder(targetName, typeOfTarget);
         }
 
-        private Builder() {
+        private Builder(String targetName, String typeOfTarget) {
+            this.targetName = targetName;
+            this.typeOfTarget = typeOfTarget;
         }
 
 

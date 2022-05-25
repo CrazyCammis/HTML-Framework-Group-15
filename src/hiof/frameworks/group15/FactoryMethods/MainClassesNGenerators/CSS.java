@@ -8,7 +8,7 @@ public class CSS extends FileGenerator {
     private  static CSSBracket[] cssBracketsList;
 
     public CSS(CSSBracket[] cssBracketsList) {
-        this.cssBracketsList = cssBracketsList;
+        CSS.cssBracketsList = cssBracketsList;
     }
 
     public static  CSS generate(CSSBracket[] cssBracketsList){

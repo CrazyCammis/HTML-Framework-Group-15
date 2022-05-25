@@ -10,10 +10,10 @@ public class Nav {
     private String[] getLinkText() {
         return linkText;
     }
-    private String getID() {
+    public String getID() {
         return navTagID;
     }
-    private String getClassName() {
+    public String getClassName() {
         return navTagClass;
     }
 

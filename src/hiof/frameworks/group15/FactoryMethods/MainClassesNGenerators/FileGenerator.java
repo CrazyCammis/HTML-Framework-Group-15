@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public abstract class FileGenerator {
 
-    public static void generateFile(String filename, String info, String fileFormat) throws  IOException {
+    public static void generateFile(String filename, String info, String fileFormat) {
         filename = filename+ "." +fileFormat;
         File page = new File(filename);
         if (!page.exists())
@@ -16,7 +16,7 @@ public abstract class FileGenerator {
                 myWriter.close();
                 System.out.println("Successfully wrote to the file: " + info);
             } catch (IOException e) {
-                System.out.println("An error occurred. Check if file already exsist");
+                System.out.println("An error occurred. Check if file already exist");
                 e.printStackTrace();
             }
     }

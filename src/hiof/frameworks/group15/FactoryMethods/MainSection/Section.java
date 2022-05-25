@@ -1,8 +1,9 @@
 package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 public class Section {
-    private Article[] articles;
-    private String sectionID, sectionClass;
+    private final Article[] articles;
+    private final String sectionID;
+    private final String sectionClass;
 
     public String getID() { return sectionID;}
 

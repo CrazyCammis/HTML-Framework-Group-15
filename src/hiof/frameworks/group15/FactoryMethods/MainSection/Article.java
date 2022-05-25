@@ -3,7 +3,10 @@ package hiof.frameworks.group15.FactoryMethods.MainSection;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 
 public class Article {
-    private String title, paragraphString, articleID, groupClass;
+    private final String title;
+    private String paragraphString;
+    private final String articleID;
+    private final String groupClass;
     private Paragraph paragraph;
     private Form form;
 

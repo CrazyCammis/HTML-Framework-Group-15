@@ -56,7 +56,7 @@ public class MainTag {
     @Override
     public String toString() {
         String mainBody;
-        String holder = "";
+        String holder;
 
         if(infoString != null && infoList == null  && section == null){
              holder = generateString1(this.infoString);
