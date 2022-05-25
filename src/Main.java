@@ -62,8 +62,7 @@ public class Main {
         String stuff = section.getArticlesClass();
         newPage.generateFile("tester");
 
-        CSSBracket holder;
-         holder = CSSBracket.Builder.newInstance()
+        CSSBracket articleClassCSS = CSSBracket.Builder.newInstance()
                 .setTargetName(section.getArticlesClass())
                  .setTypeOfTarget("class")
                  .addBackgroundColor("red")
@@ -72,7 +71,7 @@ public class Main {
 
 
 
-         System.out.println(holder.toString());
+         System.out.println(articleClassCSS.toString());
 
 
 
