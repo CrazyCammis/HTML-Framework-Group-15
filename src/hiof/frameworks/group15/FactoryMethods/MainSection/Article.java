@@ -1,7 +1,11 @@
 package hiof.frameworks.group15.FactoryMethods.MainSection;
 
 import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
-
+/***
+ * Article class for Article class 
+ * @author Anders Grindal
+ *
+ */
 public class Article {
     private final String title;
     private String paragraphString;
@@ -10,7 +14,16 @@ public class Article {
     private Paragraph paragraph;
     private Form form;
 
+    /**
+     * Getter for ID
+     * @return the articles ID identifier
+     */
     public String getID() {return articleID;}
+    
+    /**
+     * getter for class 
+     * @return class identifier 
+     */
     public String getClassName() {return groupClass;}
 
     private Article(String title, String paragraphString, String articleID, String groupClass) {
@@ -34,6 +47,7 @@ public class Article {
         this.paragraph = paragraph;
         this.form = form;
     }
+    
     private Article(String title, String articleID, String groupClass, String paragraphString, Form form) {
         this.title = title;
         this.articleID = articleID;
@@ -42,23 +56,60 @@ public class Article {
         this.form = form;
     }
 
+    /**
+     * Generates article with title, paragraph, ID identifier and class identifier
+     * @param title title
+     * @param paragraphString paragraph 
+     * @param articleID ID identifier
+     * @param groupClass class identifier
+     * @return Generated article with title, paragraph, ID identifier and class identifier
+     */
     public static Article generate(String title, String paragraphString, String articleID, String groupClass){
         return new Article(title, paragraphString, articleID, groupClass);
     }
-
+    
+    /**
+     * Generates article with title, paragraph, ID identifier,  class identifier and a form
+     * @param title title
+     * @param paragraphString paragraph 
+     * @param articleID ID identifier
+     * @param groupClass class identifier
+     * @param form  form
+     * @return Generated article with title, paragraph, ID identifier and class identifier and a form 
+     */
     public static Article generate(String title, String paragraphString, String articleID, String groupClass, Form form){
         return new Article( title,  articleID,  groupClass,  paragraphString,  form);
     }
 
-
+    /**
+     * Generates article with title, paragraph, ID identifier,  class identifier 
+     * @param title Title
+     * @param paragraph Paragraph
+     * @param articleID ID identifier
+     * @param groupClass class identifier
+     * @return Generated article with title, paragraph, ID identifier and class identifier
+     */
     public static Article generate(String title, Paragraph paragraph, String articleID, String groupClass){
         return new Article(title, paragraph, articleID, groupClass);
     }
 
+    /**
+     * Generates article with title, paragraph, ID identifier,  class identifier and a form
+     * @param title title
+     * @param paragraph paragraph 
+     * @param articleID ID identifier
+     * @param groupClass class identifier
+     * @param form form
+     * @return Generated article with title, paragraph, ID identifier and class identifier and a form 
+     */
     public static Article generate(String title, Paragraph paragraph, String articleID, String groupClass, Form form){
         return new Article( title,  articleID,  groupClass,  paragraph,  form);
     }
 
+    
+    /**
+     * To string method
+     */
     @Override
     public String toString() {
         if(paragraphString != null && form == null && paragraph == null)

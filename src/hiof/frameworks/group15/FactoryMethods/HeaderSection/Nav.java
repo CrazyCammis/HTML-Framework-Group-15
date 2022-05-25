@@ -1,5 +1,9 @@
 package hiof.frameworks.group15.FactoryMethods.HeaderSection;
-
+/**
+ * Nav class for HTML nav tag
+ * @author Anders Grindal
+ *
+ */
 public class Nav {
    private String[] links, linkText;
    private  String navTagID, navTagClass;
@@ -10,9 +14,18 @@ public class Nav {
     private String[] getLinkText() {
         return linkText;
     }
+
+    /**
+     * getter for ID 
+     * @return ID identifier 
+     */
     public String getID() {
         return navTagID;
     }
+    /**
+     * getter for class 
+     * @return class identifier 
+     */
     public String getClassName() {
         return navTagClass;
     }
@@ -25,6 +38,15 @@ public class Nav {
     }
 
 
+    /**
+     * Generates a Nav with links, click able text with n text that takes you to said links websites,
+     *  an ID for CSS reference and a class identifier for CSS reference
+     * @param links List of links
+     * @param linkText List of chosen text
+     * @param navTagID ID identifier
+     * @param navTagClass class Identifer (CSS)
+     * @return Generated nav object with links, texts, id and class
+     */
     public static   Nav generate(String[] links, String[] linkText, String navTagID, String navTagClass) {
         return new Nav(links, linkText, navTagID, navTagClass);
     }
@@ -41,6 +63,9 @@ public class Nav {
         return nav;
     }
 
+    /**
+     * To string method
+     */
     @Override
     public String toString() {
         return generateNavListString(getLinks(), getLinkText(), getID(), getClassName());

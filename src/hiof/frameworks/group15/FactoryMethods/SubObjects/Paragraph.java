@@ -1,10 +1,23 @@
 package hiof.frameworks.group15.FactoryMethods.SubObjects;
-
+/**
+ * Paragraph class for HTML paragraph tag
+ * @author Anders Grindal
+ *
+ */
 public class Paragraph {
-    String info, paragraphID, paragraphClass;
+    private String info, paragraphID, paragraphClass;
+    
+    /**
+     * Getter  for ID identifier
+     * @return ID identifier
+     */
     public String getID() {
         return paragraphID;
     }
+    /**
+     * getter for class identifier
+     * @return class identifier
+     */
     public String getClassName() {
         return paragraphClass;
     }
@@ -15,9 +28,20 @@ public class Paragraph {
         this.paragraphClass = paragraphClass;
     }
 
+    /**
+     * Generator for new paragraph
+     * @param info Paragraph text
+     * @param paragraphID ID identifier
+     * @param paragraphClass class identifier
+     * @return Generated paragraph
+     */
     public static  Paragraph generate(String info, String paragraphID, String paragraphClass){
         return new Paragraph(info, paragraphID, paragraphClass);
     }
+    
+    /**
+     * To string method
+     */
 
     @Override
     public String toString() {

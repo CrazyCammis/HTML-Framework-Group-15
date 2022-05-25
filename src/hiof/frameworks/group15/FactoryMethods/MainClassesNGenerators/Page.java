@@ -3,7 +3,11 @@ package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
 import hiof.frameworks.group15.mainTags.MainTag;
-
+/**
+ * For a new HTML page
+ * @author ander
+ *
+ */
 public class Page extends FileGenerator {
     private static final String htmlPart1;
     private static final String htmlPart2;
@@ -38,15 +42,30 @@ public class Page extends FileGenerator {
         Page.footer = footer;
     }
 
+    /**
+     * Generates a new Page requires Header, MainTag and footer to qualify for a new page
+     * @param header Header
+     * @param mainTag MainTag
+     * @param footer Footer
+     * @return Generated Page
+     */
     public static Page generate(Header header, MainTag mainTag, Footer footer) {
         return new Page(header, mainTag, footer);
     }
 
+  
+    /**
+     * Generates a new HTML file/page with the info we have given
+     * @param fileName the file name
+     */
     public static void generateFile(String fileName) {
         String holder = pageString(header, mainTag, footer);
         generateFile(fileName,  holder, "html");
     }
 
+    /**
+     * To string method
+     */
     @Override
     public String toString() {
         return pageString(header, mainTag, footer);
