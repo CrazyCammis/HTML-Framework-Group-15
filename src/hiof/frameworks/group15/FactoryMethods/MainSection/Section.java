@@ -5,6 +5,11 @@ public class Section {
     private String sectionID, sectionClass;
 
     public String getID() { return sectionID;}
+
+    public  String getArticlesClass() {
+        return articles[0].getClassName();
+    }
+
     public String getClassName() {return sectionClass;}
 
     private Section(Article[] articles, String sectionID, String sectionClass) {

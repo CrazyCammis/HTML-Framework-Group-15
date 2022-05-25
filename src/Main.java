@@ -68,13 +68,15 @@ public class Main {
 
 
         CSSBracket h4 = CSSBracket.generate("main", "tag");
-        CSSBracket h2 = CSSBracket.generate("erw2", "class");
-        CSSBracket h3 = CSSBracket.generate("erw5", "id");
+        CSSBracket h2 = CSSBracket.generate("erw2", "clAss");
+        CSSBracket h3 = CSSBracket.generate("erw5", "iD");
 
 
 
-        CSSBracket sectionBracket = CSSBracket.generate(section.getID(), "ID");
-        sectionBracket.addMargin(2.3f, "em");
+        CSSBracket articleClassBracket = CSSBracket.generate(section.getArticlesClass(), "class");
+        articleClassBracket.addMargin(2.3f, "em");
+        articleClassBracket.addBackgroundColor("navyblue");
+
 
         h4.addFontSize("px", 23);
         h2.setInline();
