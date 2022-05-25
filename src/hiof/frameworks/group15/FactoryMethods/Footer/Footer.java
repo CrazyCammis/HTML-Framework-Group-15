@@ -18,17 +18,11 @@ public class Footer {
         this.info2 = info2;
     }
 
-    public static  Footer generate(String email){
-        return new Footer(email);
-    }
+    public static  Footer generate(String email){ return new Footer(email);}
 
-    public static  Footer generate(String email, String info1){
-        return new Footer(email, info1);
-    }
+    public static  Footer generate(String email, String info1){return new Footer(email, info1);}
 
-    public static  Footer generate(String email, String info1,String info2){
-        return new Footer(email, info1, info2);
-    }
+    public static  Footer generate(String email, String info1,String info2){return new Footer(email, info1, info2);}
 
 
     public String generateFooterString1(String email) {
@@ -53,7 +47,6 @@ public class Footer {
                 "       <p>" + infop2 + "</p>\n" +
                 "       <p>Created at "+  java.time.LocalDate.now() +"</p> \n   </footer>";
     }
-
 
     @Override
     public String toString() {

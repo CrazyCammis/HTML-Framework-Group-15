@@ -48,7 +48,7 @@ public class CSSBracket {
     }
 
     private void setInfo(String newinfo) {
-        info += newinfo+ "\n    ";
+        info += newinfo + "\n    ";
     }
 
     @Override
@@ -82,14 +82,15 @@ public class CSSBracket {
     public void setBackgroundImageLocal(String localPath) {
         setInfo("background-image: url(" + localPath + ");");
     }
-    public void setBackgroundImageFromWeb(String url ) {
+
+    public void setBackgroundImageFromWeb(String url) {
         setInfo("background-image: url(\"" + url + "\");");
     }
 
 ///-------------------------------------------TEXT STUFF---------------------------------
 
-    public void addFontSize(String measurementUnit, float size) {
-        String fontSize = "font-size: " + findSize(measurementUnit, size);
+    public void addFontSize(String unitOfMes, float size) {
+        String fontSize = "font-size: " + size + unitOfMes + ";";
         setInfo(fontSize);
     }
 
@@ -125,61 +126,63 @@ public class CSSBracket {
     public void setInline() {
         setInfo("display: inline-block;");
     }
-    public void fixPosition(){setInfo("position: fixed;");}
+
+    public void fixPosition() {
+        setInfo("position: fixed;");
+    }
 
 
     //--------------------------BOX PROPERTIES-------------------
     public void setBorderStyle(String style) {
-        if(validBorderStyle(style)) {
+        if (validBorderStyle(style)) {
             String holder = "border-style: " + style + ";";
             setInfo(holder);
-        }
-        else   throw new ArithmeticException("ERROR! " + style + " IS NOT A VALID BORDER STYLE");;
+        } else throw new ArithmeticException("ERROR! " + style + " IS NOT A VALID BORDER STYLE");
     }
 
     public void setBorderStyle(String topNBottom, String sides) {
-        if(validBorderStyle(topNBottom)&& validBorderStyle(sides)) {
+        if (validBorderStyle(topNBottom) && validBorderStyle(sides)) {
             String holder = "border-style: " + topNBottom + sides + ";";
             setInfo(holder);
-        }
-        else   throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
     }
 
     public void setBorderStyle(String top, String sides, String bottom) {
-        if(validBorderStyle(top)&& validBorderStyle(sides) && validBorderStyle(bottom)) {
+        if (validBorderStyle(top) && validBorderStyle(sides) && validBorderStyle(bottom)) {
             String holder = "border-style: " + top + sides + bottom + ";";
             setInfo(holder);
-        }
-        else   throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
     }
 
     public void setBorderStyle(String top, String right, String left, String bottom) {
-        if(validBorderStyle(top)&& validBorderStyle(right ) && validBorderStyle(left) && validBorderStyle(bottom)) {
+        if (validBorderStyle(top) && validBorderStyle(right) && validBorderStyle(left) && validBorderStyle(bottom)) {
             String holder = "border-style: " + top + right + bottom + left + ";";
             setInfo(holder);
-        }
-        else  throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+        } else throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
     }
 
     public void addMargin(float spaceBtwn, String unitOfMes) {
-        String margin =  "margin: " + findSize(unitOfMes, spaceBtwn) + ";";
+        String margin = "margin: " + spaceBtwn + unitOfMes + ";";
         setInfo(margin);
     }
 
     public void addMarginLeft(float spaceBtwn, String unitOfMes) {
-        String margin =  "margin-left: " + findSize(unitOfMes, spaceBtwn) + ";";
+        String margin = "margin-left: " + spaceBtwn + unitOfMes + ";";
         setInfo(margin);
     }
+
     public void addMarginRight(float spaceBtwn, String unitOfMes) {
-        String margin =  "margin-right: " + findSize(unitOfMes, spaceBtwn) + ";";
+        String margin = "margin-right: " + spaceBtwn + unitOfMes + ";";
         setInfo(margin);
     }
+
     public void addMarginTop(float spaceBtwn, String unitOfMes) {
-        String margin =  "margin-top: " + findSize(unitOfMes, spaceBtwn) + ";";
+        String margin = "margin-top: " + spaceBtwn + unitOfMes + ";";
         setInfo(margin);
     }
+
     public void addMarginBottom(float spaceBtwn, String unitOfMes) {
-        String margin =  "margin-bottom: " + findSize(unitOfMes, spaceBtwn) + ";";
+        String margin = "margin-bottom: " + spaceBtwn + unitOfMes + ";";
         setInfo(margin);
     }
 
@@ -189,7 +192,7 @@ public class CSSBracket {
 
     private boolean isValidColor(String color) {
         for (String colors : listOverColorCodeWords) {
-            if (colors.toLowerCase().equals(color.toLowerCase())) {
+            if (colors.equalsIgnoreCase(color)) {
                 return true;
             }
         }
@@ -212,11 +215,11 @@ public class CSSBracket {
 
     private String identify() {
         String holder1 = "";
-        if (this.typeOfTarget.toLowerCase().equals("id")) {
+        if (this.typeOfTarget.equalsIgnoreCase("id")) {
             holder1 = ".";
-        } else if (typeOfTarget.toLowerCase().equals("class")) {
+        } else if (typeOfTarget.equalsIgnoreCase("class")) {
             holder1 = "#";
-        } else if (typeOfTarget.toLowerCase().equals("tag")) {
+        } else if (typeOfTarget.equalsIgnoreCase("tag")) {
             if (!isTag(targetName)) {
                 throw new ArithmeticException("ERROR! " + targetName + " is not a semantic tag, class or ID  try again");
             }
@@ -225,30 +228,33 @@ public class CSSBracket {
         return holder1;
     }
 
-    private String findSize(String type, float size) {
-        double actualSize = 0;
+    /*
+        private String findSize(String type, float size) {
+            double actualSize = 0;
 
-        if (type.equals("") || !type.equals("em") || !type.equals("px")) {
-            type = "px";
+            if (type.equals("") || !type.equals("em") || !type.equals("px")) {
+                type = "px";
+            }
+
+            if (size <= 0 && type.equals("px")) {
+                size = 16;
+            } else if (size <= 0 && type.equals("em")) {
+                size = 1;
+            }
+
+            if (!type.equals("em")) {
+                float textSize = size / 16;
+                actualSize = Math.pow(textSize, 1);
+            }
+            return "" + actualSize + type;
+
         }
-
-        if (size <= 0 && type.equals("px")) {
-            size = 16;
-        } else if (size <= 0 && type.equals("em")) {
-            size = 1;
-        }
-
-        if (!type.equals("em")) {
-            float textSize = size / 16;
-            actualSize = Math.pow(textSize, 1);
-        }
-        return "" + actualSize + type;
-
-    }
-
-    private boolean validBorderStyle(String check){
-        for (String style: listOfBorderStyles  ) {
-            if(style.equals(check)){return  true;}
+    */
+    private boolean validBorderStyle(String check) {
+        for (String style : listOfBorderStyles) {
+            if (style.equals(check)) {
+                return true;
+            }
         }
         return false;
     }
