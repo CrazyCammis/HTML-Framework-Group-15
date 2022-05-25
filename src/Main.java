@@ -80,6 +80,7 @@ public class Main {
         System.out.println(h3);
 
         CSSBracket articleClassBracket = CSSBracket.generate(section.getArticlesClass(), "class");
+
         articleClassBracket.addMargin(2.3f, "em");
         articleClassBracket.addBackgroundColor("navyblue");
         articleClassBracket.addBackgroundColor("blue");
