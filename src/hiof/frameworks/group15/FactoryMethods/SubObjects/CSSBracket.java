@@ -80,7 +80,7 @@ public class CSSBracket {
     }
 
     public void setBackgroundImage(String url) {
-        setInfo("background-image: url(" + url + ");";
+        setInfo("background-image: url(" + url + ");");
     }
 
 ///-------------------------------------------TEXT STUFF---------------------------------
@@ -123,10 +123,7 @@ public class CSSBracket {
         setInfo("display: inline-block;");
     }
 
-    public void addMargin(float spaceBtwn, String unitOfMes) {
-        String margin = findSize(unitOfMes, spaceBtwn);
-        setInfo(margin);
-    }
+
 
 
     //--------------------------BOX PROPERTIES-------------------
@@ -160,6 +157,11 @@ public class CSSBracket {
             setInfo(holder);
         }
         else  throw new ArithmeticException("ERROR!  INVALID BORDER STYLE GIVEN");
+    }
+
+    public void addMargin(float spaceBtwn, String unitOfMes) {
+        String margin = findSize(unitOfMes, spaceBtwn);
+        setInfo(margin);
     }
     //---------------------------HELPER METHODS-------------
 
