@@ -36,7 +36,7 @@ public class Header {
 
     /**
      * Generates a Header with just a title
-     * @param headline
+     * @param headline title
      * @return  Generated Header with title
      */
     public static Header generate(String headline) {
@@ -45,8 +45,8 @@ public class Header {
 
     /**
      * Generates a Header with a title and paragraph
-     * @param headline
-     * @param paragraph
+     * @param headline title
+     * @param paragraph paragraph
      * @return Generated Header with title and paragraph 
      */
     public static Header generate(String headline, Paragraph paragraph) {
@@ -63,13 +63,14 @@ public class Header {
         return new Header(headline, nav);
     }
 
+   
     /**
      * Generates a header with title, a paragraph and a nav
      * @param headline title
      * @param paragraph paragraph
-     * @param navList nav
-     * @return Generated Header with title, paragraph and nav
-     */
+     * @param nav navigation
+     * @return Generated Header with title, paragraph and nav 
+     */ 
     public static Header generate(String headline, Paragraph paragraph, Nav nav) {
         return new Header(headline, paragraph, nav);
     }

@@ -103,10 +103,11 @@ public class CSSBracket {
             return this;
         }
 
+       
         /**
-         * Setter for the CSS type of target for this bracket
+         *  Setter for the CSS type of target for this bracket
          * @param targetName  type of target for this CSS brackets,  class, id or tag
-         * @return returns the updated builder
+         * @return  returns the updated builder
          */
         public Builder setTypeOfTarget(String typeOfTarget) {
             this.typeOfTarget = typeOfTarget;
@@ -119,7 +120,7 @@ public class CSSBracket {
 
         /**
          * Builds the builder then converts it into a CSSbracket object
-         * @return
+         * @return returns the new CSS bracket that was generated for us
          */
         public CSSBracket build() {
             return new CSSBracket(this);
@@ -132,7 +133,7 @@ public class CSSBracket {
          * and if its class id or a tag 
          * @param targetName What the target for the CSS bracket is
          * @param typeOfTarget What kind of target it is, class, id or tag
-         * @return
+         * @return returns the updated builder
          */
         public static Builder newInstance(String targetName, String typeOfTarget) {
             return new Builder(targetName, typeOfTarget);
@@ -148,7 +149,7 @@ public class CSSBracket {
         /**
          * Creates and adds a background colour to the target of this CSS bracket 
          * @param color Colour keyword
-         * @return
+         * @return returns the updated builder
          */
         public Builder addBackgroundColor(String color) {
             if (isValidColor(color)) {
@@ -164,7 +165,7 @@ public class CSSBracket {
          * @param red how much red is added
          * @param green how much green is added
          * @param blue how much blue is added
-         * @return
+         * @return returns the updated builder
          */
         public Builder addBackgroundColor(int red, int green, int blue) {
             if (isValidRGB(red, green, blue)) {
@@ -184,7 +185,7 @@ public class CSSBracket {
         /**
          * Set a background image from a file on the computer on the target CSS bracket
          * @param localPath the path
-         * @return
+         * @return returns the updated builder
          */
         public Builder setBackgroundImageLocal(String localPath) {
             setInfo("background-image: url(" + localPath + ");");
@@ -194,7 +195,7 @@ public class CSSBracket {
         /**
          * Set a background image from the the web  on the target for this CSS bracket
          * @param url the image link
-         * @return
+         * @return returns the updated builder 
          */
         public Builder setBackgroundImageFromWeb(String url) {
             setInfo("background-image: url(\"" + url + "\");");
@@ -205,20 +206,20 @@ public class CSSBracket {
 
         /**
          * Sets the text size of target of this CSS bracket
-         * @param unitOfMes
-         * @param size
-         * @return
+         * @param unitOfMes what unit of meassurement we use
+         * @param size returns the updated builder
+         * @return returns the updated builder
          */
         public Builder setTextSize(String unitOfMes, float size) {
             String fontSize = "font-size: " + size + unitOfMes + ";";
             setInfo(fontSize);
-            return this;
+            return this; 
         }
 
         /**
          * Sets a text colour based on a colour keyword on the target of this CSS bracket
-         * @param color
-         * @return
+         * @param color Color key word
+         * @return returns the updated builders
          */
         public Builder addTextColor(String color) {
             if (isValidColor(color)) {
@@ -234,7 +235,7 @@ public class CSSBracket {
          * @param red how much red is to bed added
          * @param green how much g is to be added
          * @param blue how much blue is to be added
-         * @return
+         * @return returns the updated builder
          */
         public Builder addTextColor(int red, int green, int blue) {
             if (isValidRGB(red, green, blue)) {
@@ -252,7 +253,7 @@ public class CSSBracket {
 
         /**
          * adds underline to the text on the target of this CSS bracket
-         * @return
+         * @return returns the updated builder
          */
         public Builder addUnderline() {
             String toggleUL = "text-decoration: underline;";
@@ -264,7 +265,7 @@ public class CSSBracket {
         //-------------------------------------------------OTHER STUFF
         /**
          * Used for when list are the target for this CSS bracket, this sets them into a in line list instead of down list.
-         * @return
+         * @return returns the updated builder
          */
         public Builder setInline() {
             setInfo("display: inline-block;");
@@ -273,8 +274,8 @@ public class CSSBracket {
 
         /**
          * Fixes the target position on the  screen
-         * @return
-         */
+         * @return returns the updated builder
+         */ 
         public Builder fixPosition() {
             setInfo("position: fixed;");
             return this;
@@ -286,7 +287,7 @@ public class CSSBracket {
          * Sets border style for the entire box for the target of this CSS bracket
          * Returns error if invalid style is given
          * @param style border Style
-         * @return
+         * @return returns the updated builder
          */
         public Builder setBorderStyle(String style) {
             if (validBorderStyle(style)) {
@@ -301,7 +302,7 @@ public class CSSBracket {
          * Returns error if invalid style is given
          * @param topNBottom Style for top border
          * @param sides Styles for the left and right  border
-         * @return
+         * @return returns the updated builder
          */
         public Builder setBorderStyle(String topNBottom, String sides) {
             if (validBorderStyle(topNBottom) && validBorderStyle(sides)) {
@@ -317,7 +318,7 @@ public class CSSBracket {
          * @param top Style for Top border
          * @param sides Style for left and right border
          * @param bottom Style for bottom border
-         * @return
+         * @return returns the updated builder
          */
         public Builder setBorderStyle(String top, String sides, String bottom) {
             if (validBorderStyle(top) && validBorderStyle(sides) && validBorderStyle(bottom)) {
@@ -334,7 +335,7 @@ public class CSSBracket {
          * @param right Style for right border
          * @param left Style for left border
          * @param bottom Style for bottom border
-         * @return
+         * @return returns the updated builder
          */
         public Builder setBorderStyle(String top, String right, String left, String bottom) {
             if (validBorderStyle(top) && validBorderStyle(right) && validBorderStyle(left) && validBorderStyle(bottom)) {
@@ -345,35 +346,60 @@ public class CSSBracket {
         }
 
         /**
-        * Adds a margin with same distance around the box
-        * @param spaceBtwn
-        * @param unitOfMes
-        * @return
+        * Adds a margin with same distance around  the target of this CSS bracket
+        * @param spaceBtwn How big the margin is going to be
+        * @param unitOfMes unit of measurement between
+        * @return returns the updated builder
         */
         public Builder addMargin(float spaceBtwn, String unitOfMes) {
             String margin = "margin: " + spaceBtwn + unitOfMes + ";";
             setInfo(margin);
             return this;
         }
-
+        
+        
+        /**
+         * Adds a margin to the  left of  the target of this CSS bracket
+         * @param spaceBtwn How big the margin is going to be
+         * @param unitOfMes unit of measurement between
+         * @return returns the updated builder
+         */
         public Builder addMarginLeft(float spaceBtwn, String unitOfMes) {
             String margin = "margin-left: " + spaceBtwn + unitOfMes + ";";
             setInfo(margin);
             return this;
         }
-
+        
+        /**
+         * Adds a margin to the  right of  the target of this CSS bracket
+         * @param spaceBtwn How big the margin is going to be
+         * @param unitOfMes unit of measurement between
+         * @return returns the updated builder
+         */
         public Builder addMarginRight(float spaceBtwn, String unitOfMes) {
             String margin = "margin-right: " + spaceBtwn + unitOfMes + ";";
             setInfo(margin);
             return this;
         }
 
+        /**
+         * Adds a margin to the  top of  the target of this CSS bracket
+         * @param spaceBtwn How big the margin is going to be
+         * @param unitOfMes unit of measurement between
+         * @return returns the updated builder
+         */
         public Builder addMarginTop(float spaceBtwn, String unitOfMes) {
             String margin = "margin-top: " + spaceBtwn + unitOfMes + ";";
             setInfo(margin);
             return this;
         }
 
+        /**
+         * Adds a margin to the  bottom  of  the target of this CSS bracket
+         * @param spaceBtwn How big the margin is going to be
+         * @param unitOfMes unit of measurement between
+         * @return returns the updated builder
+         */
         public Builder addMarginBottom(float spaceBtwn, String unitOfMes) {
             String margin = "margin-bottom: " + spaceBtwn + unitOfMes + ";";
             setInfo(margin);
