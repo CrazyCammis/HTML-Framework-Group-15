@@ -106,7 +106,7 @@ public class CSSBracket {
        
         /**
          *  Setter for the CSS type of target for this bracket
-         * @param targetName  type of target for this CSS brackets,  class, id or tag
+         * @param typeOfTarget  type of target for this CSS brackets,  class, id or tag
          * @return  returns the updated builder
          */
         public Builder setTypeOfTarget(String typeOfTarget) {

@@ -1,5 +1,6 @@
 package hiof.frameworks.group15.mainTags;
 
+import hiof.frameworks.group15.BuilderPattern.CSSBracket;
 import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.MainSection.Section;
 /**
@@ -92,6 +93,13 @@ public class MainTag {
          mainBody = " <main> \n" + holder + "\n </main>";
         return  mainBody;
     }
+
+
+    public String test(){
+        String holder = "reeeeeeee";
+        return  holder;
+    }
+
 
 }
 

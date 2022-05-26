@@ -15,13 +15,13 @@ import java.io.IOException;
 
 public class Main {
 
-    private  static String[] linksList = new String[]{"www.google.com","www.amazon.com", "www.pottermore.com"};
-    private  static String[] linksNameList = new String[]{"google","amazon", "pottermore"};
-    
+    private static String[] linksList = new String[]{"www.google.com", "www.amazon.com", "www.pottermore.com"};
+    private static String[] linksNameList = new String[]{"google", "amazon", "pottermore"};
+
     public static void main(String[] args) throws IOException {
 
         Paragraph genericParagraph = Paragraph.generate("Generic stuff letts go the mooon landing totlay wasnt faked",
-        "genPara", "paragr");
+                "genPara", "paragr");
 
         Nav navigation = Nav.generate(linksList, linksNameList, "mainNav",
                 "navClass");
@@ -31,18 +31,17 @@ public class Main {
         System.out.println(header2.toString());
 
 
-
         FormOption formOption1 = FormOption.generate("formOp1", "set ur bd", "date",
                 "password");
 
         FormOption formOption2 = FormOption.generate("formOp1", "set ur bd", "date",
                 "password");
 
-        FormOption[] optionList = new FormOption[]{formOption1,formOption2};
+        FormOption[] optionList = new FormOption[]{formOption1, formOption2};
         Form form = Form.generate("Birthday questions", "bdayForm", optionList);
 
         Article article1 = Article.generate("Obi Wan takes the high ground!",
-        "Obi wans wins a crucial battle that  can only be descriped as duel of a fates",
+                "Obi wans wins a crucial battle that  can only be descriped as duel of a fates",
                 "article1", "mainArticles", form);
 
         Article article2 = Article.generate("Anakin dies!",
@@ -56,7 +55,6 @@ public class Main {
         Footer footer = Footer.generate("anderscg@hiof.no", "My website");
 
 
-
         Page newPage = Page.generate(header, maintag, footer);
 
 
@@ -66,28 +64,32 @@ public class Main {
         newPage.generateFile("tester");
 
         CSSBracket articleClassCSS = CSSBracket.Builder.newInstance(section.getArticlesClass(), "class")
-                 .addBackgroundColor("red")
-                 .setTextSize("px", 32f)
-                 .build();
-
-        System.out.println(articleClassCSS);
-
-
-         System.out.println(articleClassCSS.toString());
-
-         CSSBracket navIdCss = CSSBracket.Builder.newInstance(navigation.getID(), "ID")
-                 .setTargetName(navigation.getID())
-                 .setTypeOfTarget("ID")
-                 .addBackgroundColor("red")
-                 .build();
-         CSSBracket[] listOfBrackets = {articleClassCSS, navIdCss};
-
-         CSS holder = CSS.generate(listOfBrackets);
-
-         holder.generateFile("cssFile");
+                .addBackgroundColor("red")
+                .setTextSize("px", 32f)
+                .build();
 
 
 
+        CSSBracket navIdCss = CSSBracket.Builder.newInstance(navigation.getID(),
+                "ID")
+                .addBackgroundColor("red")
+                .build();
+
+
+        CSSBracket[] listOfBrackets = {articleClassCSS, navIdCss};
+
+        CSS holder = CSS.generate(listOfBrackets);
+
+        holder.generateFile("cssFile");
+
+
+        CSSBracket holder1 =
+                CSSBracket.Builder.newInstance("nav", "tag")
+                .addMargin(5f, "px")
+                .addUnderline()
+                .addBackgroundColor("Red")
+                .addTextColor("blue")
+                .build();
 
 
     }
