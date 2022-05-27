@@ -2,7 +2,7 @@ package hiof.frameworks.group15.FactoryMethods.MainClassesNGenerators;
 
 import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
 import hiof.frameworks.group15.FactoryMethods.HeaderSection.Header;
-import hiof.frameworks.group15.mainTags.MainTag;
+import hiof.frameworks.group15.FactoryMethods.MainSection.MainTag;
 /**
  * For a new HTML page
  * @author ander
@@ -59,7 +59,7 @@ public class Page extends FileGenerator {
      * @param fileName the file name
      */
     public static void generateFile(String fileName) {
-        String holder = pageString(header, mainTag, footer);
+        String holder = pageString();
         generateFile(fileName,  holder, "html");
     }
 
@@ -68,12 +68,11 @@ public class Page extends FileGenerator {
      */
     @Override
     public String toString() {
-        return pageString(header, mainTag, footer);
+        return pageString();
     }
 
-    private static String pageString(Header header, MainTag mainTag, Footer footer) {
-        String holder;
-        holder = htmlPart1 + header.toString() + "\n" + mainTag.toString() + "\n" + footer.toString() + htmlPart2;
+    private static String pageString() {
+        String holder = htmlPart1 + header.toString() + "\n" + mainTag.toString() + "\n" + footer.toString() + htmlPart2;
         return holder;
     }
 

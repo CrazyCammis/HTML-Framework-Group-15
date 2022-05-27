@@ -75,31 +75,31 @@ public class Header {
         return new Header(headline, paragraph, nav);
     }
 
-    private String generateHeaderString1(String headline) {
+    private String generateHeaderString1() {
         return "   <header>\n" +
-                "       <h1>" + headline + "</h1>" +
+                "       <h1>" + title + "</h1>" +
                 "</header>";
     }
 
-    private String generateHeaderString2(String headline, Paragraph paragraph) {
+    private String generateHeaderString2() {
         return "   <header>\n" +
-                "       <h1>" + headline + "</h1>\n" +
+                "       <h1>" + title + "</h1>\n" +
                 "       " + paragraph.toString() +
                 "</header>\n";
     }
 
-    private String generateHeaderString3(String headline, Nav navList) {
+    private String generateHeaderString3() {
         return "   <header>\n" +
-                "       <h1>" + headline + "</h1>\n" +
-                navList.toString() +
+                "       <h1>" + title + "</h1>\n" +
+                nav.toString() +
                 "</header>\n";
     }
 
-    private String generateHeaderString4(String headline, Paragraph paragraph, Nav navList) {
+    private String generateHeaderString4() {
         return "   <header>\n" +
-                "       <h1>" + headline + "</h1>\n" +
+                "       <h1>" + title + "</h1>\n" +
                 "       " + paragraph.toString() +
-                navList.toString() +
+                nav.toString() +
                 "</header>\n";
     }
 
@@ -108,21 +108,17 @@ public class Header {
      */
     @Override
     public String toString() {
-        String headerString;
-
         if (paragraph != null && nav == null) {
-            headerString = generateHeaderString2(title, paragraph);
+            return  generateHeaderString2();
         }
-        // FOR STRING
         else if (paragraph == null && nav != null) {
-            headerString = generateHeaderString3(title, nav);
+            return  generateHeaderString3();
         }
-        //For PARAGRAPH
         else if (paragraph != null) {
-            headerString = generateHeaderString4(title, paragraph, nav);
+            return  generateHeaderString4();
         } else
-            headerString = generateHeaderString1(title);
-        return headerString;
+            return  generateHeaderString1();
+
     }
 }
 

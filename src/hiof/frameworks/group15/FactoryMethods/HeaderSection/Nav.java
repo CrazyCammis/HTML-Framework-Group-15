@@ -51,9 +51,9 @@ public class Nav {
         return new Nav(links, linkText, navTagID, navTagClass);
     }
 
-    private String generateNavListString(String[] links, String[] linkText, String navTagId, String navTagClass) {
+    private String generateNavListString() {
         int size = links.length;
-        String nav = "  <nav id=\"" + navTagId + "\" class= \"" + navTagClass + "\">\n"+
+        String nav = "  <nav id=\"" + navTagID + "\" class= \"" + navTagClass + "\">\n"+
                 "       <ul> \n";
 
         for (int i = 0; i < size; i++) {
@@ -68,6 +68,6 @@ public class Nav {
      */
     @Override
     public String toString() {
-        return generateNavListString(getLinks(), getLinkText(), getID(), getClassName());
+        return generateNavListString();
     }
 }

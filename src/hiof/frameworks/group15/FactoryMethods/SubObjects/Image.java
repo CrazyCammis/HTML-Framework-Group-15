@@ -43,10 +43,10 @@ public class Image{
      */
     @Override
     public String toString() {
-        return generateImagesString(url, caption, imageID, imageClass);
+        return generateImagesString();
     }
 
-    private String generateImagesString(String url, String caption, String imageID, String imageClass){
+    private String generateImagesString(){
         return "<img id=\" +" + imageID + "\" class=\"" + imageClass + "\" src= \"" + url + "\" alt= \"" + caption + "\">";
     }
 }

@@ -51,9 +51,9 @@ public class FormOption {
         return new FormOption(formOptionID, description, type, formOptionClass );
     }
 
-    private String generateFormOptionString(String formOptionId, String description, String type) {
-        return "       <label for=\"" + formOptionId + "\">" + description + ":" + "</label><br>\n" +
-                "       <input type=\"" + type + "\" id=\"" + formOptionId + "\" name=\"" + formOptionId + "\"><br>\n";
+    private String generateFormOptionString() {
+        return "       <label for=\"" + formOptionID + "\">" + description + ":" + "</label><br>\n" +
+                "       <input type=\"" + type + "\" id=\"" + formOptionID + "\" name=\"" + formOptionID + "\"><br>\n";
     }
 
     private static String listTypes(){
@@ -77,7 +77,7 @@ public class FormOption {
 
     @Override
     public String toString() {
-        return generateFormOptionString(formOptionID, description, type);
+        return generateFormOptionString();
     }
 
 

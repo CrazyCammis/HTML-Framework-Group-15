@@ -9,7 +9,7 @@ import hiof.frameworks.group15.FactoryMethods.MainSection.Section;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.FormOption;
 import hiof.frameworks.group15.FactoryMethods.SubObjects.Paragraph;
 import hiof.frameworks.group15.BuilderPattern.CSSBracket;
-import hiof.frameworks.group15.mainTags.MainTag;
+import hiof.frameworks.group15.FactoryMethods.MainSection.MainTag;
 
 import java.io.IOException;
 

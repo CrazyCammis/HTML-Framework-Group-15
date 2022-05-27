@@ -1,8 +1,5 @@
-package hiof.frameworks.group15.mainTags;
+package hiof.frameworks.group15.FactoryMethods.MainSection;
 
-import hiof.frameworks.group15.BuilderPattern.CSSBracket;
-import hiof.frameworks.group15.FactoryMethods.Footer.Footer;
-import hiof.frameworks.group15.FactoryMethods.MainSection.Section;
 /**
  * Main class for HTML main tag
  * @author Anders Grindal
@@ -13,7 +10,7 @@ public class MainTag {
     private String infoString;
     private String[] infoList;
     private Section section;
-    private Footer footer;
+
 
 
 
@@ -54,7 +51,13 @@ public class MainTag {
         return new MainTag(section);
     }
 
-    private String generateString2(String[] infoList) {
+
+    private String generateString1()
+    {
+        return  "<main> \n " + infoString + "\n</main";
+    }
+
+    private String generateString2() {
         StringBuilder holder = new StringBuilder();
         for (String  infoStuff : infoList ) {
             holder.append(" ").append(infoStuff).append("\n");
@@ -63,12 +66,7 @@ public class MainTag {
         return holder.toString();
     }
 
-    private String generateString1(String info)
-    {
-        return  "<main> \n " + info + "\n</main";
-    }
-
-    private String generateString3(Section section) {
+    private String generateString3() {
         return  "<main> \n " + section.toString() + "\n</main";
     }
 
@@ -81,26 +79,18 @@ public class MainTag {
         String holder;
 
         if(infoString != null && infoList == null  && section == null){
-             holder = generateString1(this.infoString);
+             holder = generateString1();
         }
 
         else if(infoString == null && infoList != null  && section == null){
-            holder = generateString2(this.infoList);
+            holder = generateString2();
         }
         else {
-            holder =  generateString3(this.section);
+            holder =  generateString3();
         }
          mainBody = " <main> \n" + holder + "\n </main>";
         return  mainBody;
     }
-
-
-    public String test(){
-        String holder = "reeeeeeee";
-        return  holder;
-    }
-
-
 }
 
 

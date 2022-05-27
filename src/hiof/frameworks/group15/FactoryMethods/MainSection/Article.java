@@ -113,40 +113,40 @@ public class Article {
     @Override
     public String toString() {
         if(paragraphString != null && form == null && paragraph == null)
-        return generateArticleString1(title, paragraphString, articleID, groupClass);
+        return generateArticleString1();
         else if(paragraphString != null && form != null && paragraph == null){
-         return    generateArticleString2( title,  paragraphString, articleID,  groupClass,  form);
+         return    generateArticleString2();
         }
         else if(paragraphString == null && form == null && paragraph != null){
-         return  generateArticleString3( title,  paragraph,  articleID,  groupClass);
+         return  generateArticleString3();
         }
         else
-            return generateArticleString4( title,  paragraph,  articleID,  groupClass, form);
+            return generateArticleString4( );
     }
 
 
-    private String generateArticleString1(String title, String paragraphString, String articleID, String groupClass) {
+    private String generateArticleString1() {
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
                 "       <p>" + paragraphString + "</p>\n" +
                 "   </article>";
     }
 
-    private String generateArticleString2(String title, String paragraphString, String articleID, String groupClass, Form form) {
+    private String generateArticleString2() {
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
                 "       <p>" + paragraphString + "</p>\n" +
                 "       " + form.toString() + "\n" +
                 "   </article>";
     }
-    private String generateArticleString3(String title, Paragraph paragraph, String articleID, String groupClass) {
+    private String generateArticleString3() {
 
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
                 "       <p>" + paragraph.toString() + "</p>\n" +
                 "   </article>";
     }
-    private String generateArticleString4(String title, Paragraph paragraph, String articleID, String groupClass, Form form) {
+    private String generateArticleString4() {
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
                 "       <p>" + paragraph.toString() + "</p>\n" +

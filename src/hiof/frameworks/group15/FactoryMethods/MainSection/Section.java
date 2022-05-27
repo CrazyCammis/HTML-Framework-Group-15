@@ -51,10 +51,10 @@ public class Section {
      */
     @Override
     public String toString() {
-        return generateSectionString(this.articles);
+        return generateSectionString();
     }
 
-    private String generateSectionString(Article[] articles) {
+    private String generateSectionString() {
         StringBuilder holder = new StringBuilder();
         String section;
 

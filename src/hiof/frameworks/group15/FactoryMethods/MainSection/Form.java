@@ -42,9 +42,9 @@ public class Form {
         return holder.toString();
     }
 
-    private String generateFormString(String title, String articleId, FormOption[] formOptions){
+    private String generateFormString(){
         return "<h2>" + title + "</h2> <br>\n" +
-                "   <form id=\""+ articleId + "\">\n" +
+                "   <form id=\""+ formID + "\">\n" +
                 optionLoop(formOptions) + "     <br> <input type=\"submit\" value=\"Submit\"\n>"+
                 "   </form>";
     }
@@ -54,6 +54,6 @@ public class Form {
      */
     @Override
     public String toString() {
-        return generateFormString(title, formID, formOptions);
+        return generateFormString();
     }
 }
