@@ -25,6 +25,9 @@ public class Main {
 
         Nav navigation = Nav.generate(linksList, linksNameList, "mainNav",
                 "navClass");
+
+
+
         Header header = Header.generate("HIOF HJEMMESIDE", navigation);
         Header header2 = Header.generate("TITLE", genericParagraph, navigation);
 
@@ -56,6 +59,7 @@ public class Main {
 
 
         Page newPage = Page.generate(header, maintag, footer);
+        Page page2 = Page.generate(header2, maintag, footer);
 
 
         //System.out.println(newPage.toString());

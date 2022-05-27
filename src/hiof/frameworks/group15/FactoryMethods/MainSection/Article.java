@@ -143,13 +143,13 @@ public class Article {
 
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
-                "       <p>" + paragraph.toString() + "</p>\n" +
+                "       " + paragraph.toString() + "\n" +
                 "   </article>";
     }
     private String generateArticleString4() {
         return "  <article id=\"" + articleID + "\" class= \"" + groupClass + "\">\n" +
                 "       <header>" + title + "</header>\n" +
-                "       <p>" + paragraph.toString() + "</p>\n" +
+                "       " + paragraph.toString() + "\n" +
                 "       " + form.toString() + "\n" +
                 "   </article>";
     }

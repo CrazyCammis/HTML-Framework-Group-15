@@ -122,7 +122,7 @@ public class Footer {
     private String generateFooterString4() {
         return "   <footer> \n" +
                 "        <a href = \"" + email + "\"> " + email + "</a>\n" +
-                "       <p>" + paragraph1.toString() + "</p>" +
+                "       " + paragraph1.toString() + "" +
                 "       <p>Created at " + java.time.LocalDate.now() + "</p> \n " +
                 "  </footer>";
     }
@@ -130,7 +130,7 @@ public class Footer {
     private String generateFooterString5() {
         return "   <footer> \n <p>" + paragraph1.toString() +
                 "</p>\n        <a href = \"" + email + "\"> " + email + "</a>\n" +
-                "       <p>" + paragraph2.toString() + "</p>\n" +
+                "       " + paragraph2.toString() + "\n" +
                 "       <p>Created at " + java.time.LocalDate.now() + "</p> \n   </footer>";
     }
 
