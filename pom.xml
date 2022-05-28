@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>HTML-Framework-Group-15</groupId>
   <artifactId>HTML-Framework-Group-15</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -23,4 +23,30 @@
       </plugin>
     </plugins>
   </build>
+
+  <name>HTML framework for Java</name>
+  <description>Simple HTML tag block based framework for beggines to java and HTML</description>
+  <url>https://github.com/CrazyCammis/HTML-Framework-Group-15</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Anders Grindal</name>
+      <email>cammis12@gmail.com</email>
+      <organization>HIOF</organization>
+      <organizationUrl>https://www.hiof.no/</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/CrazyCammis/HTML-Framework-Group-15.git</connection>
+    <developerConnection>scm:git:ssh://github.com:CrazyCammis/HTML-Framework-Group-15.git</developerConnection>
+    <url>https://github.com/CrazyCammis/HTML-Framework-Group-15</url>
+  </scm>
+
+
 </project>
