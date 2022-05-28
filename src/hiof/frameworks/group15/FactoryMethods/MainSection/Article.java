@@ -40,20 +40,20 @@ public class Article {
         this.groupClass = groupClass;
     }
 
-    private Article(String title, String articleID, String groupClass, Paragraph paragraph, Form form) {
+    private Article(String title, Paragraph paragraph, Form form,  String articleID, String groupClass) {
         this.title = title;
-        this.articleID = articleID;
-        this.groupClass = groupClass;
         this.paragraph = paragraph;
         this.form = form;
-    }
-    
-    private Article(String title, String articleID, String groupClass, String paragraphString, Form form) {
-        this.title = title;
         this.articleID = articleID;
         this.groupClass = groupClass;
+    }
+    
+    private Article(String title, String paragraphString, Form form, String articleID, String groupClass) {
+        this.title = title;
         this.paragraphString = paragraphString;
         this.form = form;
+        this.articleID = articleID;
+        this.groupClass = groupClass;
     }
 
     /**
@@ -68,18 +68,6 @@ public class Article {
         return new Article(title, paragraphString, articleID, groupClass);
     }
     
-    /**
-     * Generates article with title, paragraph, ID identifier,  class identifier and a form
-     * @param title title
-     * @param paragraphString paragraph 
-     * @param articleID ID identifier
-     * @param groupClass class identifier
-     * @param form  form
-     * @return Generated article with title, paragraph, ID identifier and class identifier and a form 
-     */
-    public static Article generate(String title, String paragraphString, String articleID, String groupClass, Form form){
-        return new Article( title,  articleID,  groupClass,  paragraphString,  form);
-    }
 
     /**
      * Generates article with title, paragraph, ID identifier,  class identifier 
@@ -96,17 +84,30 @@ public class Article {
     /**
      * Generates article with title, paragraph, ID identifier,  class identifier and a form
      * @param title title
-     * @param paragraph paragraph 
+     * @param paragraph paragraph
+     * @param form form
      * @param articleID ID identifier
      * @param groupClass class identifier
-     * @param form form
      * @return Generated article with title, paragraph, ID identifier and class identifier and a form 
      */
-    public static Article generate(String title, Paragraph paragraph, String articleID, String groupClass, Form form){
-        return new Article( title,  articleID,  groupClass,  paragraph,  form);
+    public static Article generate(String title, Paragraph paragraph, Form form, String articleID, String groupClass){
+        return new Article(title, paragraph, form,  articleID, groupClass);
     }
 
-    
+    /**
+     * Generates article with title, paragraph, ID identifier,  class identifier and a form
+     * @param title title
+     * @param paragraphString paragraph
+     * @param form  form
+     * @param articleID ID identifier
+     * @param groupClass class identifier
+     * @return Generated article with title, paragraph, ID identifier and class identifier and a form
+     */
+    public static Article generate(String title, String paragraphString, Form form, String articleID, String groupClass){
+        return new Article( title, paragraphString,  form, articleID, groupClass);
+    }
+
+
     /**
      * To string method
      */

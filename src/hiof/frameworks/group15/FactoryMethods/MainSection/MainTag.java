@@ -10,6 +10,7 @@ public class MainTag {
     private String infoString;
     private String[] infoList;
     private Section section;
+    private Section[] sections;
 
 
 
@@ -23,6 +24,7 @@ public class MainTag {
     }
 
     private MainTag(Section section) {this.section = section;}
+    private MainTag(Section[] sections) {this.sections = sections;}
 
     /**
      * Generates a mainTag with body that gets in information from a direct string
@@ -51,6 +53,14 @@ public class MainTag {
         return new MainTag(section);
     }
 
+    /**
+     * Generates a main tag with an array of sections
+     * @param sections Array of sections
+     * @return Generated main tag
+     */
+    public static MainTag generate(Section[] sections){
+        return new MainTag(sections);
+    }
 
     private String generateString1()
     {
@@ -70,6 +80,14 @@ public class MainTag {
         return  "<main> \n " + section.toString() + "\n</main";
     }
 
+    private String generateString4() {
+        String holder ="";
+        for (Section section: sections ) {
+            holder +=section.toString() + "/n";
+        }
+        return  "<main> \n " + holder + "\n</main";
+    }
+
     /**
      * To string method
      */
@@ -84,6 +102,9 @@ public class MainTag {
 
         else if(infoString == null && infoList != null  && section == null){
             holder = generateString2();
+        }
+        else if(sections != null){
+            holder = generateString4();
         }
         else {
             holder =  generateString3();

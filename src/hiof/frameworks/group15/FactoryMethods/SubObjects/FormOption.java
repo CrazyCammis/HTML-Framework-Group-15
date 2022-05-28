@@ -26,29 +26,30 @@ public class FormOption {
     private static final String[] validTypesList = {"text", "email", "date", "image", "password",
             "number", "url", "time", "week"};
 
-    private FormOption(String formOptionID, String description, String type, String formOptionClass) {
-        this.formOptionID = formOptionID;
+    private FormOption(String description, String type, String formOptionID,  String formOptionClass) {
         this.description = description;
         this.type = type;
         this.formOptionClass = formOptionClass;
+        this.formOptionID = formOptionID;
     }
 
     /**
      * Generate a form option part
-     * @param formOptionID form option ID 
      * @param description description of what you have to fill out
-     * @param type what kind of answer are accepted 
+     * @param type what kind of answer are accepted
+     * @param formOptionID form option ID
      * @param formOptionClass Class identifier
      * @return Generated question box
      */
-    public static FormOption generate(String formOptionID, String description, String type,String formOptionClass){
+
+
+    public static FormOption generate( String description, String type, String formOptionID, String formOptionClass){
         if(!typeValid(type)){
             throw new ArithmeticException("ERROR WRONG TYPE INSERTED ON FORM OPTION "+ formOptionID
                     + "\n please insert one of the following: \n " + listTypes() );
-
         }
         else
-        return new FormOption(formOptionID, description, type, formOptionClass );
+        return new FormOption(description, type, formOptionID, formOptionClass );
     }
 
     private String generateFormOptionString() {
@@ -63,6 +64,7 @@ public class FormOption {
         }
         return holder;
     }
+
     private static boolean typeValid(String check){
         for(String types : validTypesList){
             if(check.equals(types)){
