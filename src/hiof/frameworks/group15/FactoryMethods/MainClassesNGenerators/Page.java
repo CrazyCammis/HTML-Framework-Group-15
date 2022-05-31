@@ -58,7 +58,7 @@ public class Page extends FileGenerator {
      * Generates a new HTML file/page with the info we have given
      * @param fileName the file name
      */
-    public static void generateFile(String fileName) {
+    public static void generateHTMLFile(String fileName) {
         String holder = pageString();
         generateFile(fileName,  holder, "html");
     }

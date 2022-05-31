@@ -29,7 +29,7 @@ public class CSS extends FileGenerator {
      * @param fileName filename, adds .css to the end
      * @throws IOException If error occurs, it will thorw an excpetion
      */
-    public static void generateFile(String fileName) throws IOException {
+    public static void generateCSSFile(String fileName) throws IOException {
         String holder = toStringv2();
         generateFile(fileName,  holder, "css");
     }

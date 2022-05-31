@@ -1,0 +1,17 @@
+
+.CSSBracket1{
+    background-color: green;
+    display: inline-block;
+    position: fixed;
+    
+}
+.CSSBracket2{
+    text-decoration: underline;
+    border-style: solid;
+    
+}
+.CSSBracket3{
+    margin: 40.0em;
+    font-size: 12.0em;
+    
+}

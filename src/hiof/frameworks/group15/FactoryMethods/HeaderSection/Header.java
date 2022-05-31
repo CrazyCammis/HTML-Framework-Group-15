@@ -99,7 +99,7 @@ public class Header {
         return "   <header>\n" +
                 "       <h1>" + title + "</h1>\n" +
                 "       " + paragraph.toString() +
-                nav.toString() +
+                "\n    " + nav.toString() +
                 "</header>\n";
     }
 

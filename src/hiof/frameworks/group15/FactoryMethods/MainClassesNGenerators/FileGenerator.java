@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  */
 public abstract class FileGenerator {
-	
+
 	/**
 	 * Creates file for storage of bits of tags instead a completly new page
 	 * @param filename filename for the new file
@@ -27,9 +27,11 @@ public abstract class FileGenerator {
                 myWriter.close();
                 System.out.println("Successfully wrote to the file: " + info);
             } catch (IOException e) {
-                System.out.println("An error occurred. Check if file already exist");
+                System.out.println("An error occurred.");
                 e.printStackTrace();
             }
+        else
+            throw new ArithmeticException("Error, file already exsist");
     }
 
 }

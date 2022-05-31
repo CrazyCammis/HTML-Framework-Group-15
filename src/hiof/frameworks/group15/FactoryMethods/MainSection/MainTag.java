@@ -64,28 +64,27 @@ public class MainTag {
 
     private String generateString1()
     {
-        return  "<main> \n " + infoString + "\n</main";
+        return  infoString ;
     }
 
     private String generateString2() {
         StringBuilder holder = new StringBuilder();
         for (String  infoStuff : infoList ) {
             holder.append(" ").append(infoStuff).append("\n");
-
         }
         return holder.toString();
     }
 
     private String generateString3() {
-        return  "<main> \n " + section.toString() + "\n</main";
+        return   section.toString();
     }
 
     private String generateString4() {
         String holder ="";
         for (Section section: sections ) {
-            holder +=section.toString() + "/n";
+            holder +=section.toString() + "\n";
         }
-        return  "<main> \n " + holder + "\n</main";
+        return    holder;
     }
 
     /**

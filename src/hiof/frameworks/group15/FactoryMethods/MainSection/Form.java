@@ -37,16 +37,16 @@ public class Form {
     private  String optionLoop(FormOption[] optionList){
         StringBuilder holder = new StringBuilder();
         for (FormOption option: optionList) {
-            holder.append(option.toString());
+            holder.append("    " +option.toString());
         }
         return holder.toString();
     }
 
     private String generateFormString(){
         return "<h2>" + title + "</h2> <br>\n" +
-                "   <form id=\""+ formID + "\">\n" +
-                optionLoop(formOptions) + "     <br> <input type=\"submit\" value=\"Submit\"\n>"+
-                "   </form>";
+                "       <form id=\""+ formID + "\">\n" +
+                optionLoop(formOptions) + "     <br> <input type=\"submit\" value=\"Submit\">"+
+                "       </form>";
     }
 
     /**
